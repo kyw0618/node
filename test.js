@@ -7,6 +7,6 @@ app.listen(8080, function() {
 });
 
 app.get('/test', async(req, res) => {
-    const rqqqr1 = 'rello';
-    res.status(200).send({hi});
+    const v1 = 'resssllo';
+    res.status(200).send({v1});
   });
