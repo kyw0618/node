@@ -7,6 +7,6 @@ app.listen(8080, function() {
 });
 
 app.get('/test', async(req, res) => {
-    const v2 = 'ssss';
-    res.status(200).send({v2});
+    const v3 = 'ssss';
+    res.status(200).send({v3});
   });
