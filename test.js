@@ -10,8 +10,8 @@ app.get('/test', async(req, res) => {
   });
 
   app.get('/v1/app/policy', async(res, req) => {
-    const policy = await policy.find({});
-    res.status(200).send({v123});
+    const policy = await medioz.find({});
+    res.status(200).send({policy});
   });
 
 const uri = "mongodb+srv://iium:wonder20@modioz.jck0n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
