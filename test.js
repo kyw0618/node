@@ -10,7 +10,7 @@ app.get('/test', async(req, res) => {
   });
 
   app.get('/v1/app/policy', async(res, req) => {
-    const policy = await medioz.find({});
+    const policy = await policy.find({});
     res.status(200).send({policy});
   });
 
