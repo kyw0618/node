@@ -2,11 +2,10 @@ const express = require('express');
 const req = require('express/lib/request');
 const Mongoose = require('mongoose');
 const Account = require("./schema/accountModel");
-const router = express.Router();
 
 const app = express()
 
-router.get("/test", async (req, res) => {
+app.get("/test", async (req, res) => {
   try {
     const accounts = await Account.find();
     res.json(accounts);
