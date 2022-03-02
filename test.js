@@ -21,9 +21,6 @@ async function connectDB() {
   .then(() => console.log('Connected'));
 };
 
-const accountRouter = require("./router/routes");
-app.use("/account", accountRouter);
-
 connectDB().then(() => {
     console.log(`Server is started… ${new Date()}`);
     app.listen(8080);
