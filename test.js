@@ -1,7 +1,6 @@
 const express = require('express');
 const req = require('express/lib/request');
 const Mongoose = require('mongoose');
-const Account = require("./schema/accountModel");
 
 const app = express()
 
