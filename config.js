@@ -7,6 +7,9 @@ export const config = {
     expiresInAccess: process.env.JWT_EXPIRES_SEC_ACCESS,
     expiresInRefresh: process.env.JWT_EXPIRES_SEC_REFRESH
   },
+  db: {
+    host: process.env.DB_HOST
+  },
   sms: {
     ncpkey: process.env.NCP_KEY,
     secretKey: process.env.NCP_SECRET_KEY,
