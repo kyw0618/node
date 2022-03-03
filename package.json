@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type" : "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" :"node app"
+    "start": "node app"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
+    "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.0",
