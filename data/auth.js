@@ -92,7 +92,7 @@ export function send_message(userPhone, authNumber) {
       type: "SMS",
       countryCode: "82",
       from: config.sms.fromNumber, //"발신번호기입"
-      content: `애도 어플 인증번호 ${authNumber} 입니다.`,//문자내용 기입
+      content: `메디오즈 어플 인증번호 ${authNumber} 입니다.`,//문자내용 기입
       messages: [
         { 
           'to': `${user_phone_number}`
