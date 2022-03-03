@@ -21,9 +21,4 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   console.log(error);
   res.sendStatus(500);
-})
-
-connectDB().then(() => {
-  console.log(`Server is started... ${new Date()}`);
-  app.listen(config.port);
-})
+});
