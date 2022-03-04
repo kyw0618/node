@@ -3,11 +3,11 @@ import jwt from 'jsonwebtoken';
 import { config } from '../config.js';
 
 export async function singup(req, res) {
-  const {phone, birth, name, terms}  = req.body;
+  const {phone, pw, name, terms}  = req.body;
 
   const userid = await authRepository.createuser( {
     phone,
-    birth,
+    pw,
     name,
     terms,
   });
@@ -20,7 +20,7 @@ export async function singup(req, res) {
 }
 
 export async function login(req, res, next) {
-  const user = await authRepository.findByPhon(req.body.phone);
+  const user = await authRepository.findByPhon(req.body.phone && req.body.pw);
     if (!user) {
       return res.status(404).json({"status": "404"});
     }
