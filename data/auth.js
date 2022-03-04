@@ -5,7 +5,7 @@ import { config } from '../config.js';
 
 const users = new Mongoose.Schema( {
   phone: {type: String},
-  birth: {type: String},
+  pw: {type: String},
   name: {type: String},
   terms: {type: String}
 }, { 
