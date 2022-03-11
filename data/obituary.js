@@ -2,14 +2,7 @@ import Mongoose from 'mongoose';
 import * as userRepository from './auth.js';
 
 const obituary = new Mongoose.Schema( {
-  resident: {type: Object},
-  place: {type: Object},
-  deceased: {type: Object},
-  eod: {type: Object},
-  coffin: {type: Object},
-  dofp: {type: Object},
-  buried: {type: String},
-  word: {type: String},
+  medicallist: {type: Object},
   userid: {type: String}
 }, { 
   versionKey: false
@@ -39,8 +32,8 @@ export async function findObituaryByname(name) {
       {"deceased.name": name}, {"place.place_name": name}]}).sort({ createdAt: -1});
 }
 
-export async function create( resident, place, deceased, eod, coffin, dofp, buried, word, userId) {
-  return new Obituary({ resident, place, deceased, eod, coffin, dofp, buried, word, userid: userId}).save()
+export async function create( medicallist, userId) {
+  return new Obituary({ medicallist, userid: userId}).save()
   .then((data) => data);
 }
 
