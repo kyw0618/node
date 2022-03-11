@@ -2,11 +2,12 @@ import * as obitRepository from '../data/obituary.js';
 
 export async function createObituary(req, res) {
   const {
-    title, photo, video, detail, rating, timestamp
+    resident, place, deceased, eod, coffin, dofp, buried, word
   } = req.body;
 
   const obituary = await obitRepository.create(
-    title, photo, video, detail, rating, timestamp, req.userId);
+    resident, place, deceased, eod
+    ,coffin, dofp, buried, word, req.userId);
   res.status(201).json(obituary);
 }
 
