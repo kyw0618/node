@@ -1,11 +1,12 @@
 import express from 'express'
 import morgan from 'morgan';
-import cookieParser from 'cookie-parser';
 import { config } from './config.js';
 import { connectDB } from './db/db.js';
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
 import obituaryRouter from './router/obituary.js';
+import condoleRouter from './router/condole.js';
+import centerRouter from './router/serviceCenter.js';
 
 const app = express();
 
