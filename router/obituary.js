@@ -1,6 +1,6 @@
 import express from "express";
 import * as obitController from '../controller/obituary.js';
-import { isAuth } from "../middlweare/auth.js";
+import { isAuth } from '../middlweare/auth.js';
 
 const router = express.Router();
 
