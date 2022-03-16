@@ -38,6 +38,6 @@ export async function showverification(verification) {
     .then((data) => data);
 }
 
-export async function showTerms() {
-  return signupTerms.findOne();
+export async function findAuthTerms() {
+  return signupTerms.findOne().then((data) => data.signup_terms);
 }

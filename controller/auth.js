@@ -1,7 +1,7 @@
 import * as authRepository from '../data/auth.js';
 import jwt from 'jsonwebtoken';
 import { config } from '../config.js';
-import { findAuthTerms } from '../data/app.js';
+import { findAuthTerms} from '../data/app.js';
 
 
 export async function singup(req, res) {
