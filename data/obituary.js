@@ -1,5 +1,4 @@
 import Mongoose from 'mongoose';
-import * as userRepository from './auth.js';
 
 const obituary = new Mongoose.Schema( {
   title: {type: Object},
@@ -27,8 +26,7 @@ export async function findMyObituary(userId) {
   return Obituary.find({"userid": userId}).sort({ createdAt: -1});
 }
 export async function findObituaryByname(name) {
-  return Obituary.find({ $or: [{"resident.name": name},
-      {"deceased.name": name}, {"place.place_name": name}]}).sort({ createdAt: -1});
+  return Obituary.find({ $or: [{"title.title": name}]}).sort({ createdAt: -1});
 }
 
 export async function create( title,photo,video,detail,rating,timestamp, userId) {
@@ -36,8 +34,8 @@ export async function create( title,photo,video,detail,rating,timestamp, userId)
   .then((data) => data);
 }
 
-export async function update( id, resident, place, deceased, eod, coffin, dofp, buried, word) {
-  return Obituary.findByIdAndUpdate(id, {resident, place, deceased, eod, coffin, dofp, buried, word}, {returnOriginal: false});
+export async function update( id, title,photo,video,detail,rating,timestamp) {
+  return Obituary.findByIdAndUpdate(id, {title,photo,video,detail,rating,timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {

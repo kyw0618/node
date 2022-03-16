@@ -3,10 +3,14 @@ import jwt from 'jsonwebtoken';
 import { config } from '../config.js';
 import { findAuthTerms} from '../data/app.js';
 
-
 export async function singup(req, res) {
   const {phone, pw, name, terms}  = req.body;
 
+  const user = await authRepository.findByPhon(phone);
+    if (user) {
+      return res.status(404).json({"status": "404"});
+    }
+    
   const userid = await authRepository.createuser( {
     phone,
     pw,
