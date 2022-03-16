@@ -8,6 +8,7 @@ export async function singup(req, res) {
 
   const user = await authRepository.findByPhon(phone);
     if (user) {
+
       return res.status(404).json({"status": "404"});
     }
     
@@ -18,7 +19,7 @@ export async function singup(req, res) {
     terms,
   });
   
-  const accessToken = createExceessJwt(userid);
+  const accessToken = createAccessJwt(userid);
   const refreshToken = createRefeshJwt(userid);
 
   await authRepository.createtoken(userid, refreshToken);
