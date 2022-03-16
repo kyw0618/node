@@ -13,20 +13,14 @@ const obituary = new Mongoose.Schema( {
   versionKey: false
 });
 
-const condoleMessage = new Mongoose.Schema( {
-  title: {type: String},
-  content: {type: String},
-  name: {type: String},
-  obId: {type: String}
-}, { 
-  versionKey: false
-});
-
 const Obituary = Mongoose.model('Obituary', obituary);
-const CondoleMessage = Mongoose.model('CondoleMessage', condoleMessage);
 
 export async function getAllObituary() {
   return Obituary.find().sort({ createdAt: -1});
+}
+
+export async function getAllById(id) {
+  return Obituary.findById(id);
 }
 
 export async function findMyObituary(userId) {
@@ -42,10 +36,10 @@ export async function create( title,photo,video,detail,rating,timestamp, userId)
   .then((data) => data);
 }
 
-export async function writeCondoleMessage(title, content, name, obId) {
-  return new CondoleMessage({title, content, name, obId}).save();
+export async function update( id, resident, place, deceased, eod, coffin, dofp, buried, word) {
+  return Obituary.findByIdAndUpdate(id, {resident, place, deceased, eod, coffin, dofp, buried, word}, {returnOriginal: false});
 }
 
-export async function findCondoleMessage(obId) {
-  return CondoleMessage.find({"obId" : obId}).sort({createdAt: -1});
+export async function remove(id) {
+  return Obituary.findByIdAndDelete(id);
 }

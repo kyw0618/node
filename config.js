@@ -17,5 +17,6 @@ export const config = {
     fromNumber: process.env.SMS_FROM
   },
   port: parseInt(process.env.HOST_PORT),
+  adminId: process.env.ADMIN_ID
 
   }

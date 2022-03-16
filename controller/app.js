@@ -35,6 +35,6 @@ export async function policyfun(req, res) {
 }
 
 export async function signupTerms(req, res) {
-  const singupTermsD = await appRepository.showTerms();
+  const singupTermsD = await appRepository.findAuthTerms();
   res.status(200).json(singupTermsD);
 }

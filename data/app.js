@@ -29,20 +29,13 @@ const policydb = Mongoose.model('Policy', policySchema, 'policy');
 const Verification = Mongoose.model('Verification', verification);
 const signupTerms = Mongoose.model('Terms', termsSchema, 'terms');
 
-// export async function findByPhon(phonNumber) {
-//   return User.findOne({phonNumber});
-// }
-
 export async function showPolicy() {
   return policydb.findOne();
 }
 
 export async function showverification(verification) {
   return new Verification(verification).save()
-    .then((data) => {
-      console.log(`Verification is required ${new Date()}`);
-      return data;
-    });
+    .then((data) => data);
 }
 
 export async function showTerms() {

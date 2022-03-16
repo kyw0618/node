@@ -1,6 +1,8 @@
 import * as authRepository from '../data/auth.js';
 import jwt from 'jsonwebtoken';
 import { config } from '../config.js';
+import { findAuthTerms } from '../data/app.js';
+
 
 export async function singup(req, res) {
   const {phone, pw, name, terms}  = req.body;
@@ -16,47 +18,58 @@ export async function singup(req, res) {
   const refreshToken = createRefeshJwt(userid);
 
   await authRepository.createtoken(userid, refreshToken);
-  res.status(201).json({"status": "201", "Accesstoken": accessToken});
+  res.status(201).json({"status": "201", "Accesstoken": accessToken, userId: userid});
 }
 
 export async function login(req, res, next) {
-  const user = await authRepository.findByPhon(req.body.phone && req.body.pw);
+  const user = await authRepository.findByPhon(req.body.phone);
     if (!user) {
       return res.status(404).json({"status": "404"});
     }
-    const accessToken = createExceessJwt(user.id);
+    const accessToken = createAccessJwt(user.id);
     const newRefreshToken = createRefeshJwt(user.id);
     await authRepository.updateRefreshToken(user.id, newRefreshToken);
-    return res.status(200).json({"status": "200", "Accesstoken": accessToken});
+    return res.status(200).json({"status": "200", "Accesstoken": accessToken, userId: user.id});
   }
 
-export async function autoLogin(req, res) {
-  const accessToken = verifytoken(req.get('Accesstoken'));
-  if(!accessToken) {
-    return res.status(404).json({"status": "404"});
-  }
+  export async function autoLogin(req, res) {
 
-  const findrefreshToken = await authRepository.findRefreshToken(accessToken.id);
-  const refreshToken = verifytoken(findrefreshToken);
-  const newAccessToken = createExceessJwt(accessToken.id);
-  const newRefreshToken = createRefeshJwt(accessToken.id);
+    var userId; 
+    var findrefreshToken;
 
-  if (accessToken === null) {
-    if (refreshToken === null) // access token, refresh token 만료
+    try {
+      userId = tokenparsing(req.get('Accesstoken'));
+      findrefreshToken = await authRepository.findRefreshToken(userId);
+    } catch {
+      return res.status(404).json({"status": "404"});
+    }
+
+    const accessToken = verifytoken(req.get('Accesstoken'));
+    const refreshToken = verifytoken(findrefreshToken);
+    const newAccessToken = createAccessJwt(userId);
+    const newRefreshToken = createRefeshJwt(userId);
+
+    // access token, refresh token 만료
+    if ((accessToken === null) && (refreshToken === null)) {
       return res.status(401).json({"status": "401"});
-  }
-  await authRepository.updateRefreshToken(accessToken.id, newRefreshToken);
-  return res.status(200).json({"status": "200", "Accesstoken": newAccessToken});
-  
+    }
 
-}
+    await authRepository.updateRefreshToken(userId, newRefreshToken);
+    return res.status(200).json({"status": "200", "Accesstoken": newAccessToken});
+  }
 
 // TODO
 export async function logout(req, res) {
-  const appToken = req.get('appToken');
-  await authRepository.deleteToekn(appToken);
-
+  const accessToken = req.get('Accesstoken');
+  const userId = tokenparsing(accessToken);
+  await authRepository.refreshTokenToNULL(userId);
+  
   res.status(204).json({"status": "204"})
+}
+
+export async function getAuthTerms(req, res) {
+  const terms = await findAuthTerms();
+  res.status(200).json({"status": "200", terms})
 }
 
 export function sendsms (req, res) {
@@ -66,7 +79,7 @@ export function sendsms (req, res) {
   res.status(200).json({user_auth_number});
 }
 
-export function createExceessJwt(id) {
+export function createAccessJwt(id) {
   return jwt.sign({id}, config.jwt.secretKey, { expiresIn: config.jwt.expiresInAccess});
 }
 export function createRefeshJwt(id) {
@@ -79,4 +92,11 @@ function verifytoken(token) {
   } catch (error) {
     return null
   }
- }
+}
+
+function tokenparsing(token) {
+  const base64Payload = token.split('.')[1];
+  const payload = Buffer.from(base64Payload, 'base64');
+  const result = JSON.parse(payload.toString())
+  return result.id
+}

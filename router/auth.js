@@ -14,5 +14,6 @@ router.put('/login', authController.login);
 router.put('/autologin', authController.autoLogin);
 router.post('/sms', authController.sendsms);
 router.put('/logout', authController.logout);
+router.get('/getterms', authController.getAuthTerms);
 
 export default router;

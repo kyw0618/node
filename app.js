@@ -11,11 +11,12 @@ const app = express();
 
 app.use(express.json());
 app.use(morgan('tiny'));
-app.use(cookieParser());
 
 app.use('/v1/app', appRouter);
 app.use('/v1/user', userRouter);
 app.use('/v1/obituary', obituaryRouter);
+app.use('/v1/condole', condoleRouter);
+app.use('/v1/center', centerRouter);
 
 app.use((req, res, next) => {
   res.sendStatus(404);

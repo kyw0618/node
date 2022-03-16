@@ -40,12 +40,16 @@ export async function findRefreshToken(userid) {
   return Token.findOne({userid}).then((data) => data.refreshtoken);
 }
 
-export async function deleteToekn(token) {
-  return Token.findOneAndUpdate({refreshtoken: token}, {refreshtoken: null})
+export async function refreshTokenToNULL(userId) {
+  return Token.findOneAndUpdate({userId}, {refreshtoken: null});
 }
 
 export async function findById(id) {
   return User.findById(id);
+}
+
+export async function findUserName(id) {
+  return User.findById(id).then((data) => data.name);
 }
 
 export async function findByPhon(phone) {
