@@ -3,18 +3,18 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) {
   const {
-    title,gourp,photo,video,detail,rating,timestamp, created
+    title,group,photo,video,detail,rating,timestamp, created
   } = req.body;
 
   const obituary = await obitRepository.create(
-    title,gourp,photo,video,detail,rating,timestamp, req.userId, created);
+    title,group,photo,video,detail,rating,timestamp, req.userId, created);
   res.status(201).json({"status": "201", obituary});
 }
 
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
-    title,gourp,photo,video,detail,rating,timestamp
+    title,group,photo,video,detail,rating,timestamp
   } = req.body;
 
   const obit = await obitRepository.getAllById(id);
@@ -26,7 +26,7 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const updatedObit = await obitRepository.update(id, title,gourp,photo,video,detail,rating,timestamp);
+  const updatedObit = await obitRepository.update(id, title,group,photo,video,detail,rating,timestamp);
   res.status(200).json({"status": "200", updatedObit});
 }
 
