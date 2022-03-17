@@ -2,6 +2,7 @@ import Mongoose from 'mongoose';
 
 const obituary = new Mongoose.Schema( {
   title: {type: Object},
+  group: {type: Object},
   photo: {type: Object},
   video: {type: Object},
   detail: {type: Object},
