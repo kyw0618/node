@@ -30,13 +30,13 @@ export async function findObituaryByname(name) {
   return Obituary.find({ $or: [{"title.title": name}]}).sort({ createdAt: -1});
 }
 
-export async function create( title,group,photo,video,detail,rating,timestamp, userId) {
-  return new Obituary({ title,group,photo,video,detail,rating,timestamp, userid: userId}).save()
+export async function create( title,group,photo,video,detail,timestamp, userId) {
+  return new Obituary({ title,group,photo,video,detail,timestamp, userid: userId}).save()
   .then((data) => data);
 }
 
-export async function update( id, title,group,photo,video,detail,rating,timestamp) {
-  return Obituary.findByIdAndUpdate(id, {title,group,photo,video,detail,rating,timestamp}, {returnOriginal: false});
+export async function update( id, title,group,photo,video,detail,timestamp) {
+  return Obituary.findByIdAndUpdate(id, {title,group,photo,video,detail,timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
