@@ -20,7 +20,7 @@ export async function getAllObituary() {
   return Obituary.find().sort({ createdAt: -1});
 }
 
-export async function getAllById(id) {
+export async function getAllById(id) { 
   return Obituary.findById(id);
 }
 
