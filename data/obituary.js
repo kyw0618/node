@@ -2,7 +2,6 @@ import Mongoose from 'mongoose';
 
 const obituary = new Mongoose.Schema( {
   title: {type: Object},
-  group: {type: Object},
   keyword: {type: Object},
   photo: {type: Object},
   video: {type: Object},
@@ -31,13 +30,13 @@ export async function findObituaryByname(name) {
   return Obituary.find({ $or: [{"title.title": name}]}).sort({ createdAt: -1});
 }
 
-export async function create( title,group,keyword,photo,video,detail,timestamp, userId) {
-  return new Obituary({ title,group,keyword,photo,video,detail,timestamp, userid: userId}).save()
+export async function create( title,keyword,photo,video,detail,timestamp, userId) {
+  return new Obituary({ title,keyword,photo,video,detail,timestamp, userid: userId}).save()
   .then((data) => data);
 }
 
-export async function update( id, title,group,keyword,photo,video,detail,timestamp) {
-  return Obituary.findByIdAndUpdate(id, {title,group,keyword,photo,video,detail,timestamp}, {returnOriginal: false});
+export async function update( id, title,keyword,photo,video,detail,timestamp) {
+  return Obituary.findByIdAndUpdate(id, {title,keyword,photo,video,detail,timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
