@@ -3,8 +3,8 @@ import Mongoose from 'mongoose';
 const obituary = new Mongoose.Schema( {
   title: {type: Object},
   keyword: {type: Object},
-  photo: {type: URL},
-  video: {type: URL},
+  photo: {type: Object},
+  video: {type: Object},
   detail: {type: Object},
   rating: {type: Object},
   timestamp: {type: Object},
