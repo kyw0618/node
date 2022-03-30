@@ -12,6 +12,7 @@ export async function createObituary(req, res) {
 }
 
 export async function updateObit(req, res, next) {
+
   const id = req.params.id;
   const {
     title,keyword,photo,video,detail,timestamp
@@ -26,7 +27,7 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const updatedObit = await obitRepository.update(id, title,keyword,photo,video,detail,timestamp);
+  const updatedObit = await obitRepository.update(id,title,keyword,photo,video,detail,timestamp);
   res.status(200).json({"status": "200", updatedObit});
 }
 
@@ -36,6 +37,7 @@ export async function removeObit(req, res, next) {
   if(!obit) {
     return res.status(404).json({"status":"404"});
   }
+
   if(obit.userId !== req.userId && config.adminId !== req.userId) {
     return res.status(403).json({"status": "403"});
   }
@@ -70,4 +72,3 @@ export async function getObituary(req, res) {
   res.status(200).json(allObit);
 }
 
-//https://www.geeksforgeeks.org/upload-and-retrieve-image-on-mongodb-using-mongoose/

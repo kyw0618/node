@@ -23,7 +23,7 @@ export async function create(title, content, name, created,obId, userId) {
 
 export async function update(id, title, content) {
   return Condole.findByIdAndUpdate(id, {title, content}, {returnOriginal: false});
-}
+} 
 
 export async function remove(id) {
   return Condole.findByIdAndDelete(id);
