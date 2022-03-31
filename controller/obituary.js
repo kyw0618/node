@@ -4,29 +4,15 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) {
   const imgName = res.req.file.filename;
-  const resident = {
-    relation: req.body.relation,
-    name: req.body.residentName,
-    phone: req.body.residentphone,
-  };
-  const deceased = {
-    name: req.body.deceasedName,
-    age: req.body.deceasedAge
-  };
-  const {place, eod, coffin, dofp, buried, word, created} = req.body;
+  const {title, keyword, detail, timestamp} = req.body;
 
   const userId = req.userId;
   const obituary = await obitRepository.save({
     imgName,
-    resident,
-    place,
-    deceased,
-    eod,
-    coffin,
-    dofp,
-    buried,
-    word,
-    created,
+    title,
+    keyword,
+    detail,
+    timestamp,
     userId
   });
   res.status(201).json({"status": "201", obituary});
@@ -49,7 +35,7 @@ export async function getImageData(req, res) {
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
-    resident, place, deceased, eod, coffin, dofp, buried, word
+    title, keyword, detail, timestamp
   } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -61,7 +47,7 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const updatedObit = await obitRepository.update(id, resident, place, deceased, eod, coffin, dofp, buried, word);
+  const updatedObit = await obitRepository.update(id, title, keyword, detail, timestamp);
   res.status(200).json({"status": "200", updatedObit});
 }
 

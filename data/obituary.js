@@ -3,15 +3,10 @@ import {useVirtualId} from '../db/db.js';
 
 const obituary = new Mongoose.Schema( {
   imgName: {type: String},
-  resident: {type: Object},
-  place: {type: String},
-  deceased: {type: Object},
-  eod: {type: String},
-  coffin: {type: String},
-  dofp: {type: String},
-  buried: {type: String},
-  word: {type: String},
-  created: {type: String},
+  title: {type: Object},
+  keyword: {type: String},
+  detail: {type: String},
+  timestamp: {type: String},
   userId: {type: String}
 }, { 
   versionKey: false
@@ -34,8 +29,8 @@ export async function findMyObituary(userId) {
 }
 
 export async function findObituaryByname(name) {
-  return Obituary.find({ $or: [{"resident.name": name},
-      {"deceased.name": name}, {"place": name}]}).sort({ createdAt: -1});
+  return Obituary.find({ $or: [{"title": name},
+      {"keyword": name}]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
@@ -43,8 +38,8 @@ export async function save(obit) {
   .then((data) => data);
 }
 
-export async function update( id, resident, place, deceased, eod, coffin, dofp, buried, word) {
-  return Obituary.findByIdAndUpdate(id, {resident, place, deceased, eod, coffin, dofp, buried, word}, {returnOriginal: false});
+export async function update( id, title, keyword, detail, timestamp) {
+  return Obituary.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
