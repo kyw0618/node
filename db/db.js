@@ -1,19 +1,18 @@
 import Mongoose from 'mongoose';
-import admin from 'firebase-admin';
 import { config } from '../config.js';
-import { readFile } from 'fs/promises';
 
-const serviceAccount = JSON.parse(
-  await readFile(
-    new URL('../heaven-289ab-firebase-adminsdk-j7ifw-be12826516.json', import.meta.url)
-  )
-);
 
 export async function connectDB() {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://heaven-289ab-default-rtdb.firebaseio.com"
-  });
   return Mongoose.connect(config.db.host)
     .then(() => console.log('MongoDB Connected...'));
+}
+
+export function useVirtualId(schema) {
+  // _id -> id
+  // DB에선 _id로 저장되지만 가상으로 _id를 id로 바꾸어 줌
+  schema.virtual('id').get(function() {
+    return this._id.toString();
+  });
+  schema.set('toJSON', {virtuals: true});
+  schema.set('toOject', {virtuals: true});
 }
