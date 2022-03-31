@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import { config } from '../config.js';
 import * as userRepository from '../data/auth.js';
 
+// 로그인 상태 확인
 export const isAuth = async (req, res, next) => {
   const token = req.get('Accesstoken');
   if(!(token))
@@ -19,7 +20,7 @@ export const isAuth = async (req, res, next) => {
       if(!user) {
         return res.status(401).json({"status" : "401"});
       }
-      req.userId = user.id; // 계속 사용해야하는 데이터
+      req.userId = user.id;
       next();
     }
   )

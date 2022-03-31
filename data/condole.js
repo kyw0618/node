@@ -1,4 +1,5 @@
 import Mongoose from 'mongoose';
+import { useVirtualId } from '../db/db.js';
 
 const condoleMessage = new Mongoose.Schema( {
   title: {type: String},
@@ -11,19 +12,20 @@ const condoleMessage = new Mongoose.Schema( {
   versionKey: false
 });
 
+useVirtualId(condoleMessage);
 const Condole = Mongoose.model('Condole', condoleMessage);
 
 export async function findById(id) {
   return Condole.findById(id);
 }
 
-export async function create(title, content, name, created,obId, userId) {
-  return new Condole({title, content, name, created, obId, userId}).save();
+export async function save(condole) {
+  return new Condole(condole).save();
 }
 
 export async function update(id, title, content) {
   return Condole.findByIdAndUpdate(id, {title, content}, {returnOriginal: false});
-} 
+}
 
 export async function remove(id) {
   return Condole.findByIdAndDelete(id);

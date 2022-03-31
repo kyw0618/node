@@ -1,17 +1,23 @@
 import Mongoose from 'mongoose';
+import {useVirtualId} from '../db/db.js';
 
 const obituary = new Mongoose.Schema( {
-  title: {type: Object},
-  keyword: {type: Object},
-  photo: {type: Object},
-  video: {type: Object},
-  detail: {type: Object},
-  rating: {type: Object},
-  timestamp: {type: Object},
-  userid: {type: String}
+  imgName: {type: String},
+  resident: {type: Object},
+  place: {type: String},
+  deceased: {type: Object},
+  eod: {type: String},
+  coffin: {type: String},
+  dofp: {type: String},
+  buried: {type: String},
+  word: {type: String},
+  created: {type: String},
+  userId: {type: String}
 }, { 
   versionKey: false
 });
+
+useVirtualId(obituary);
 
 const Obituary = Mongoose.model('Obituary', obituary);
 
@@ -19,24 +25,26 @@ export async function getAllObituary() {
   return Obituary.find().sort({ createdAt: -1});
 }
 
-export async function getAllById(id) { 
+export async function findById(id) {
   return Obituary.findById(id);
 }
 
 export async function findMyObituary(userId) {
-  return Obituary.find({"userid": userId}).sort({ createdAt: -1});
-}
-export async function findObituaryByname(name) {
-  return Obituary.find({ $or: [{"title.title": name}]}).sort({ createdAt: -1});
+  return Obituary.find({userId}).sort({ createdAt: -1});
 }
 
-export async function create( title,keyword,photo,video,detail,timestamp, userId) {
-  return new Obituary({ title,keyword,photo,video,detail,timestamp, userid: userId}).save()
+export async function findObituaryByname(name) {
+  return Obituary.find({ $or: [{"resident.name": name},
+      {"deceased.name": name}, {"place": name}]}).sort({ createdAt: -1});
+}
+
+export async function save(obit) {
+  return new Obituary(obit).save()
   .then((data) => data);
 }
 
-export async function update( id, title,keyword,photo,video,detail,timestamp) {
-  return Obituary.findByIdAndUpdate(id, {title,keyword,photo,video,detail,timestamp}, {returnOriginal: false});
+export async function update( id, resident, place, deceased, eod, coffin, dofp, buried, word) {
+  return Obituary.findByIdAndUpdate(id, {resident, place, deceased, eod, coffin, dofp, buried, word}, {returnOriginal: false});
 }
 
 export async function remove(id) {

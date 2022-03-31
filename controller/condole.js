@@ -5,11 +5,21 @@ import { config } from '../config.js';
 
 export async function createCondoleMessage(req, res) {
   const name = await authRepository.findUserName(req.userId);
+  if (!name) {
+    return res.status(404).json({"status": "404"});
+  }
   const {
     title, content, created, obId
   } = req.body;
-
-  const condolMessage = await condoleRepository.create(title, content, name, created, obId, req.userId);
+  const userId = req.userId;
+  const condolMessage = await condoleRepository.save({
+    title, 
+    content, 
+    name, 
+    created, 
+    obId, 
+    userId
+  });
   res.status(201).json({"status": "201", condolMessage})
 }
 
@@ -40,12 +50,13 @@ export async function removeCondel(req, res) {
   }
 
   await condoleRepository.remove(id);
-  res.status(200).json({"status": "200"});
+  res.status(204).json({"status": "204"});
 }
 
 export async function getCondoleMessage(req, res) {
-  const obId = req.params.id;
+  const obId = req.query.id;
   const condoleMessage = await condoleRepository.findByObId(obId);
-  res.status(200).json({condoleMessage});
+  
+  res.status(200).json({"status":"200", condoleMessage});
 
 }

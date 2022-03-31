@@ -1,19 +1,16 @@
 import express from "express";
 import * as authController from '../controller/auth.js';
+import { isAuth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// sign up
-// const validateCredential = [
-//   body('name').trim().notEmpty().withMessage('name should not be Empty'),
-//   body('password').trim().notEmpty().withMessage('password should not be Empty')
-// ]
-
-router.post('/signup', authController.singup);
-router.put('/login', authController.login);
-router.put('/autologin', authController.autoLogin);
+router.post('/', authController.singup);
+router.put('/', authController.login);
+router.put('/auto', authController.autoLogin);
+router.get('/', isAuth, authController.getUserInfo);
+router.get('/terms', authController.getAuthTerms);
+router.get('/admin', isAuth, authController.adminGetUser);
+router.delete('/', isAuth, authController.logout);
 router.post('/sms', authController.sendsms);
-router.put('/logout', authController.logout);
-router.get('/getterms', authController.getAuthTerms);
 
 export default router;
