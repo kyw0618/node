@@ -2,30 +2,7 @@ import * as appRepository from '../data/app.js';
 
 // TODO
 export async function callverification(req, res) {
-  const name = req.headers["abcd-ef"];
-  const result = true;
-  const app_token = [
-    {
-      name,
-    }
-  ];
-  const encrypt =[
-    {
-      key: "vkdNaleuTHenaOlL",
-      iv: "zBN6M2DMdbAsLcSk",
-    }
-  ];
-  const policy_ver = [
-    {
-      version: 20220127
-    }
-  ]
-  const data = await appRepository.showverification( {
-    result,
-    app_token,
-    encrypt,
-    policy_ver
-  })
+  const data = await appRepository.showverification();
   res.status(201).json(data);
 }
 
