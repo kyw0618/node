@@ -1,6 +1,6 @@
 import express from "express";
 import * as condoleController from '../controller/condole.js';
-import { isAuth } from "../middleware/auth.js";
+import { isAuth } from '../middlweare/auth.js';
 
 const router = express.Router();
 
