@@ -23,5 +23,5 @@ export const isAuth = async (req, res, next) => {
       req.userId = user.id;
       next();
     }
-  )
+  );
 }
