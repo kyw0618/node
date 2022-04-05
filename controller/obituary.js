@@ -21,6 +21,7 @@ export async function createObituary(req, res) {
 export async function getImageData(req, res) {
   const imgName = req.query.imgname;
   let filepath;
+  
   try {
     filepath = (`/root/Server/app/uploads/${imgName}`);
   } catch {

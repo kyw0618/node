@@ -3,7 +3,7 @@ import {useVirtualId} from '../db/db.js';
 
 const obituary = new Mongoose.Schema( {
   imgName: {type: String},
-  title: {type: Object},
+  title: {type: String},
   keyword: {type: String},
   detail: {type: String},
   timestamp: {type: String},

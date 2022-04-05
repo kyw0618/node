@@ -6,7 +6,9 @@ import CryptoJS from 'crypto-js';
 import request from 'request';
 
 export async function singup(req, res) {
-  const {phone, pw, name, terms}  = req.body;
+  const {
+    phone, pw, name, terms
+  }  = req.body;
   
   const user = await authRepository.findByPhon(phone);
     if (user) {
