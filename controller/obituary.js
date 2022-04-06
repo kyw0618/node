@@ -28,7 +28,7 @@ export async function getImageData(req, res) {
     return res.status(404).json({"status": "404"});
   }
   
-  res.sendFile(filepath);
+  res.sendFile(filepath); 
 }
 
 // TODO 
@@ -48,6 +48,7 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
+  
   const updatedObit = await obitRepository.update(id, title, keyword, detail, timestamp);
   res.status(200).json({"status": "200", updatedObit});
 }
