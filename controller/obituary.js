@@ -23,7 +23,7 @@ export async function getImageData(req, res) {
   let filepath;
 
   try {
-    filepath = (`/root/Server/app/uploads/${imgName}`);
+    filepath = (`../uploads/${imgName}`);
   } catch {
     return res.status(404).json({"status": "404"});
   }
