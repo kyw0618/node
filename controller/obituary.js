@@ -54,7 +54,7 @@ export async function updateObit(req, res, next) {
 }
 
 export async function removeObit(req, res, next) {
-  const id = req.params.id;
+  const id = req.params.id; 
   const obit = await obitRepository.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
