@@ -5,7 +5,6 @@ import { config } from '../config.js';
 export async function createObituary(req, res) {
   const imgName = res.req.file.filename;
   const {title, keyword, detail, timestamp} = req.body;
-
   const userId = req.userId;
   const obituary = await obitRepository.save({
     imgName,
@@ -61,7 +60,7 @@ export async function removeObit(req, res, next) {
     return res.status(404).json({"status":"404"});
   }
   if(obit.userId !== req.userId && config.adminId !== req.userId) {
-    return res.status(403).json({"status": "403"});
+    return res.status(403).json({"status": "403"}); 
   }
 
   await obitRepository.remove(id);
@@ -76,6 +75,7 @@ export async function getMyObituary(req, res) {
 
 export async function getOneObituary(req, res) {
   const obId = req.params.id;
+
   const obit = await obitRepository.findById(obId);
 
   res.status(200).json({"status": "200", obit});
