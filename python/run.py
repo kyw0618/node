@@ -7,6 +7,8 @@ path = sys.argv[3]
 
 filename  = src+sec 
 
-stream = os.popen('cp' + src + '' + path+filename)
-output = stream.read()
-output
+# stream = os.popen('cp' + src + '' + path+filename)
+# output = stream.read()
+# output
+
+os.system('cp' + src + '' + path+filename)
