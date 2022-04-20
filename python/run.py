@@ -3,7 +3,7 @@ import sys
 
 sec = sys.argv[1]
 src = sys.argv[2]
-path = "temp/"
+path = "../temp"
  
 filename  = src+sec 
 
