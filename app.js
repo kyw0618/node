@@ -4,7 +4,7 @@ import { connectDB } from './db/db.js';
 import { config } from './config.js';
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
-import obituaryRouter from './router/obituary.js';
+import obituaryRouter from './router/datalist.js';
 import condoleRouter from './router/condole.js';
 import centerRouter from './router/serviceCenter.js';
 import orderRouter from './router/order.js';
