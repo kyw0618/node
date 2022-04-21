@@ -1,4 +1,4 @@
-import * as obitRepository from '../data/data.js';
+import * as obitRepository from '../data/datalist.js';
 import { config } from '../config.js';
 
 

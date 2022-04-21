@@ -1,7 +1,7 @@
 import express from "express";
-import * as obitController from '../controller/data.js';
+import * as obitController from '../controller/datalist.js';
 import { isAuth } from '../middlweare/auth.js';
-import {upload} from '../middlweare/data.js';
+import {upload} from '../middlweare/datalist.js';
 
 const router = express.Router();
 
