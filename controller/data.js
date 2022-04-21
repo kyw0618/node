@@ -1,4 +1,4 @@
-import * as obitRepository from '../data/obituary.js';
+import * as obitRepository from '../data/data.js';
 import { config } from '../config.js';
 
 
@@ -29,7 +29,7 @@ export async function getImageData(req, res) {
   
   res.sendFile(filepath); 
 }
-
+ 
 // TODO 
 // image update
 export async function updateObit(req, res, next) {
