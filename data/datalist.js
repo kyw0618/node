@@ -14,7 +14,7 @@ const obituary = new Mongoose.Schema( {
 
 useVirtualId(obituary);
 
-const Obituary = Mongoose.model('Obituary', obituary);
+const Obituary = Mongoose.model('datalist', obituary);
 
 export async function getAllObituary() {
   return Obituary.find().sort({ createdAt: -1});
