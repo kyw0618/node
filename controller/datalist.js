@@ -3,11 +3,15 @@ import { config } from '../config.js';
 
 
 export async function createObituary(req, res) { 
+  const textImg = res.req.file.filename;
   const imgName = res.req.file.filename;
+  const video = res.req.file.filename;
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   const datalist = await obitRepository.save({
+    textImg,
     imgName,
+    video,
     title,
     keyword,
     detail,
@@ -23,6 +27,32 @@ export async function getImageData(req, res) {
 
   try {
     filepath = (`/root/Server/node/uploads/${imgName}`);
+  } catch {
+    return res.status(404).json({"status": "404"}); 
+  }
+  
+  res.sendFile(filepath); 
+}
+
+export async function getTextImageData(req, res) {
+  const textImg = req.query.textimg;
+  let filepath;
+
+  try {
+    filepath = (`/root/Server/node/textimgs/${textImg}`);
+  } catch {
+    return res.status(404).json({"status": "404"}); 
+  }
+  
+  res.sendFile(filepath); 
+}
+
+export async function getVideoData(req, res) {
+  const video = req.query.video;
+  let filepath;
+
+  try {
+    filepath = (`/root/Server/node/video/${video}`);
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
