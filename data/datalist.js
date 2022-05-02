@@ -14,34 +14,34 @@ const datalist = new Mongoose.Schema( {
 
 useVirtualId(datalist);
 
-const Obituary = Mongoose.model('datalist', datalist);
+const Datalist = Mongoose.model('datalist', datalist);
 
 export async function getAllObituary() {
-  return Obituary.find().sort({ createdAt: -1});
+  return Datalist.find().sort({ createdAt: -1});
 }
 
 export async function findById(id) {
-  return Obituary.findById(id);
+  return Datalist.findById(id);
 }
 
 export async function findMyObituary(userId) {
-  return Obituary.find({userId}).sort({ createdAt: -1});
+  return Datalist.find({userId}).sort({ createdAt: -1});
 }
 
 export async function findObituaryByname(name) {
-  return Obituary.find({ $or: [{"title": name},
+  return Datalist.find({ $or: [{"title": name},
       {"keyword": name}]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
-  return new Obituary(obit).save()
+  return new Datalist(obit).save()
   .then((data) => data);
 }
 
 export async function update( id, title, keyword, detail, timestamp) {
-  return Obituary.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
+  return Datalist.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
-  return Obituary.findByIdAndDelete(id);
+  return Datalist.findByIdAndDelete(id);
 }
