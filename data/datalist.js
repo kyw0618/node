@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
-const obituary = new Mongoose.Schema( {
+const datalist = new Mongoose.Schema( {
   imgName: {type: String},
   title: {type: String},
   keyword: {type: String},
@@ -12,9 +12,9 @@ const obituary = new Mongoose.Schema( {
   versionKey: false
 });
 
-useVirtualId(obituary);
+useVirtualId(datalist);
 
-const Obituary = Mongoose.model('datalist', obituary);
+const Obituary = Mongoose.model('datalist', datalist);
 
 export async function getAllObituary() {
   return Obituary.find().sort({ createdAt: -1});

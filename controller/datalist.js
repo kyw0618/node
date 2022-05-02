@@ -6,7 +6,7 @@ export async function createObituary(req, res) {
   const imgName = res.req.file.filename;
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
-  const obituary = await obitRepository.save({
+  const datalist = await obitRepository.save({
     imgName,
     title,
     keyword,
@@ -14,7 +14,7 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", obituary});
+  res.status(201).json({"status": "201", datalist});
 }
 
 export async function getImageData(req, res) {
@@ -60,7 +60,7 @@ export async function removeObit(req, res, next) {
     return res.status(404).json({"status":"404"});
   }
   if(obit.userId !== req.userId && config.adminId !== req.userId) {
-    return res.status(403).json({"status": "403"}); 
+    return res.status(403).json({"status": "403"});  
   }
 
   await obitRepository.remove(id);
