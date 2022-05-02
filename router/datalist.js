@@ -7,9 +7,14 @@ import {videoupload} from  '../middlweare/video.js';
 
 const router = express.Router();
 
-router.post('/', isAuth, upload, textupload, videoupload, obitController.createObituary);
+router.post('/', isAuth, upload, obitController.createObituary);
+router.post('/textimg', isAuth, textupload, obitController.createTextImg);
+router.post('/videofile', isAuth, videoupload, obitController.createVideo);
+
 router.put('/:id', isAuth, obitController.updateObit);
+
 router.delete('/:id', isAuth, obitController.removeObit);
+
 router.get('/', isAuth, obitController.getByname);
 router.get('/my', isAuth, obitController.getMyObituary);
 router.get('/image', obitController.getImageData);
