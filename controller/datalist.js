@@ -68,9 +68,9 @@ export async function removeObit(req, res, next) {
 }
 
 export async function getMyObituary(req, res) {
-  const obituary = await obitRepository.findMyObituary(req.userId);
+  const datalist = await obitRepository.findMyObituary(req.userId);
 
-  res.status(200).json({"status": "200", obituary});
+  res.status(200).json({"status": "200", datalist});
 }
 
 export async function getOneObituary(req, res) {
