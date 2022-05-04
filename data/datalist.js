@@ -3,8 +3,6 @@ import {useVirtualId} from '../db/db.js';
 
 const datalist = new Mongoose.Schema( {
   textimg: {type: String},
-  imgName: {type: String},
-  video: {type: String},
   title: {type: String},
   keyword: {type: String},
   detail: {type: String},
