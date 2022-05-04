@@ -13,7 +13,7 @@ router.delete('/:id', isAuth, obitController.removeObit);
 
 router.get('/', isAuth, obitController.getByname);
 router.get('/my', isAuth, obitController.getMyObituary);
-router.get('/image', obitController.getImageData);
+router.get('/image', obitController.getTextImageData);
 router.get('/:id', isAuth, obitController.getOneObituary);
 
 export default router;
