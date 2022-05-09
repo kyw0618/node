@@ -1,16 +1,13 @@
 import multer from "multer";
 import fs from "fs";
 
-const storage = multer.diskStorage({
-
-  destination:function (req, file, cb) {
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
     cb(null, "uploadsText/");
   },
-
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + file.originalname);
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}_${file.originalname}`);
   },
-
  });
 
  const fileFilter = function(req, file, cb){
