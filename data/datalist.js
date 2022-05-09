@@ -2,7 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datalist = new Mongoose.Schema( {
-  textimg: {type: Array},
+  textimg: {type: String},
   title: {type: String},
   keyword: {type: String},
   detail: {type: String},
