@@ -20,7 +20,6 @@ export async function createObituary(req, res) {
 export async function getTextImageData(req, res) {
   const textImg = req.query.textimg;
   let filepath;
-
   try {
     filepath = (`/root/Server/node/uploadsText/${textImg}`);
   } catch {
