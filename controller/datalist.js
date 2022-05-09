@@ -3,11 +3,11 @@ import { config } from '../config.js';
 
 
 export async function createObituary(req, res) { 
-  const textImg = res.req.file.filename;
+  const imgName = res.req.file.filename;
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   const datalist = await obitRepository.save({
-    textImg,
+    imgName,
     title,
     keyword,
     detail,
@@ -18,10 +18,10 @@ export async function createObituary(req, res) {
 } 
 
 export async function getTextImageData(req, res) {
-  const textImg = req.query.textimg;
+  const imgName = req.query.imgname;
   let filepath;
   try {
-    filepath = (`/root/Server/node/uploadsText/${textImg}`);
+    filepath = (`/root/Server/node/uploads/${imgName}`);
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
