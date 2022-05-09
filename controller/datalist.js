@@ -6,6 +6,7 @@ export async function createObituary(req, res) {
   const imgName = res.req.file.filename;
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
+  
   const datalist = await obitRepository.save({
     imgName,
     title,
