@@ -1,11 +1,11 @@
 import express from "express";
 import * as obitController from '../controller/datalist.js';
 import { isAuth } from '../middlweare/auth.js';
-import {textupload} from '../middlweare/textImg.js';
+import {textImg} from '../middlweare/textImg.js';
 
 const router = express.Router();
 
-router.post('/', isAuth, textupload, obitController.createObituary);
+router.post('/', isAuth, textImg, obitController.createObituary);
 router.put('/:id', isAuth, obitController.updateObit);
 router.delete('/:id', isAuth, obitController.removeObit);
 router.get('/', isAuth, obitController.getByname);

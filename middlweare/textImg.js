@@ -3,10 +3,10 @@ import fs from "fs";
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploadsText/");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}_${file.originalname}`);
+    cb(null, Date.now + '-' + file.originalname);
   },
  });
 
@@ -18,4 +18,4 @@ var storage = multer.diskStorage({
   }
 }
 
-export const textupload = multer({ storage: storage, fileFilter: fileFilter}).array("textimg");
+export const textImg = multer({ storage: storage, fileFilter: fileFilter}).array("textimg");
