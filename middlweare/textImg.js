@@ -3,11 +3,11 @@ import fs from "fs";
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "textimgs/");
+    cb(null, "uploadsText/");
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
   },
  });
 
-export var textupload = multer({ storage: storage, limits: { files: 10, fileSize: 1024* 1024 * 10} }).array("textimg");
+export var textupload = multer({ storage: storage, limits: { files: 5, fileSize: 1080* 2450 * 5} }).array("textimg");

@@ -22,7 +22,7 @@ export async function getTextImageData(req, res) {
   let filepath;
 
   try {
-    filepath = (`/root/Server/node/textimgs/${textImg}`);
+    filepath = (`/root/Server/node/uploadsText/${textImg}`);
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
