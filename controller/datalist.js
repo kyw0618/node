@@ -4,7 +4,7 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const imgName = {
-    imgName: req.res.file.fileName
+    imgName: res.req.file.filename
   }
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
@@ -22,7 +22,7 @@ export async function createObituary(req, res) {
     console.log(data)
   });
 
-  res.status(201).json({"status": "201", datalist});
+  res.status(201).json({"status": "201", datalist, fileInfo : req.files});
 } 
 
 export async function getTextImageData(req, res) {
