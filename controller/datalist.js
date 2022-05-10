@@ -4,7 +4,7 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const imgName = {
-    imgName: res.req.file.filename
+    imgName: res.req.files.filename
   }
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
@@ -24,7 +24,7 @@ export async function getTextImageData(req, res) {
   const imgName = req.query.imgname;
   let filepath;
   try {
-    filepath = (`/root/Server/node/uploads/${imgName}`);
+    filepath = (`/root/Server/node/uploadsText/${imgName}`);
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
