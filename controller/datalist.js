@@ -17,11 +17,6 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
-
-  req.file.map((data) => {
-    console.log(data)
-  });
-
   res.status(201).json({"status": "201", datalist, fileInfo : req.files});
 } 
 
