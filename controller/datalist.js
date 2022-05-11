@@ -17,6 +17,7 @@ export async function createObituary(req, res) {
   });
   res.status(201).json({"status": "201", datalist, fileInfo : req.files});
   console.log(req.files);
+  console.log(res.req.files.filesname);
 } 
 
 export async function getTextImageData(req, res) {
