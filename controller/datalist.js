@@ -4,11 +4,15 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const TextImg = req.files
+  const NormalImg = req.files
+  const Video = req.files
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   
   const datalist = await obitRepository.save({
     TextImg,
+    NormalImg,
+    Video,
     title,
     keyword,
     detail,
@@ -16,8 +20,6 @@ export async function createObituary(req, res) {
     userId
   });
   res.status(201).json({"status": "201", datalist, fileInfo : req.files});
-  console.log(req.files);
-  console.log(res.req.files.filesname);
 } 
 
 export async function getTextImageData(req, res) {

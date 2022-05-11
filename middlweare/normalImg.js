@@ -10,4 +10,4 @@ var storage = multer.diskStorage({
   },
  });
 
-export var upload = multer({ storage: storage, limits: { files: 10, fileSize: 1024* 1024 * 10} }).array("img");
+export var Img = multer({ storage: storage}).array("Img",5);
