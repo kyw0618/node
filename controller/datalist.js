@@ -2,9 +2,9 @@ import * as obitRepository from '../data/datalist.js';
 import { config } from '../config.js';
 
 
-export async function createObituary(req, res) { 
+export async function createObituary(req, res,filename) { 
   const imgName = {
-    imgName: res.req.files.body.filename
+    imgName: res.req.files.filename
   }
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
