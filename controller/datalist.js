@@ -3,7 +3,7 @@ import { config } from '../config.js';
 
 
 export async function createObituary(req, res) { 
-  const imgName = res.req.files.filesname
+  const imgName = req.files
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   
