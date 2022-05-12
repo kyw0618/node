@@ -3,11 +3,11 @@ import fs from "fs";
 
 var storageTwo = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploadsText/uploads/");
+    cb(null, "uploads/uploadsText/");
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
   },
  });
 
-export var Img = multer({ storageTwo: storageTwo}).array("imgName",5);
+export var Img = multer({ storageTwo: storageTwo}).array("Img",5);
