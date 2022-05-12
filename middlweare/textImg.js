@@ -3,7 +3,7 @@ import fs from "fs";
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploadsText/");
+    cb(null, "TextUploads/");
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
