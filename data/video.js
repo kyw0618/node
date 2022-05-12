@@ -1,9 +1,7 @@
 import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
-const datalist = new Mongoose.Schema( {
-  TextImg: {type: Array},
-  NormalImg: {type: Array},
+const video = new Mongoose.Schema( {
   Video: {type: Array},
   title: {type: String},
   keyword: {type: String},
@@ -14,36 +12,36 @@ const datalist = new Mongoose.Schema( {
   versionKey: false
 });
 
-useVirtualId(datalist);
+useVirtualId(video);
 
-const Datalist = Mongoose.model('datalist', datalist);
+const Video = Mongoose.model('video', video);
 
 export async function getAllObituary() {
-  return Datalist.find().sort({ createdAt: -1});
+  return Video.find().sort({ createdAt: -1});
 }
 
 export async function findById(id) {
-  return Datalist.findById(id);
+  return Video.findById(id);
 }
 
 export async function findMyObituary(userId) {
-  return Datalist.find({userId}).sort({ createdAt: -1});
+  return Video.find({userId}).sort({ createdAt: -1});
 }
 
 export async function findObituaryByname(name) {
-  return Datalist.find({ $or: [{"title": name},
+  return Video.find({ $or: [{"title": name},
       {"keyword": name}]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
-  return new Datalist(obit).save()
+  return new Video(obit).save()
   .then((data) => data);
 }
 
 export async function update( id, title, keyword, detail, timestamp) {
-  return Datalist.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
+  return Video.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
-  return Datalist.findByIdAndDelete(id);
+  return Video.findByIdAndDelete(id);
 }

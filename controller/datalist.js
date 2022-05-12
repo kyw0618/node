@@ -1,17 +1,46 @@
-import * as obitRepository from '../data/datalist.js';
+import * as obitRepository from '../data/textImg.js';
+import * as norimgRepository from '../data/norImg.js';
 import { config } from '../config.js';
 
 
 export async function createObituary(req, res) { 
   const TextImg = req.files;
+  const {title, keyword, detail, timestamp} = req.body;
+  const userId = req.userId;
+  
+  const textImg = await obitRepository.save({
+    TextImg,
+    title,
+    keyword,
+    detail,
+    timestamp,
+    userId
+  });
+  res.status(201).json({"status": "201", textImg, fileInfo : req.files});
+} 
+
+export async function createNormalImg(req, res) { 
   const NormalImg = req.files;
+  const {title, keyword, detail, timestamp} = req.body;
+  const userId = req.userId;
+  
+  const normalImg = await norimgRepository.save({
+    NormalImg,
+    title,
+    keyword,
+    detail,
+    timestamp,
+    userId
+  });
+  res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
+} 
+
+export async function createVideo(req, res) { 
   const Video = req.files;
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   
-  const datalist = await obitRepository.save({
-    TextImg,
-    NormalImg,
+  const video = await norimgRepository.save({
     Video,
     title,
     keyword,
@@ -19,14 +48,14 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", datalist, fileInfo : req.files});
+  res.status(201).json({"status": "201", video, fileInfo : req.files});
 } 
 
 export async function getTextImageData(req, res) {
-  const TextImg = req.query.imgname;
+  const TextImg = req.query.textimg;
   let filepath;
   try {
-    filepath = (`/root/Server/node/uploadsText/${TextImg}`);
+    filepath = (`/root/Server/node/TextUploads/${TextImg}`);
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
