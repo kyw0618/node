@@ -1,7 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 
-var storage = multer.diskStorage({
+var storageTwo = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
   },
@@ -10,4 +10,4 @@ var storage = multer.diskStorage({
   },
  });
 
-export var Img = multer({ storage: storage}).array("Img",5);
+export var Img = multer({ storageTwo: storageTwo}).array("Img",5);
