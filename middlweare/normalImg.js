@@ -10,4 +10,4 @@ var storageTwo = multer.diskStorage({
   },
  });
 
-export var Img = multer({ storageTwo: storageTwo}).array("Img");
+export var Img = multer({ storageTwo: storageTwo}).array("Img",5);
