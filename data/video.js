@@ -3,9 +3,6 @@ import {useVirtualId} from '../db/db.js';
 
 const video = new Mongoose.Schema( {
   Video: {type: Array},
-  title: {type: String},
-  keyword: {type: String},
-  detail: {type: String},
   timestamp: {type: String},
   userId: {type: String}
 }, { 

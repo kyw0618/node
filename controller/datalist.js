@@ -6,14 +6,11 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const TextImg = req.files;
-  const {title, keyword, detail, timestamp} = req.body;
+  const {timestamp} = req.body;
   const userId = req.userId;
   
   const textImg = await obitRepository.save({
     TextImg,
-    title,
-    keyword,
-    detail,
     timestamp,
     userId
   });
@@ -38,14 +35,11 @@ export async function createNormalImg(req, res) {
 
 export async function createVideo(req, res) { 
   const Video = req.files;
-  const {title, keyword, detail, timestamp} = req.body;
+  const {timestamp} = req.body;
   const userId = req.userId;
   
   const video = await videoRepository.save({
     Video,
-    title,
-    keyword,
-    detail,
     timestamp,
     userId
   });
