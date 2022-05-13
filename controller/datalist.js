@@ -62,6 +62,30 @@ export async function getTextImageData(req, res) {
   
   res.sendFile(filepath); 
 }
+
+export async function getNorImgeDate(req, res) {
+  const NorImg = req.query.norImg;
+  let filepath;
+  try {
+    filepath = (`/root/Server/node/uploads/${NorImg}`);
+  } catch {
+    return res.status(404).json({"status": "404"}); 
+  }
+  
+  res.sendFile(filepath); 
+}
+
+export async function getVideoDate(req, res) {
+  const Video = req.query.video;
+  let filepath;
+  try {
+    filepath = (`/root/Server/node/video/${Video}`);
+  } catch {
+    return res.status(404).json({"status": "404"}); 
+  }
+  
+  res.sendFile(filepath); 
+}
  
 ////////////////////////////////////////////////////////////////////
 // image update
@@ -108,6 +132,8 @@ export async function getMyObituary(req, res) {
 
   res.status(200).json({"status": "200", datalist});
 }
+
+////////////////////////////////////////////////////////////////////
 
 export async function getOneObituary(req, res) {
   const obId = req.params.id;
