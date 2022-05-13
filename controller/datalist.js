@@ -1,5 +1,6 @@
 import * as obitRepository from '../data/textImg.js';
 import * as norimgRepository from '../data/norImg.js';
+import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
 
 
@@ -40,7 +41,7 @@ export async function createVideo(req, res) {
   const {title, keyword, detail, timestamp} = req.body;
   const userId = req.userId;
   
-  const video = await norimgRepository.save({
+  const video = await videoRepository.save({
     Video,
     title,
     keyword,
