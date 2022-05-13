@@ -3,14 +3,15 @@ import * as norimgRepository from '../data/norImg.js';
 import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
 
-
 export async function createObituary(req, res) { 
   const TextImg = req.files;
-  const {timestamp} = req.body;
+  const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
   
   const textImg = await obitRepository.save({
     TextImg,
+    title,
+    keyword,
     timestamp,
     userId
   });
@@ -35,16 +36,20 @@ export async function createNormalImg(req, res) {
 
 export async function createVideo(req, res) { 
   const Video = req.files;
-  const {timestamp} = req.body;
+  const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
   
   const video = await videoRepository.save({
     Video,
+    title,
+    keyword,
     timestamp,
     userId
   });
   res.status(201).json({"status": "201", video, fileInfo : req.files});
 } 
+
+////////////////////////////////////////////////////////////////////
 
 export async function getTextImageData(req, res) {
   const TextImg = req.query.textimg;
@@ -58,7 +63,7 @@ export async function getTextImageData(req, res) {
   res.sendFile(filepath); 
 }
  
-// TODO 
+////////////////////////////////////////////////////////////////////
 // image update
 export async function updateObit(req, res, next) {
   const id = req.params.id;
@@ -79,6 +84,8 @@ export async function updateObit(req, res, next) {
   res.status(200).json({"status": "200", updatedObit});
 }
 
+////////////////////////////////////////////////////////////////////
+
 export async function removeObit(req, res, next) {
   const id = req.params.id; 
   const obit = await obitRepository.findById(id);
@@ -94,6 +101,8 @@ export async function removeObit(req, res, next) {
   res.status(204).json(({"status":"204"}))
 }
 
+////////////////////////////////////////////////////////////////////
+
 export async function getMyObituary(req, res) {
   const datalist = await obitRepository.findMyObituary(req.userId);
 
@@ -108,6 +117,7 @@ export async function getOneObituary(req, res) {
   res.status(200).json({"status": "200", obit});
 
 }
+////////////////////////////////////////////////////////////////////
 
 export async function getByname(req, res) {
   const value = req.query.name;
