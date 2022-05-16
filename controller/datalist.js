@@ -50,7 +50,7 @@ export async function createVideo(req, res) {
 } 
 
 ////////////////////////////////////////////////////////////////////
-
+//이미지 받아오기
 export async function getTextImageData(req, res) {
   const TextImg = req.query.textimg;
   let filepath;
@@ -88,7 +88,7 @@ export async function getVideoDate(req, res) {
 }
  
 ////////////////////////////////////////////////////////////////////
-// image update
+// 데이터 수정
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
@@ -109,7 +109,7 @@ export async function updateObit(req, res, next) {
 }
 
 ////////////////////////////////////////////////////////////////////
-
+//데이터 삭제
 export async function removeObit(req, res, next) {
   const id = req.params.id; 
   const obit = await obitRepository.findById(id);
@@ -126,7 +126,7 @@ export async function removeObit(req, res, next) {
 }
 
 ////////////////////////////////////////////////////////////////////
-
+//데이터 검색
 export async function getMyObituary(req, res) {
   const textImg = await obitRepository.findMyObituary(req.userId);
   const normalImg = await norimgRepository.findMyObituary(req.userId);
@@ -135,7 +135,6 @@ export async function getMyObituary(req, res) {
   res.status(200).json({"status": "200", textImg,normalImg,video});
 }
 
-////////////////////////////////////////////////////////////////////
 
 export async function getOneObituary(req, res) {
   const obId = req.params.id;
@@ -145,7 +144,6 @@ export async function getOneObituary(req, res) {
   res.status(200).json({"status": "200", obit});
 
 }
-////////////////////////////////////////////////////////////////////
 
 export async function getByname(req, res) {
   const value = req.query.name;
