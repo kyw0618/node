@@ -132,7 +132,7 @@ export async function getMyObituary(req, res) {
   const normalImg = await norimgRepository.findMyObituary(req.userId);
   // const video = await videoRepository.findMyObituary(req.userId);
 
-  res.status(200).json({"status": "200", textImg});
+  res.status(200).json({"status": "200", normalImg});
 }
 
 
