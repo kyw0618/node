@@ -2,7 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const textImg = new Mongoose.Schema( {
-  TextImg: {type: String},
+  TextImg: {type: Array},
   title: {type: String},
   keyword: {type: String},
   timestamp: {type: String},
