@@ -4,7 +4,7 @@ import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
-  const TextImg = req.files;
+  const TextImg = req.files.fileInfo.filepath;
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
   
@@ -15,7 +15,7 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", textImg, fileInfo : req.files.fileInfo});
+  res.status(201).json({"status": "201", textImg, fileInfo : req.files});
 } 
 
 export async function createNormalImg(req, res) { 
