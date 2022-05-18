@@ -129,10 +129,10 @@ export async function removeObit(req, res, next) {
 //데이터 조회
 export async function getMyObituary(req, res) {
   const textImg = await obitRepository.findMyObituary(req.userId);
-  const normalImg = await norimgRepository.findMyObituary(req.userId);
-  const video = await videoRepository.findMyObituary(req.userId);
+  // const normalImg = await norimgRepository.findMyObituary(req.userId);
+  // const video = await videoRepository.findMyObituary(req.userId);
 
-  res.status(200).json({"status": "200", textImg,normalImg,video});
+  res.status(200).json({"status": "200", textImg});
 }
 
 
