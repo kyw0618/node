@@ -58,7 +58,7 @@ export async function getTextImageData(req, res) {
   } catch {
     return res.status(404).json({"status": "404"}); 
   }
-  console.log(res.query.textimg)
+  console.log(req.query.textimgs)
   res.sendFile(filepath); 
 }
 
