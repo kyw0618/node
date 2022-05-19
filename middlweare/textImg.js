@@ -7,6 +7,8 @@ var storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
+    // let array = file.originalname.split('.');
+    // array[0] = array[0] + '_';
   },
  });
 

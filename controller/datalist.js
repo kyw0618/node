@@ -31,7 +31,7 @@ export async function createNormalImg(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
+  res.status(201).json({"status": "201", normalImg, files : req.files});
 } 
 
 export async function createVideo(req, res) { 
