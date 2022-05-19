@@ -7,7 +7,6 @@ export async function createObituary(req, res) {
   const TextImg = req.files;
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
-  
   const textImg = await obitRepository.save({
     TextImg,
     title,
@@ -15,6 +14,31 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
+  try {
+    let originalname = '';
+    let fileName = '';
+    let mimeType = '';
+    let size = 0;
+
+    if(Array.isArray(files)) {
+      console.log('files is array~');
+      originalname = files[0].originalname;
+      fileName = files[0].filename;
+      mimeType = files[0].mimType;
+      size = files[0].size;
+    }
+    else{
+      console.log('files is not array');
+      originalname = files[0].originalname;
+      fileName = files[0].filename;
+      mimeType = files[0].mimType;
+      size = files[0].size;
+    }
+    console.log(`file inform : ${originalname}, ${fileName}, ${mimeType}, ${size}`);
+      } 
+      catch (err) { 
+        console.dir(err.stack); 
+      }
   res.status(201).json({"status": "201", textImg, fileInfo : req.files});
 } 
 
@@ -31,7 +55,7 @@ export async function createNormalImg(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", normalImg, files : req.files});
+  res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
 } 
 
 export async function createVideo(req, res) { 
