@@ -7,7 +7,6 @@ export async function createObituary(req, res) {
   const TextImg = req.files;
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
-  const filename = TextImg.map( img => img.filename);
   const textImg = await obitRepository.save({
     TextImg,
     title,
@@ -15,7 +14,7 @@ export async function createObituary(req, res) {
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", textImg, fileInfo : req.files, filename});
+  res.status(201).json({"status": "201", textImg, fileInfo : req.files.filename});
 } 
 
 export async function createNormalImg(req, res) { 
