@@ -52,7 +52,7 @@ export async function createVideo(req, res) {
 ////////////////////////////////////////////////////////////////////
 //이미지 받아오기
 export async function getTextImageData(req, res) {
-  const TextImg = req.files.textimg;
+  const TextImg = req.query.textimg;
   let filepath;
   try {
     filepath = (`/root/Server/node/TextUploads/${TextImg}`);
