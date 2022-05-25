@@ -16,7 +16,6 @@ export async function singup(req, res) {
 
   const userid = await authRepository.saveUser( {
     phone,
-    pw,
     name,
     admin,
     terms,
