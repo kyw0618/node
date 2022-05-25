@@ -83,6 +83,7 @@ export async function getVideoDate(req, res) {
   }
   
   res.sendFile(filepath); 
+  
 }
  
 ////////////////////////////////////////////////////////////////////
@@ -92,6 +93,7 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, detail, timestamp
   } = req.body;
+
 
   const obit = await obitRepository.findById(id);
   

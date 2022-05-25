@@ -6,10 +6,9 @@ import CryptoJS from 'crypto-js';
 import request from 'request';
 
 export async function singup(req, res) {
-  const {
-    phone, pw, name, terms
-  }  = req.body;
-  
+  const {phone, pw, name, terms}  = req.body;
+  const admin = false;
+
   const user = await authRepository.findByPhon(phone);
     if (user) {
       return res.status(404).json({"status": "404"});
@@ -19,6 +18,7 @@ export async function singup(req, res) {
     phone,
     pw,
     name,
+    admin,
     terms,
   });
   
@@ -29,11 +29,20 @@ export async function singup(req, res) {
   res.status(201).json({"status": "201", "Accesstoken": accessToken, userId: userid});
 }
 
-export async function login(req, res, next) {
-  const user = await authRepository.findByPhon(req.body.phone);
+export async function login(req, res) {
+  const {phone, smsnumber} = req.body;
+  const user = await authRepository.findByPhon(phone);
+
   if (!user) {
-    return res.status(404).json({"status": "404"});
+    return res.status(403).json({status : '403'});
   }
+
+  const dbSmsNumber = await authRepository.findSms(phone);
+
+  if (smsnumber != dbSmsNumber) {
+    return res.status(401).json({status: "401"});
+  }
+
   const accessToken = createAccessJwt(user.id);
   const newRefreshToken = createRefeshJwt(user.id);
   const checkRefreshToken = await authRepository.updateRefreshToken(user.id, newRefreshToken);
@@ -52,13 +61,9 @@ export async function getUserInfo(req, res) {
 }
 
 export async function autoLogin(req, res) {
-  
-  var userId;
-  var findrefreshToken;
-  
   try {
-    userId = tokenparsing(req.get('Accesstoken'));
-    findrefreshToken = await authRepository.findRefreshToken(userId);
+    var userId = tokenparsing(req.get('Accesstoken'));
+    var findrefreshToken = await authRepository.findRefreshToken(userId);
   } catch {
     return res.status(404).json({"status": "404"});
   }
@@ -88,17 +93,23 @@ export async function logout(req, res) {
   res.status(204).json({"status": "204"});
 }
 
-export async function getAuthTerms(req, res) { 
+export async function getAuthTerms(req, res) {
   const terms = await findAuthTerms();
   res.status(200).json({"status": "200", terms})
 }
 
 
-export function sendsms (req, res) {
+export async function sendsms (req, res) {
   const userphone = req.body.phone;
   const user_auth_number = Math.floor(Math.random() * 8999) + 1000; // 인증번호
   send_message(userphone, user_auth_number);
-  res.status(200).json({user_auth_number});
+  const tmp = await authRepository.smsExists(userphone);
+  if (!tmp) {
+    await authRepository.saveSms(userphone, user_auth_number);
+  } else {
+    await authRepository.updateSms(userphone, user_auth_number);
+  }
+  res.status(201).json({"status": "201"});
 }
 
 export function createAccessJwt(id) {
@@ -183,11 +194,10 @@ function send_message(userPhone, authNumber) {
  * Admin 
  */
 
-export async function adminGetUser(req, res) {
-  if (req.userId !== config.adminId) {
+ export async function adminGetUser(req, res) {
+  if (req.admin == false) {
     return res.status(403).json({"status": "403"});
   }
-  
   const value = req.query.value;
   const result = await ( value
     ? authRepository.adminfindUser(value)

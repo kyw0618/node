@@ -4,13 +4,31 @@ import {isAuth} from '../middlweare/auth.js';
 
 const router = express.Router();
 
-router.post('/', authController.singup);
-router.put('/', authController.login);
-router.put('/auto', authController.autoLogin);
-router.get('/', isAuth, authController.getUserInfo);
-router.get('/terms', authController.getAuthTerms);
-router.get('/admin', isAuth, authController.adminGetUser);
-router.delete('/', isAuth, authController.logout);
-router.post('/sms', authController.sendsms);
+const validateSms= [
+    body('phone').trim().notEmpty(),
+    validate,
+  ];
+  
+  const validateCredential = [
+    body('phone').trim().notEmpty(),
+    body('smsnumber').trim().notEmpty(),
+    validate,
+  ];
+  
+  const validateSignup = [
+    ... validateCredential,
+    body('birth').trim().notEmpty(),
+    body('name').trim().notEmpty(),
+    validate,
+  ];
+
+  router.post('/', validateSignup, authController.singup);
+  router.put('/', validateCredential, authController.login);
+  router.put('/auto', authController.autoLogin);
+  router.get('/', isAuth, authController.getUserInfo);
+  router.get('/terms', authController.getAuthTerms);
+  router.get('/admin', isAuth, authController.adminGetUser);
+  router.delete('/', isAuth, authController.logout);
+  router.post('/sms', validateSms, authController.sendsms);
 
 export default router;
