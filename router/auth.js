@@ -3,7 +3,7 @@ import * as authController from '../controller/auth.js';
 import {isAuth} from '../middlweare/auth.js';
 import { body, param, validationResult, query } from 'express-validator';
 import { validate } from '../middlweare/validator.js'
-import { upload } from '../middlweare/normalImg.js';
+import { profileupload } from '../middlweare/normalImg.js';
 
 
 const router = express.Router();
@@ -27,7 +27,7 @@ const validateSms= [
     validate,
   ];
 
-  router.post('/', validateSignup, upload, authController.singup);
+  router.post('/', validateSignup, profileupload, authController.singup);
   router.put('/', validateCredential, authController.login);
   router.put('/auto', authController.autoLogin);
   router.get('/', isAuth, authController.getUserInfo);

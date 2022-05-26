@@ -7,4 +7,4 @@ var storage = multer.diskStorage({
     },
    });
   
-  export var upload = multer({ storage: storage }).single("profile");
+  export var profileupload = multer({ storage: storage }).single("profile");
