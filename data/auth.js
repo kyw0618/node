@@ -6,8 +6,7 @@ const users = new Mongoose.Schema( {
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
-  admin: {type: Boolean, requirer: true},
-  terms: {type: String, requirer: true}
+  admin: {type: Boolean, requirer: true}
 }, { 
   versionKey: false
 });

@@ -21,7 +21,6 @@ export async function singup(req, res) {
     sex,
     name,
     admin,
-    terms,
   });
   
   const accessToken = createAccessJwt(userid);
