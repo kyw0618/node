@@ -2,9 +2,9 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const users = new Mongoose.Schema( {
+  profileimg: {type: String},
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
-  profileimg: {type: String},
   name: {type: String, requirer: true},
   admin: {type: Boolean, requirer: true},
   terms: {type: String, requirer: true}
