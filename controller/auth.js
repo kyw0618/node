@@ -7,11 +7,7 @@ import request from 'request';
 
 export async function singup(req, res) {
   const profileImg = res.req.file.filename;
-  const {phone, name, terms}  = req.body;
-  const sex = {
-    sex_man : req.body.sexMan,
-    sex_girl : req.body.sexGirl
-  };
+  const {phone, sex, name, terms}  = req.body;
   const admin = false;
 
   const user = await authRepository.findByPhon(phone);

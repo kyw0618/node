@@ -3,8 +3,8 @@ import {useVirtualId} from '../db/db.js';
 
 const users = new Mongoose.Schema( {
   phone: {type: String, requirer: true},
-  sex: {type: Object, requirer: true},
-  profileImg: {type: String},
+  sex: {type: String, requirer: true},
+  profileimg: {type: String},
   name: {type: String, requirer: true},
   admin: {type: Boolean, requirer: true},
   terms: {type: String, requirer: true}
