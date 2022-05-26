@@ -6,7 +6,8 @@ import CryptoJS from 'crypto-js';
 import request from 'request';
 
 export async function singup(req, res) {
-  const {phone, pw, name, terms}  = req.body;
+  const profileImg = res.req.file.filename;
+  const {phone, sex, name, terms}  = req.body;
   const admin = false;
 
   const user = await authRepository.findByPhon(phone);
@@ -16,6 +17,8 @@ export async function singup(req, res) {
 
   const userid = await authRepository.saveUser( {
     phone,
+    sex,
+    profileImg,
     name,
     admin,
     terms,
@@ -26,6 +29,17 @@ export async function singup(req, res) {
   
   await authRepository.saveToken(userid, refreshToken);
   res.status(201).json({"status": "201", "Accesstoken": accessToken, userId: userid});
+}
+
+export async function getProfileData(req, res) {
+  const profileImg = req.query.profileImg;
+  let filepath;
+  try {
+    filepath = (`${config.db.img}/${profileImg}`);
+  } catch {
+    return res.status(404).json({"status": "404"});
+  }
+  res.sendFile(filepath);
 }
 
 export async function login(req, res) {
