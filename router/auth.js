@@ -27,7 +27,7 @@ const validateSms= [
     validate,
   ];
 
-  router.post('/', validateSignup, profileupload, authController.singup);
+  router.post('/', profileupload, authController.singup);
   router.put('/', validateCredential, authController.login);
   router.put('/auto', authController.autoLogin);
   router.get('/', isAuth, authController.getUserInfo);
