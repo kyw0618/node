@@ -3,7 +3,7 @@ import * as authController from '../controller/auth.js';
 import {isAuth} from '../middlweare/auth.js';
 import { body, param, validationResult, query } from 'express-validator';
 import { validate } from '../middlweare/validator.js'
-import { profileupload } from '../middlweare/normalImg.js';
+import { profileupload } from '../middlweare/profile.js';
 
 
 const router = express.Router();

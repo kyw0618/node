@@ -1,3 +1,6 @@
+import multer from "multer";
+import fs from "fs";
+
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, "profileImg/");
