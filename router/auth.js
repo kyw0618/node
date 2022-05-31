@@ -7,7 +7,7 @@ import { profileupload } from '../middlweare/profile.js';
 
 
 const router = express.Router();
-
+   
 const validateSms= [
     body('phone').trim().notEmpty(),
     validate,

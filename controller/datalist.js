@@ -5,48 +5,53 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const TextImg = req.files;
-  const {title, keyword,timestamp} = req.body;
-  const userId = req.userId;
-  const textImg = await obitRepository.save({
-    TextImg,
-    title,
-    keyword,
-    timestamp,
-    userId
-  });
-  res.status(201).json({"status": "201", textImg, fileInfo : req.files.filename});
-} 
-
-export async function createNormalImg(req, res) { 
   const NormalImg = req.files;
-  const {title, keyword, detail, timestamp} = req.body;
-  const userId = req.userId;
-  
-  const normalImg = await norimgRepository.save({
-    NormalImg,
-    title,
-    keyword,
-    detail,
-    timestamp,
-    userId
-  });
-  res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
-} 
-
-export async function createVideo(req, res) { 
   const Video = req.files;
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
-  
-  const video = await videoRepository.save({
+
+  const datalist = await obitRepository.save({
+    TextImg,
+    NormalImg,
     Video,
     title,
     keyword,
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", video, fileInfo : req.files});
+  res.status(201).json({"status": "201", datalist, fileInfo : req.files.filename});
 } 
+
+// export async function createNormalImg(req, res) { 
+//   const NormalImg = req.files;
+//   const {title, keyword, detail, timestamp} = req.body;
+//   const userId = req.userId;
+  
+//   const normalImg = await norimgRepository.save({
+//     NormalImg,
+//     title,
+//     keyword,
+//     detail,
+//     timestamp,
+//     userId
+//   });
+//   res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
+// } 
+
+// export async function createVideo(req, res) { 
+//   const Video = req.files;
+//   const {title, keyword,timestamp} = req.body;
+//   const userId = req.userId;
+  
+//   const video = await videoRepository.save({
+//     Video,
+//     title,
+//     keyword,
+//     timestamp,
+//     userId
+//   });
+//   res.status(201).json({"status": "201", video, fileInfo : req.files});
+// } 
 
 ////////////////////////////////////////////////////////////////////
 //이미지 받아오기
@@ -94,7 +99,7 @@ export async function updateObit(req, res, next) {
     title, keyword, detail, timestamp
   } = req.body;
 
-
+    
   const obit = await obitRepository.findById(id);
   
   if(!obit) {

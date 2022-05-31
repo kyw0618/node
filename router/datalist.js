@@ -8,9 +8,7 @@ import {video} from '../middlweare/video.js';
 
 const router = express.Router();
 
-router.post('/textImg', isAuth, textImg, obitController.createObituary);
-router.post('/normalImg', isAuth, Img, obitController.createNormalImg);
-router.post('/video', isAuth, video, obitController.createVideo);
+router.post('/datalist', isAuth, textImg, obitController.createObituary);
 
 router.put('/:id', isAuth, obitController.updateObit);
 
