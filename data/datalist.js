@@ -7,7 +7,6 @@ const datalist = new Mongoose.Schema( {
   Video: {type: Array},
   title: {type: String},
   keyword: {type: String},
-  detail: {type: String},
   timestamp: {type: String},
   userId: {type: String}
 }, { 
@@ -16,34 +15,34 @@ const datalist = new Mongoose.Schema( {
 
 useVirtualId(datalist);
 
-const NormalImg = Mongoose.model('datalist', datalist);
+const DataList = Mongoose.model('datalist', datalist);
 
 export async function getAllObituary() {
-  return NormalImg.find().sort({ createdAt: -1});
+  return DataList.find().sort({ createdAt: -1});
 }
 
 export async function findById(id) {
-  return NormalImg.findById(id);
+  return DataList.findById(id);
 }
 
 export async function findMyObituary(userId) {
-  return NormalImg.find({userId}).sort({ createdAt: -1});
+  return DataList.find({userId}).sort({ createdAt: -1});
 }
 
 export async function findObituaryByname(name) {
-  return NormalImg.find({ $or: [{"title": name},
+  return DataList.find({ $or: [{"title": name},
       {"keyword": name}]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
-  return new NormalImg(obit).save()
+  return new DataList(obit).save()
   .then((data) => data);
 }
 
 export async function update( id, title, keyword, detail, timestamp) {
-  return NormalImg.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
+  return DataList.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
 }
 
 export async function remove(id) {
-  return NormalImg.findByIdAndDelete(id);
+  return DataList.findByIdAndDelete(id);
 }

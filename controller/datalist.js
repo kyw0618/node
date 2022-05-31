@@ -1,4 +1,4 @@
-import * as obitRepository from '../data/textImg.js';
+import * as obitRepository from '../data/datalist.js';
 import * as norimgRepository from '../data/norImg.js';
 import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
