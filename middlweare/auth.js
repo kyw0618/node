@@ -20,8 +20,9 @@ export const isAuth = async (req, res, next) => {
       if(!user) {
         return res.status(401).json({"status" : "401"});
       }
+      req.admin = user.admin;
       req.userId = user.id;
       next();
     }
-  );
+  )
 }
