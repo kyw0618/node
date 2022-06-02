@@ -2,7 +2,6 @@ import express from 'express'
 import morgan from 'morgan';
 import { connectDB } from './db/db.js';
 import { config } from './config.js';
-import cors from 'cors';
 import fs from 'fs';
 
 import appRouter from './router/app.js';
@@ -14,7 +13,6 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cors());
 app.use(morgan('tiny'));
 
 const options = { // letsencrypt로 받은 인증서 경로를 입력
