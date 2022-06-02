@@ -2,8 +2,6 @@ import express from 'express'
 import morgan from 'morgan';
 import { connectDB } from './db/db.js';
 import { config } from './config.js';
-import Https from 'https';
-import helmet from 'helmet';
 import cors from 'cors';
 import fs from 'fs';
 
@@ -16,7 +14,6 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(helmet());
 app.use(cors());
 app.use(morgan('tiny'));
 
@@ -41,5 +38,4 @@ app.use((error, req, res, next) => {
 
 connectDB().then(() => {
   console.log(`Server is started... ${new Date()}`);
-  Https.createServer(options, app).listen(443);
 })
