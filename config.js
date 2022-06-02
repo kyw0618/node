@@ -18,4 +18,5 @@ export const config = {
   },
   port: parseInt(process.env.HOST_PORT),
   adminId: process.env.ADMIN_ID
+
   }  
