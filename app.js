@@ -10,10 +10,8 @@ import centerRouter from './router/serviceCenter.js';
 
 const app = express();
 
-app.use(express.static('public'));
 app.use(express.json());
 app.use(morgan('tiny'));
-
 
 app.use('/v1/app', appRouter);
 app.use('/v1/user', userRouter);
@@ -31,4 +29,5 @@ app.use((error, req, res, next) => {
 
 connectDB().then(() => {
   console.log(`Server is started... ${new Date()}`);
+  app.listen(config.port);
 })
