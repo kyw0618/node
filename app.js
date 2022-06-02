@@ -2,6 +2,11 @@ import express from 'express'
 import morgan from 'morgan';
 import { connectDB } from './db/db.js';
 import { config } from './config.js';
+import Https from 'https';
+import helmet from 'helmet';
+import cors from 'cors';
+import fs from 'fs';
+
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
 import obituaryRouter from './router/datalist.js';
@@ -23,7 +28,6 @@ const options = { // letsencrypt로 받은 인증서 경로를 입력
 app.use('/v1/app', appRouter);
 app.use('/v1/user', userRouter);
 app.use('/v1/datalist', obituaryRouter);
-app.use('/v1/condole', condoleRouter);
 app.use('/v1/center', centerRouter);
 
 app.use((req, res, next) => {
