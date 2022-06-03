@@ -62,7 +62,7 @@ export async function getTextImageData(req, res) {
 }
 
 export async function getNorImgeDate(req, res) {
-  const NorImg = req.query.norImg;
+  const NorImg = req.query.Img;
   let filepath;
   try {
     filepath = (`/root/Server/node/uploads/${NorImg}`);
