@@ -8,14 +8,14 @@ export async function createObituary(req, res) {
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
 
-  const datalist = await obitRepository.save({
+  const textImg = await obitRepository.save({
     TextImg,
     title,
     keyword,
     timestamp,
     userId
   });
-  res.status(201).json({"status": "201", datalist, fileInfo : req.files.filename});
+  res.status(201).json({"status": "201", textImg, fileInfo : req.files});
 } 
 
 export async function createNormalImg(req, res) { 
@@ -27,7 +27,6 @@ export async function createNormalImg(req, res) {
     NormalImg,
     title,
     keyword,
-    detail,
     timestamp,
     userId
   });

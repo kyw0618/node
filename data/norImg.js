@@ -5,7 +5,6 @@ const normalImg = new Mongoose.Schema( {
   NormalImg: {type: Array},
   title: {type: String},
   keyword: {type: String},
-  detail: {type: String},
   timestamp: {type: String},
   userId: {type: String}
 }, { 
