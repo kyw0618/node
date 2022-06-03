@@ -1,107 +1,179 @@
-import Mongoose from 'mongoose';
-import {useVirtualId} from '../db/db.js';
+import * as centerRepository from '../data/serviceCenter.js';
 
-const announcement = new Mongoose.Schema( {
-    title: {type: String, required: true},
-    content: {type: String, required: true},
-    created: {type: String, required: true}
-  }, { 
-    versionKey: false,
-  });
+/**
+ * 공지사항 
+ */
+ export async function getAnnounceMent(req, res) {
+    const id = req.query.id;
+    const announcement = await ( id 
+      ? centerRepository.finById(id)
+      : centerRepository.findAll());
+  
+    res.status(200).json({"status": "200", announcement});
+  }
+  
+  export async function createAnnouncement(req, res) {
+    const {title, content, created} = req.body;
+    try {
+      var announcement = await centerRepository.saveAnnouncement({title, content, created});
+    } catch (error) {
+      return res.status(400).json({"status" : "400"});
+    }
+    
+    res.status(201).json({"status": "201", announcement})
+  }
 
-  const request = new Mongoose.Schema( {
-    name: {type: String, required: true},
-    title: {type: String, required: true},
-    phone: {type: String, required: true},
-    content: {type: String, required: true},
-    created: {type: String, required: true},
-    userId: {type: String, required: true}
-  }, { 
-    versionKey: false,
-  });
+  export async function updateAnnouncement(req, res) {
+    const id = req.params.id;
+    const {title, content} = req.body;
   
-  const response = new Mongoose.Schema( {
-    reqId: {type: String, required: true},
-    title: {type: String, required: true},
-    content: {type: String, required: true},
-    created: {type: String, required: true}
-  }, { 
-    versionKey: false,
-  });
-  
-  
-  useVirtualId(announcement);
-  useVirtualId(request);
-  useVirtualId(response);
-  
-  const Announcement = Mongoose.model('Announcement', announcement);
-  const UserRequest = Mongoose.model('UserRequest', request);
-  const UserRes = Mongoose.model('UserResponse', response);
-  
-  export async function findAll() {
-    return Announcement.find().sort({ createdAt: -1});
+    const announcement = await centerRepository.update(id, title, content);
+    res.status(200).json({"status": "200", announcement});
   }
   
-  export async function finById(id) {
-    return Announcement.findById(id);
+  export async function removeAnnouncement(req, res) {
+    const id = req.params.id;
+  
+    await centerRepository.remove(id);
+    res.status(204).json({"status": "204"});
+  }
+
+  /**
+ * 1:1 문의 등록 
+ */
+export async function createRequest(req, res) {
+    const {name, phone, title, content, created} = req.body;
+    const userId = req.userId;
+    try {
+      var userRequest = await centerRepository.saveRequest({
+        name,
+        phone,
+        title,
+        content,
+        created,
+        userId
+      });
+    } catch (error) {
+      return res.status(400).json({"status" : "400"});
+    }
+    
+    res.status(201).json({"status": "201", userRequest});
   }
   
-  export async function saveAnnouncement(announce) {
-    return new Announcement(announce).save()
-      .then((data) => data);
+  export async function myRequest(req, res) {
+    const userRequest = await centerRepository.findMyRequest(req.userId);
+  
+    res.status(200).json({"status": "200", userRequest});
+   }
+  
+   export async function getReqAndRes(req, res) {
+     const id = req.params.id;
+     const userRequest = await centerRepository.findRequestById(id);
+     const userResponse = await centerRepository.findResponseById(id);
+  
+     return res.status(200).json({"status": "200", userRequest, userResponse});
+   }
+  
+  
+  export async function updateUserRequest(req, res) {
+    const id = req.params.id;
+    const { title, content } = req.body;
+    const userRequest = await centerRepository.findRequestById(id);
+    
+    if(!userRequest) {
+      return res.status(404).json({"status":"404"});
+    }
+    if(userRequest.userId !== req.userId && req.admin == false) {
+      return res.status(403).json({"status": "403"});
+    }
+  
+    const updatedRequest = await centerRepository.updateRequest(id, title, content);
+    res.status(200).json(({"status":"200", updatedRequest}))
   }
   
-  export async function update(id, title, content) {
-    return Announcement.findByIdAndUpdate(id, {title, content}, {returnOriginal: false});
+  export async function removeUserRequest(req, res) {
+    const id = req.params.id;
+    const userRequest = await centerRepository.findRequestById(id);
+    if(!userRequest) {
+      return res.status(404).json({"status":"404"});
+    }
+    if(userRequest.userId !== req.userId && req.admin == false) {
+      return res.status(403).json({"status": "403"});
+    }
+  
+    await centerRepository.removeRequset(id);
+    res.status(204).json({"status": "204"});
   }
   
-  export async function remove(id) {
-    return Announcement.findByIdAndDelete(id);
+  export async function adminSearch(req, res) {
+    if(req.admin == false) {
+      return res.status(403).json({"stauts": "403"});
+    }
+  
+    const value = req.query.value;
+    const announcement = await centerRepository.findByAdmin(value);
+  
+    return res.status(200).json({"status": "200", announcement});
   }
   
-  export async function findByAdmin(value) {
-    return Announcement.find({ $or : [{"title": value}, {"created": value}]}).sort({createdAt : false});
+  /**
+   * 1:1 문의 응답
+   */
+  export async function createResponse(req, res) {
+    const {reqId, title, content, created} = req.body;
+    if(req.admin == false) {
+      return res.status(403).json({"stauts": "403"});
+    }
+    try {
+      var userResponse = await centerRepository.saveResponse({
+        reqId,
+        title,
+        content,
+        created
+      });
+    } catch (error) {
+      return res.status(400).json({"status": "400"});
+    }
+    
+    res.status(201).json({"status": "201", userResponse})
   }
   
-  export async function findRequestById(id) {
-    return UserRequest.findById(id);
+  export async function updateUserResponse(req, res) {
+    if(req.admin == false) {
+      return res.status(403).json({"stauts": "403"});
+    }
+  
+    const id = req.params.id;
+    const { title, content } = req.body;
+  
+    const userResponse = centerRepository.findResponseById(id);
+    if (!userResponse) {
+      return res.status(404).json({"status": "404"});
+    }
+  
+    const updatedResponse = await centerRepository.updateResponse(id, title, content);
+    res.status(200).json({"status": "200", updatedResponse});
   }
   
-  export async function findMyRequest(userId) {
-    return UserRequest.find({"userId": userId}).sort({createdAt : false});
+  export async function removeUserResponse(req, res) {
+    const id = req.params.id;
+    if(req.admin == false) {
+      return res.status(403).json({"stauts": "403"});
+    }
+  
+    await centerRepository.removeResponse(id);
+  
+    res.status(204).json({"status": "204"});
   }
   
-  export async function finRequestByName(name) {
-    return UserRequest.find({name});
-  }
+  /**
+   * admin
+   */
+  export async function getRequestByname(req, res) {
+    if(req.admin == false) {
+      return res.status(403).json({"stauts": "403"});
+    }
   
-  export async function saveRequest(userRequest) {
-    return new UserRequest(userRequest).save()
-      .then((data) => data);
-  }
-  
-  export async function updateRequest(id, title, content) {
-    return UserRequest.findByIdAndUpdate(id, {title, content}, {returnOriginal: false})
-      .then((data) => data);
-  }
-  
-  export async function removeRequset(id) {
-    return UserRequest.findByIdAndDelete(id);
-  }
-  
-  export async function saveResponse(UserResponse) {
-    return new UserRes(UserResponse).save().then((data) => data);
-  }
-  
-  export async function findResponseById(id) {
-    return UserRes.findById(id);
-  }
-  
-  export async function updateResponse(id, title, content) {
-    return UserRes.findByIdAndUpdate(id, {title, content}, {returnOriginal: false})
-      .then((data) => data);
-  }
-  
-  export async function removeResponse(id) {
-    return UserRes.findByIdAndDelete(id);
+    const userRequest = await centerRepository.finRequestByName(req.query.name);
+    res.status(200).json({"stauts": "200", userRequest});
   }
