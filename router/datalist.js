@@ -19,6 +19,9 @@ router.delete('/:id', isAuth, obitController.removeObit);
 router.get('/', isAuth, obitController.getByname);
 router.get('/my', isAuth, obitController.getMyObituary);
 
+router.get('/my/normal', isAuth, obitController.getMyNormal);
+router.get('/my/video', isAuth, obitController.getMyVideo);
+
 router.get('/textImg', obitController.getTextImageData);
 router.get('/normalImg', obitController.getNorImgeDate);
 router.get('/video',obitController.getVideoDate);

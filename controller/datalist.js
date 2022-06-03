@@ -135,6 +135,17 @@ export async function getMyObituary(req, res) {
   res.status(200).json({"status": "200", datalist,normaiImg,videofile});
 }
 
+export async function getMyNormal(req, res) {
+  const normaiImg = await norimgRepository.findMyObituary(req.userId)
+  res.status(200).json({"status": "200", normaiImg});
+}
+
+export async function getMyVideo(req, res) {
+  const videofile = await videoRepository.findMyObituary(req.userId)
+
+  res.status(200).json({"status": "200", videofile});
+}
+
 
 export async function getOneObituary(req, res) {
   const obId = req.params.id;
