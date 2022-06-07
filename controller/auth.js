@@ -31,14 +31,14 @@ export async function singup(req, res) {
 }
 
 export async function getProfileData(req, res) {
-  const imgName = req.query.imgname;
+  const profile = req.query.profile;
   let filepath;
   try {
-    filepath = (`${config.db.img}/${imgName}`);
+    filepath = (`/root/Server/node/profileImg/${profile}`);
   } catch {
-    return res.status(404).json({"status": "404"});
+    return res.status(404).json({"status": "404"}); 
   }
-  res.sendFile(filepath);
+  res.sendFile(filepath); 
 }
 
 export async function login(req, res) {
