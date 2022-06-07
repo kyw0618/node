@@ -10,4 +10,4 @@ var storage = multer.diskStorage({
   },
  });
 
-export var textImg = multer({ storage: storage}).array("textimg",5);
+export var textImg = multer({ storage: storage}).array("textimg", 5);
