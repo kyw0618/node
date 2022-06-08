@@ -100,7 +100,7 @@ export async function getVideoDate(req, res) {
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
-    title, keyword, detail, timestamp
+    title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode
   } = req.body;
 
     
@@ -113,7 +113,7 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const updatedObit = await obitRepository.update(id, title, keyword, detail, timestamp);
+  const updatedObit = await obitRepository.update(id, title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode);
   res.status(200).json({"status": "200", updatedObit});
 }
 
