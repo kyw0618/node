@@ -6,6 +6,9 @@ const normalImg = new Mongoose.Schema( {
   title: {type: String},
   keyword: {type: String},
   timestamp: {type: String},
+  defaultcode: {type: String},
+  sensitivity: {type: String},
+  sendcode : {type: String},
   userId: {type: String}
 }, { 
   versionKey: false

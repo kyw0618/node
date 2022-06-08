@@ -13,6 +13,9 @@ export async function createObituary(req, res) {
     title,
     keyword,
     timestamp,
+    defaultcode,
+    sensitivity,
+    sendcode,
     userId
   });
   res.status(201).json({"status": "201", textImg, fileInfo : req.files});
@@ -20,7 +23,7 @@ export async function createObituary(req, res) {
 
 export async function createNormalImg(req, res) { 
   const NormalImg = req.files;
-  const {title, keyword, detail, timestamp} = req.body;
+  const {title, keyword, timestamp} = req.body;
   const userId = req.userId;
   
   const normalImg = await norimgRepository.save({
@@ -28,6 +31,9 @@ export async function createNormalImg(req, res) {
     title,
     keyword,
     timestamp,
+    defaultcode,
+    sensitivity,
+    sendcode,
     userId
   });
   res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
@@ -43,6 +49,9 @@ export async function createVideo(req, res) {
     title,
     keyword,
     timestamp,
+    defaultcode,
+    sensitivity,
+    sendcode,
     userId
   });
   res.status(201).json({"status": "201", video, fileInfo : req.files});
