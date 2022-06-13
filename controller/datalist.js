@@ -5,11 +5,15 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const TextImg = req.files;
+  const NormalImg = req.files;
+  const Video = req.files;
   const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
 
   const textImg = await obitRepository.save({
     TextImg,
+    NormalImg,
+    Video,
     title,
     keyword,
     timestamp,
