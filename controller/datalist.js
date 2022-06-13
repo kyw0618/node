@@ -1,4 +1,4 @@
-import * as obitRepository from '../data/textImg.js';
+import * as obitRepository from '../data/datalist.js';
 import * as norimgRepository from '../data/norImg.js';
 import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
@@ -21,44 +21,8 @@ export async function createObituary(req, res) {
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
 } 
 
-// export async function createNormalImg(req, res) { 
-//   const NormalImg = req.files;
-//   const {title, keyword, timestamp} = req.body;
-//   const userId = req.userId;
-  
-//   const normalImg = await norimgRepository.save({
-//     NormalImg,
-//     title,
-//     keyword,
-//     timestamp,
-//     defaultcode,
-//     sensitivity,
-//     sendcode,
-//     userId
-//   });
-//   res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
-// } 
-
-// export async function createVideo(req, res) { 
-//   const Video = req.files;
-//   const {title, keyword,timestamp} = req.body;
-//   const userId = req.userId;
-  
-//   const video = await videoRepository.save({
-//     Video,
-//     title,
-//     keyword,
-//     timestamp,
-//     defaultcode,
-//     sensitivity,
-//     sendcode,
-//     userId
-//   });
-//   res.status(201).json({"status": "201", video, fileInfo : req.files});
-// } 
-
 ////////////////////////////////////////////////////////////////////
-//이미지 받아오기
+//이미지 다운로드
 export async function getTextImageData(req, res) {
   const TextImg = req.query.textimg;
   let filepath;
@@ -70,31 +34,6 @@ export async function getTextImageData(req, res) {
   res.sendFile(filepath); 
 }
 
-export async function getNorImgeDate(req, res) {
-  const NorImg = req.query.norImg;
-  let filepath;
-  try {
-    filepath = (`/root/Server/node/uploads/${NorImg}`);
-  } catch {
-    return res.status(404).json({"status": "404"}); 
-  }
-  
-  res.sendFile(filepath); 
-}
-
-export async function getVideoDate(req, res) {
-  const Video = req.query.video;
-  let filepath;
-  try {
-    filepath = (`/root/Server/node/video/${Video}`);
-  } catch {
-    return res.status(404).json({"status": "404"}); 
-  }
-  
-  res.sendFile(filepath); 
-  
-}
- 
 ////////////////////////////////////////////////////////////////////
 // 데이터 수정
 export async function updateObit(req, res, next) {
