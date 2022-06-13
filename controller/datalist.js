@@ -82,7 +82,7 @@ export async function removeObit(req, res, next) {
 //데이터 조회
 export async function getMyObituary(req, res) {
   const datalist = await obitRepository.findMyObituary(req.userId);
-  res.status(200).json({"status": "200", datalist,normaiImg,videofile});
+  res.status(200).json({"status": "200", datalist});
 }
 
 
