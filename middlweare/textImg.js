@@ -10,4 +10,5 @@ var storage = multer.diskStorage({
   },
  });
 
-export var textImg = multer({ storage: storage}).array("textimg", 5);
+export var textImg = multer({ storage: storage}).fields([{name:'textImg', maxCount : 5},
+{name:'Img',maxCount: 5},{name:'video',maxCount: 3}]);
