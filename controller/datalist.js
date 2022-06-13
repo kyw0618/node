@@ -1,6 +1,4 @@
 import * as obitRepository from '../data/datalist.js';
-import * as norimgRepository from '../data/norImg.js';
-import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
@@ -84,21 +82,7 @@ export async function removeObit(req, res, next) {
 //데이터 조회
 export async function getMyObituary(req, res) {
   const datalist = await obitRepository.findMyObituary(req.userId);
-  const normaiImg = await norimgRepository.findMyObituary(req.userId)
-  const videofile = await videoRepository.findMyObituary(req.userId)
-
   res.status(200).json({"status": "200", datalist,normaiImg,videofile});
-}
-
-export async function getMyNormal(req, res) {
-  const normaiImg = await norimgRepository.findMyObituary(req.userId)
-  res.status(200).json({"status": "200", normaiImg});
-}
-
-export async function getMyVideo(req, res) {
-  const videofile = await videoRepository.findMyObituary(req.userId)
-
-  res.status(200).json({"status": "200", videofile});
 }
 
 
