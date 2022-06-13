@@ -3,8 +3,6 @@ import {useVirtualId} from '../db/db.js';
 
 const textImg = new Mongoose.Schema( {
   TextImg: {type: Array},
-  NormalImg: {type: Array},
-  Video: {type: Array},
   title: {type: String},
   keyword: {type: String},
   timestamp: {type: String},
