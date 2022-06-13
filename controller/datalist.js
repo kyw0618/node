@@ -5,7 +5,6 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const DataList = req.files;
-
   const {title, keyword,timestamp,defaultcode,sensitivity,sendcode} = req.body;
   const userId = req.userId;
 
