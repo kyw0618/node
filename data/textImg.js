@@ -1,8 +1,8 @@
 import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
-const textImg = new Mongoose.Schema( {
-  TextImg: {type: Array},
+const dataList = new Mongoose.Schema( {
+  DataList: {type: Array},
   title: {type: String},
   keyword: {type: String},
   timestamp: {type: String},
@@ -14,36 +14,36 @@ const textImg = new Mongoose.Schema( {
   versionKey: false
 });
 
-useVirtualId(textImg);
+useVirtualId(dataList);
 
-const TextImg = Mongoose.model('textImg', textImg);
+const DataList = Mongoose.model('DataList', dataList);
 
 export async function getAllObituary() {
-  return TextImg.find().sort({ createdAt: -1});
+  return DataList.find().sort({ createdAt: -1});
 }
 
 export async function findById(id) {
-  return TextImg.findById(id);
+  return DataList.findById(id);
 }
 
 export async function findMyObituary(userId) {
-  return TextImg.find({userId}).sort({ createdAt: -1});
+  return DataList.find({userId}).sort({ createdAt: -1});
 }
 
 export async function findObituaryByname(name) {
-  return TextImg.find({ $or: [{"title": name},
+  return DataList.find({ $or: [{"title": name},
       {"keyword": name}]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
-  return new TextImg(obit).save()
+  return new DataList(obit).save()
   .then((data) => data);
 }
 
-export async function update( id, title, keyword, detail, timestamp) {
-  return TextImg.findByIdAndUpdate(id, {title, keyword, detail, timestamp}, {returnOriginal: false});
+export async function update( id, title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode) {
+  return DataList.findByIdAndUpdate(id, {title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode}, {returnOriginal: false});
 }
 
 export async function remove(id) {
-  return TextImg.findByIdAndDelete(id);
+  return DataList.findByIdAndDelete(id);
 }

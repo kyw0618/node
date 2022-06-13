@@ -4,13 +4,13 @@ import * as videoRepository from '../data/video.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
-  const TextImg = req.files;
+  const DataList = req.files;
 
   const {title, keyword,timestamp,defaultcode,sensitivity,sendcode} = req.body;
   const userId = req.userId;
 
-  const textImg = await obitRepository.save({
-    TextImg,
+  const dataList = await obitRepository.save({
+    DataList,
     title,
     keyword,
     timestamp,
@@ -19,44 +19,44 @@ export async function createObituary(req, res) {
     sendcode,
     userId
   });
-  res.status(201).json({"status": "201", textImg, fileInfo : req.files});
+  res.status(201).json({"status": "201", dataList, fileInfo : req.files});
 } 
 
-export async function createNormalImg(req, res) { 
-  const NormalImg = req.files;
-  const {title, keyword, timestamp} = req.body;
-  const userId = req.userId;
+// export async function createNormalImg(req, res) { 
+//   const NormalImg = req.files;
+//   const {title, keyword, timestamp} = req.body;
+//   const userId = req.userId;
   
-  const normalImg = await norimgRepository.save({
-    NormalImg,
-    title,
-    keyword,
-    timestamp,
-    defaultcode,
-    sensitivity,
-    sendcode,
-    userId
-  });
-  res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
-} 
+//   const normalImg = await norimgRepository.save({
+//     NormalImg,
+//     title,
+//     keyword,
+//     timestamp,
+//     defaultcode,
+//     sensitivity,
+//     sendcode,
+//     userId
+//   });
+//   res.status(201).json({"status": "201", normalImg, fileInfo : req.files});
+// } 
 
-export async function createVideo(req, res) { 
-  const Video = req.files;
-  const {title, keyword,timestamp} = req.body;
-  const userId = req.userId;
+// export async function createVideo(req, res) { 
+//   const Video = req.files;
+//   const {title, keyword,timestamp} = req.body;
+//   const userId = req.userId;
   
-  const video = await videoRepository.save({
-    Video,
-    title,
-    keyword,
-    timestamp,
-    defaultcode,
-    sensitivity,
-    sendcode,
-    userId
-  });
-  res.status(201).json({"status": "201", video, fileInfo : req.files});
-} 
+//   const video = await videoRepository.save({
+//     Video,
+//     title,
+//     keyword,
+//     timestamp,
+//     defaultcode,
+//     sensitivity,
+//     sendcode,
+//     userId
+//   });
+//   res.status(201).json({"status": "201", video, fileInfo : req.files});
+// } 
 
 ////////////////////////////////////////////////////////////////////
 //이미지 받아오기
