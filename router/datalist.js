@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/datalist', isAuth, textImg, obitController.createObituary);
 router.put('/:id', isAuth, obitController.updateObit);
-router.delete('/', isAuth, obitController.removeObit);
+router.delete('/:id', isAuth, obitController.removeObit);
 
 router.get('/', isAuth, obitController.getByname);
 router.get('/my', isAuth, obitController.getMyObituary);
