@@ -6,6 +6,7 @@ import { config } from './config.js';
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
 import obituaryRouter from './router/datalist.js';
+import sendRouter from './router/datasend.js'
 import centerRouter from './router/serviceCenter.js';
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(morgan('tiny'));
 app.use('/v1/app', appRouter);
 app.use('/v1/user', userRouter);
 app.use('/v1/datalist', obituaryRouter);
+app.use('v1/datasend', sendRouter);
 app.use('/v1/center', centerRouter);
 
 app.use((req, res, next) => {

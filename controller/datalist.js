@@ -3,7 +3,7 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const DataList = req.files;
-  const {title, keyword,timestamp,defaultcode,sensitivity,sendcode} = req.body;
+  const {title, keyword,timestamp} = req.body;
   const userId = req.userId;
 
   const dataList = await obitRepository.save({
@@ -11,9 +11,6 @@ export async function createObituary(req, res) {
     title,
     keyword,
     timestamp,
-    defaultcode,
-    sensitivity,
-    sendcode,
     userId
   });
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
@@ -37,7 +34,7 @@ export async function getTextImageData(req, res) {
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
-    title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode
+    title, keyword, detail, timestamp
   } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -54,10 +51,7 @@ export async function updateObit(req, res, next) {
     title,
     keyword, 
     detail, 
-    timestamp, 
-    defaultcode, 
-    sensitivity, 
-    sendcode);
+    timestamp);
   res.status(200).json({"status": "200", updatedObit});
 }
 
