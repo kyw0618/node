@@ -94,6 +94,7 @@ export async function getOneObituary(req, res) {
 
 }
 
+//데이터 검색
 export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
