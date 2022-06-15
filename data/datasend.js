@@ -5,9 +5,9 @@ const datasend = new Mongoose.Schema( {
   title: {type: String},
   keyword: {type: String},    
   timestamp: {type: String},
+  sendcode: {type: String},
   defaultcode: {type: String},
-  sensitivity: {type: String},
-  sendcode : {type: String},    
+  sensitivity : {type: String},    
   dataid: {type: String},
   userId: {type: String}
   }, { 
@@ -42,23 +42,21 @@ const datasend = new Mongoose.Schema( {
   
   export async function update( 
     id, 
-    title, 
+    title,
     keyword, 
-    detail, 
-    timestamp, 
-    defaultcode, 
-    sensitivity, 
+    timestamp,
     sendcode,
+    defaultcode,
+    sensitivity,
     dataid) {
     return DataSend.findByIdAndUpdate(id, {
-      title, 
+      title,
       keyword, 
-      detail, 
-      timestamp, 
-      defaultcode, 
-      sensitivity, 
+      timestamp,
       sendcode,
-      dataid
+      defaultcode,
+      sensitivity
+      dataid,
     }, 
       {returnOriginal: false});
   }

@@ -1,4 +1,5 @@
 import * as obitRepository from '../data/datalist.js';
+import * as obitRepositorySend from '../data/datasend.js'
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
@@ -53,12 +54,21 @@ export async function updateObit(req, res, next) {
     id, 
     title,
     keyword, 
-    detail, 
     timestamp,
     sendcode,
     defaultcode,
+    sensitivity
     );
-  res.status(200).json({"status": "200", updatedObit});
+    const saveupdateObit = await obitRepositorySend.save(
+      id, 
+      title,
+      keyword, 
+      timestamp,
+      sendcode,
+      defaultcode,
+      sensitivity
+      );
+  res.status(200).json({"status": "200", updatedObit,saveupdateObit});
 }
 
 ////////////////////////////////////////////////////////////////////
