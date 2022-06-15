@@ -57,7 +57,7 @@ export async function updateObit(req, res, next) {
     timestamp,
     sendcode,
     defaultcode,
-    sensitivity);
+    );
   res.status(200).json({"status": "200", updatedObit});
 }
 
