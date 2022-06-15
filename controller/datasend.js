@@ -2,65 +2,27 @@ import * as obitRepository from '../data/datasend.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
-    const DataSend = req.files;
-    const {title, keyword,timestamp,defaultcode,sensitivity,sendcode} = req.body;
+    const {TextImg,NorImg,Vieeo,title, keyword,timestamp,defaultcode,
+      sensitivity,sendcode,dataid,} = req.body;
     const userId = req.userId;
   
     const datasend = await obitRepository.save({
-      DataSend,
+      TextImg,
+      NorImg,
+      Vieeo,
       title,
       keyword,
       timestamp,
       defaultcode,
       sensitivity,
       sendcode,
+      dataid,
       userId
     });
     res.status(201).json({"status": "201", datasend, fileInfo : req.files});
   } 
-  
-  ////////////////////////////////////////////////////////////////////
-  // 이미지 다운로드
-  export async function getTextImageData(req, res) {
-    const TextImg = req.query.textimg;
-    let filepath;
-    try {
-      filepath = (`/root/Server/node/TextUploads/${TextImg}`);
-    } catch {
-      return res.status(404).json({"status": "404"}); 
-    }
-    res.sendFile(filepath); 
-  }
-  
-  ////////////////////////////////////////////////////////////////////
-  // 데이터 수정
-  export async function updateObit(req, res, next) {
-    const id = req.params.id;
-    const {
-      title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode
-    } = req.body;
-  
-    const obit = await obitRepository.findById(id);
-    
-    if(!obit) {
-      return res.status(404).json({"status":"404"});
-    }
-    if(obit.userId !== req.userId && config.adminId !== req.userId) {
-      return res.status(403).json({"status": "403"});
-    }
-  
-    const updatedObit = await obitRepository.update(
-      id, 
-      title,
-      keyword, 
-      detail, 
-      timestamp, 
-      defaultcode, 
-      sensitivity, 
-      sendcode);
-    res.status(200).json({"status": "200", updatedObit});
-  }
-  
+
+
   ////////////////////////////////////////////////////////////////////
   //판매 데이터 삭제
   export async function removeObit(req, res, next) {

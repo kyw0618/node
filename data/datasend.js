@@ -2,14 +2,17 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {
-    DataSend: {type: Array},
-    title: {type: String},
-    keyword: {type: String},
-    timestamp: {type: String},
-    defaultcode: {type: String},
-    sensitivity: {type: String},
-    sendcode : {type: String},
-    userId: {type: String}
+  TextImg: {type: String},
+  NorImg: {type: String},
+  Vieeo: {type: String},    
+  title: {type: String},
+  keyword: {type: String},    
+  timestamp: {type: String},
+  defaultcode: {type: String},
+  sensitivity: {type: String},
+  sendcode : {type: String},    
+  dataid: {type: String},
+  userId: {type: String}
   }, { 
     versionKey: false
   });
@@ -40,8 +43,33 @@ const datasend = new Mongoose.Schema( {
     .then((data) => data);
   }
   
-  export async function update( id, title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode) {
-    return DataSend.findByIdAndUpdate(id, {title, keyword, detail, timestamp, defaultcode, sensitivity, sendcode}, {returnOriginal: false});
+  export async function update( 
+    id, 
+    TextImg,
+    NorImg,
+    Vieeo,
+    title, 
+    keyword, 
+    detail, 
+    timestamp, 
+    defaultcode, 
+    sensitivity, 
+    sendcode,
+    dataid) {
+    return DataSend.findByIdAndUpdate(id, {
+      TextImg,
+      NorImg,
+      Vieeo,
+      title, 
+      keyword, 
+      detail, 
+      timestamp, 
+      defaultcode, 
+      sensitivity, 
+      sendcode,
+      dataid
+    }, 
+      {returnOriginal: false});
   }
   
   export async function remove(id) {
