@@ -50,6 +50,7 @@ const datasend = new Mongoose.Schema( {
     sensitivity,
     dataid) {
     return DataSend.findByIdAndUpdate(id, {
+      id,
       title,
       keyword, 
       timestamp,
