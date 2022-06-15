@@ -2,15 +2,12 @@ import * as obitRepository from '../data/datasend.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
-    const {TextImg,NorImg,Vieeo,title, keyword,timestamp,defaultcode,
+    const {title, keyword,timestamp,defaultcode,
       sensitivity,sendcode,dataid} = req.body;
-      
+
     const userId = req.userId;
     try {
     var datasend = await obitRepository.save({
-      TextImg,
-      NorImg,
-      Vieeo,
       title,
       keyword,
       timestamp,
