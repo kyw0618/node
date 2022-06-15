@@ -40,9 +40,31 @@ export async function save(obit) {
   .then((data) => data);
 }
 
-export async function update( id, title, keyword, detail, timestamp,sendcode,defaultcode,sensitivity) {
-  return DataList.findByIdAndUpdate(id, {title, keyword, detail, timestamp,sendcode,defaultcode,sensitivity}, 
-    {returnOriginal: false});
+export async function update( 
+  id, 
+  title, 
+  keyword, 
+  detail, 
+  timestamp,
+  sendcode,
+  defaultcode,
+  sensitivity,
+  dataid
+  ) {
+  return DataList.findByIdAndUpdate(
+    id, {
+      title, 
+      keyword, 
+      detail, 
+      timestamp,
+      sendcode,
+      defaultcode,
+      sensitivity,
+      dataid
+    }, 
+    {
+      returnOriginal: false}
+      );
 }
 
 export async function remove(id) {
