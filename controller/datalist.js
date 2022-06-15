@@ -37,8 +37,9 @@ export async function getTextImageData(req, res) {
 // 데이터 수정
 export async function updateObit(req, res, next) {
   const id = req.query.id;
+  const userId = req.userId;
   const {
-    title, keyword, timestamp, sendcode, defaultcode, sensitivity
+    title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid
   } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -56,7 +57,8 @@ export async function updateObit(req, res, next) {
     timestamp,
     sendcode,
     defaultcode,
-    sensitivity
+    sensitivity,
+    dataid
     );
     const saveupdateObit = await obitRepositorySend.save({
       id,
@@ -65,7 +67,9 @@ export async function updateObit(req, res, next) {
       timestamp,
       sendcode,
       defaultcode,
-      sensitivity
+      sensitivity,
+      dataid,
+      userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
 
