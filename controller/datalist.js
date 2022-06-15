@@ -58,15 +58,17 @@ export async function updateObit(req, res, next) {
     defaultcode,
     sensitivity
     );
-    // const saveupdateObit = await obitRepositorySend.save(
-    //   title,
-    //   keyword, 
-    //   timestamp,
-    //   sendcode,
-    //   defaultcode,
-    //   sensitivity
-    //   );
+    const saveupdateObit = await obitRepositorySend.save(
+      title,
+      keyword, 
+      timestamp,
+      sendcode,
+      defaultcode,
+      sensitivity
+      );
   res.status(200).json({"status": "200", updatedObit});
+  res.status(200).json({"status": "200", saveupdateObit});
+
 }
 
 ////////////////////////////////////////////////////////////////////
