@@ -6,7 +6,6 @@ import { config } from './config.js';
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
 import obituaryRouter from './router/datalist.js';
-import sendRouter from './router/datasend.js'
 import centerRouter from './router/serviceCenter.js';
 
 const app = express();
