@@ -60,7 +60,6 @@ export async function updateObit(req, res, next) {
     sensitivity
     );
     const saveupdateObit = await obitRepositorySend.save(
-      id, 
       title,
       keyword, 
       timestamp,
