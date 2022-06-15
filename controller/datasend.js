@@ -5,7 +5,8 @@ export async function createObituary(req, res) {
     const {TextImg,NorImg,Vieeo,title, keyword,timestamp,defaultcode,
       sensitivity,sendcode,dataid} = req.body;
     const userId = req.userId;
-  
+    
+    try {
     const datasend = await obitRepository.save({
       TextImg,
       NorImg,
@@ -19,6 +20,9 @@ export async function createObituary(req, res) {
       dataid,
       userId
     });
+  } catch (error) {
+    return res.status(400).json({"status" : "400"});
+  }
     res.status(201).json({"status": "201", datasend, fileInfo : req.files});
   } 
 
