@@ -6,7 +6,7 @@ const dataList = new Mongoose.Schema( {
   title: {type: String},
   keyword: {type: String},
   timestamp: {type: String},
-  snedcode: {type: String},
+  sendcode: {type: String},
   userId: {type: String}
 }, { 
   versionKey: false
@@ -38,8 +38,8 @@ export async function save(obit) {
   .then((data) => data);
 }
 
-export async function update( id, title, keyword, detail, timestamp,snedcode) {
-  return DataList.findByIdAndUpdate(id, {title, keyword, detail, timestamp,snedcode}, 
+export async function update( id, title, keyword, detail, timestamp,sendcode) {
+  return DataList.findByIdAndUpdate(id, {title, keyword, detail, timestamp,sendcode}, 
     {returnOriginal: false});
 }
 

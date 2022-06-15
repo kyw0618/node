@@ -35,7 +35,7 @@ export async function getTextImageData(req, res) {
 export async function updateObit(req, res, next) {
   const id = req.query.id;
   const {
-    title, keyword, detail, timestamp, snedcode  
+    title, keyword, detail, timestamp, sendcode  
   } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -53,7 +53,7 @@ export async function updateObit(req, res, next) {
     keyword, 
     detail, 
     timestamp,
-    snedcode);
+    sendcode);
   res.status(200).json({"status": "200", updatedObit});
 }
 
