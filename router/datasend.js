@@ -1,12 +1,11 @@
 import express from "express";
 import * as obitController from '../controller/datasend.js';
 import { isAuth } from '../middlweare/auth.js';
-import {textImg} from '../middlweare/datalist.js';
 
 const router = express.Router();
 
 //데이터 등록
-router.post('/datasend', isAuth, textImg, obitController.createObituary);
+router.post('/datasend', isAuth, obitController.createObituary);
 
 //데이터 수정
 router.put('/', isAuth, obitController.updateObit);
