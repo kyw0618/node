@@ -11,6 +11,7 @@ export async function createObituary(req, res) {
     title,
     keyword,
     timestamp,
+    sendcode,
     userId
   });
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
@@ -34,7 +35,7 @@ export async function getTextImageData(req, res) {
 export async function updateObit(req, res, next) {
   const id = req.params.id;
   const {
-    title, keyword, detail, timestamp
+    title, keyword, detail, timestamp, snedcode
   } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -51,7 +52,8 @@ export async function updateObit(req, res, next) {
     title,
     keyword, 
     detail, 
-    timestamp);
+    timestamp,
+    snedcode);
   res.status(200).json({"status": "200", updatedObit});
 }
 
