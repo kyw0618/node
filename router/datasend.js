@@ -5,7 +5,7 @@ import { isAuth } from '../middlweare/auth.js';
 const router = express.Router();
 
 //데이터 등록
-router.post('/datasend', isAuth, obitController.createObituary);
+router.post('/', isAuth, obitController.createObituary);
 
 //데이터 삭제
 router.delete('/', isAuth, obitController.removeObit);
