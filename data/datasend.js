@@ -2,6 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
+  DataList:{type: Array},
   title: {type: String},
   keyword: {type: String},    
   timestamp: {type: String},
@@ -42,6 +43,7 @@ const datasend = new Mongoose.Schema( {
   
   export async function update( 
     id, 
+    DataList,
     title,
     keyword, 
     timestamp,
@@ -50,12 +52,14 @@ const datasend = new Mongoose.Schema( {
     sensitivity,
     dataid) {
     return DataSend.findByIdAndUpdate(id, {
+      id, 
+      DataList,
       title,
       keyword, 
       timestamp,
       sendcode,
       defaultcode,
-      sensitivity
+      sensitivity,
       dataid,
     }, 
       {returnOriginal: false});
