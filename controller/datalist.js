@@ -33,7 +33,7 @@ export async function getTextImageData(req, res) {
 ////////////////////////////////////////////////////////////////////
 // 데이터 수정
 export async function updateObit(req, res, next) {
-  const id = req.params.id;
+  const id = req.query.id;
   const {
     title, keyword, detail, timestamp, snedcode  
   } = req.body;
