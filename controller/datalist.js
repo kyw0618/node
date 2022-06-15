@@ -42,17 +42,10 @@ export async function updateObit(req, res, next) {
   } = req.body;
 
   const obit = await obitRepository.findById(id);
-  const obits = await obitRepositorySend.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
   }
   if(obit.userId !== req.userId && config.adminId !== req.userId) {
-    return res.status(403).json({"status": "403"});
-  }
-  if(!obits) {
-    return res.status(404).json({"status":"404"});
-  }
-  if(obits.userId !== req.userId && config.adminId !== req.userId) {
     return res.status(403).json({"status": "403"});
   }
 
