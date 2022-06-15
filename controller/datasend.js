@@ -4,7 +4,6 @@ import { config } from '../config.js';
 export async function createObituary(req, res) { 
     const {title, keyword,timestamp,defaultcode,
       sensitivity,sendcode,dataid} = req.body;
-
     const userId = req.userId;
     try {
     var datasend = await obitRepository.save({

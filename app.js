@@ -17,7 +17,7 @@ app.use(morgan('tiny'));
 app.use('/v1/app', appRouter);
 app.use('/v1/user', userRouter);
 app.use('/v1/datalist', obituaryRouter);
-app.use('v1/datasend', sendRouter);
+app.use('/v1/datasend', sendRouter);
 app.use('/v1/center', centerRouter);
 
 app.use((req, res, next) => {
