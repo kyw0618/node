@@ -3,7 +3,7 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const DataList = req.files;
-  const {title, keyword,timestamp} = req.body;
+  const {title, keyword,timestamp,sendcode} = req.body;
   const userId = req.userId;
 
   const dataList = await obitRepository.save({
