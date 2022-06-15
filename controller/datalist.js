@@ -58,7 +58,7 @@ export async function updateObit(req, res, next) {
     defaultcode,
     sensitivity
     );
-    const saveupdateObit = await obitRepositorySend.save(
+    const saveupdateObit = await obitRepositorySend.save({
       id,
       title,
       keyword, 
@@ -66,7 +66,7 @@ export async function updateObit(req, res, next) {
       sendcode,
       defaultcode,
       sensitivity
-      );
+    });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
 
 }
