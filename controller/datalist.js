@@ -42,7 +42,6 @@ export async function updateObit(req, res, next) {
   } = req.body;
 
   const obit = await obitRepository.findById(id);
-  
   if(!obit) {
     return res.status(404).json({"status":"404"});
   }
@@ -60,6 +59,7 @@ export async function updateObit(req, res, next) {
     sensitivity
     );
     const saveupdateObit = await obitRepositorySend.save(
+      id,
       title,
       keyword, 
       timestamp,
