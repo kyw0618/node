@@ -66,8 +66,7 @@ export async function updateObit(req, res, next) {
       defaultcode,
       sensitivity
       );
-  res.status(200).json({"status": "200", updatedObit});
-  res.status(200).json({"status": "200", saveupdateObit});
+  res.status(200).json({"status": "200", updatedObit,saveupdateObit});
 
 }
 
