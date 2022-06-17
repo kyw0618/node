@@ -41,6 +41,41 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid
   } = req.body;
+  
+  const firstList = {
+    imgpath: req.body.firstListPath,
+    sendcode: req.body.firstSendcode,
+    sensitivity: req.body.firstSensitivity,
+    dataid: req.body.firstDataId
+  };
+
+  const secondList = {
+    imgpath: req.body.secondListPath,
+    sendcode: req.body.secondSendcode,
+    sensitivity: req.body.secondSensitivity,
+    dataid: req.body.secondDataId
+  };
+
+  const thirdList = {
+    imgpath: req.body.thirdListPath,
+    sendcode: req.body.thirdSendcode,
+    sensitivity: req.body.thirdSensitivity,
+    dataid: req.body.thirdDataId
+  };
+
+  const fourList = {
+    imgpath: req.body.fourListPath,
+    sendcode: req.body.fourSendcode,
+    sensitivity: req.body.fourSensitivity,
+    dataid: req.body.fourDataId
+  };
+
+  const fiveList = {
+    imgpath: req.body.fiveListPath,
+    sendcode: req.body.fiveSendcode,
+    sensitivity: req.body.fiveSensitivity,
+    dataid: req.body.fiveDataId
+  };
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
@@ -65,10 +100,11 @@ export async function updateObit(req, res, next) {
       title,
       keyword, 
       timestamp,
-      sendcode,
-      defaultcode,
-      sensitivity,
-      dataid,
+      firstList,
+      secondList,
+      thirdList,
+      fourList,
+      fiveList,
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});

@@ -5,10 +5,11 @@ const datasend = new Mongoose.Schema( {
   title: {type: String},
   keyword: {type: String},    
   timestamp: {type: String},
-  sendcode: {type: String},
-  defaultcode: {type: String},
-  sensitivity : {type: String},    
-  dataid: {type: String},
+  firstList: {type: Object, required: true},
+  secondList: {type: Object, required: true},
+  thirdList: {type: Object, required: true},
+  fourList: {type: Object, required: true},
+  fiveList: {type: Object, required: true},
   userId: {type: String}
   }, { 
     versionKey: false
@@ -41,23 +42,27 @@ const datasend = new Mongoose.Schema( {
   }
   
   export async function update( 
-    id, 
+    id,
     title,
     keyword, 
     timestamp,
-    sendcode,
-    defaultcode,
-    sensitivity,
-    dataid) {
+    firstList,
+    secondList,
+    thirdList,
+    fourList,
+    fiveList,
+    userId) {
     return DataSend.findByIdAndUpdate(id, {
       id,
       title,
       keyword, 
       timestamp,
-      sendcode,
-      defaultcode,
-      sensitivity,
-      dataid,
+      firstList,
+      secondList,
+      thirdList,
+      fourList,
+      fiveList,
+      userId
     }, 
       {returnOriginal: false});
   }
