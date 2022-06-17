@@ -41,40 +41,32 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid
   } = req.body;
-  
+  const firstbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+  const secondbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+  const thirdbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+  const fourbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+  const fivebody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+
+
   const firstList = {
-    imgpath: req.body.firstListPath,
-    sendcode: req.body.firstSendcode,
-    sensitivity: req.body.firstSensitivity,
-    dataid: req.body.firstDataId
+    firstbody
   };
 
+
   const secondList = {
-    imgpath: req.body.secondListPath,
-    sendcode: req.body.secondSendcode,
-    sensitivity: req.body.secondSensitivity,
-    dataid: req.body.secondDataId
+    secondbody
   };
 
   const thirdList = {
-    imgpath: req.body.thirdListPath,
-    sendcode: req.body.thirdSendcode,
-    sensitivity: req.body.thirdSensitivity,
-    dataid: req.body.thirdDataId
+    thirdbody
   };
 
   const fourList = {
-    imgpath: req.body.fourListPath,
-    sendcode: req.body.fourSendcode,
-    sensitivity: req.body.fourSensitivity,
-    dataid: req.body.fourDataId
+    fourbody
   };
 
   const fiveList = {
-    imgpath: req.body.fiveListPath,
-    sendcode: req.body.fiveSendcode,
-    sensitivity: req.body.fiveSensitivity,
-    dataid: req.body.fiveDataId
+    fivebody
   };
 
   const obit = await obitRepository.findById(id);
