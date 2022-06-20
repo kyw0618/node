@@ -42,19 +42,19 @@ export async function updateObit(req, res, next) {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   const Text ={
-    SendText: SendText, 
+    SendText: req.body.SendText, 
     SendNormal: SendNormal,
-    SendVideo: SendVideo} = req.body;
+    SendVideo: SendVideo};
 
   const Normal ={
     SendText: SendText, 
     SendNormal: SendNormal,
-    SendVideo: SendVideo }= req.body;
+    SendVideo: SendVideo};
 
   const Video ={
     SendText: SendText, 
     SendNormal: SendNormal,
-     SendVideo: SendVideo} = req.body;
+     SendVideo: SendVideo};
 
   const SendText = {
     firstbody: firstbody,
