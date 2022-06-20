@@ -93,7 +93,6 @@ export async function updateObit(req, res, next) {
     videothird: thirdbody
   };
 
-
   const obit = await obitRepository.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
