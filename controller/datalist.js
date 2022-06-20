@@ -41,28 +41,6 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
-  const Text ={
-    textfirst = firstbody, 
-    textsecond = secondbody,
-    textthird = thirdbody,
-    textfour = fourbody,
-    textfive = fivebody
-  } =req.body;
-
-  const Normal ={
-    normalfirst: firstbody, 
-    normalsecond: secondbody,
-    normalthird: thirdbody,
-    normalfour: fourbody,
-    normalfive: fivebody
-  }=req.body;
-
-  const Video ={
-    videofirst: firstbody, 
-    videosecond: secondbody,
-    videothird: thirdbody
-  }=req.body;
-
   const firstbody = {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
@@ -92,6 +70,28 @@ export async function updateObit(req, res, next) {
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
   };
+
+  const Text ={
+    textfirst = firstbody, 
+    textsecond = secondbody,
+    textthird = thirdbody,
+    textfour = fourbody,
+    textfive = fivebody
+  } =req.body;
+
+  const Normal ={
+    normalfirst: firstbody, 
+    normalsecond: secondbody,
+    normalthird: thirdbody,
+    normalfour: fourbody,
+    normalfive: fivebody
+  }=req.body;
+
+  const Video ={
+    videofirst: firstbody, 
+    videosecond: secondbody,
+    videothird: thirdbody
+  }=req.body;
 
 
   const obit = await obitRepository.findById(id);
