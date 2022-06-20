@@ -48,7 +48,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  } =req.body;
 
   let secondbody = {
     // imgpath : req.body.imgpath,
@@ -57,7 +57,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  }=req.body;
 
   let thirdbody= {
     // imgpath : req.body.imgpath,
@@ -66,7 +66,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  }=req.body;
 
   let fourbody = {
     // imgpath : req.body.imgpath,
@@ -75,7 +75,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  }=req.body;
 
   let fivebody = {
     // imgpath : req.body.imgpath,
@@ -84,7 +84,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  }=req.body;
 
   const Text ={
     textfirst: firstbody, 
