@@ -72,11 +72,11 @@ export async function updateObit(req, res, next) {
   };
 
   const Text ={
-    textfirst = firstbody, 
-    textsecond = secondbody,
-    textthird = thirdbody,
-    textfour = fourbody,
-    textfive = fivebody
+    textfirst: firstbody, 
+    textsecond: secondbody,
+    textthird: thirdbody,
+    textfour: fourbody,
+    textfive: fivebody
   } =req.body;
 
   const Normal ={
