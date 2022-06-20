@@ -114,14 +114,14 @@ export async function updateObit(req, res, next) {
     defaultcode,
     );
     const saveupdateObit = await obitRepositorySend.save({
-      id,
+      id, 
       Text,
       Normal,
       Video,
       title,
       keyword, 
       timestamp,
-      sendcode, 
+      sendcode,
       defaultcode,
       userId
     });
