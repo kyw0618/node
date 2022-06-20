@@ -50,21 +50,21 @@ export async function updateObit(req, res, next) {
     SendText: req.body, 
     SendNormal: req.body,
      SendVideo: req.body};
-     
+
   const Video ={
     SendText: req.body, 
     SendNormal: req.body,
      SendVideo: req.body};
 
-  const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody};
-  const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody};
-  const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  // const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  // const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  // const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody};
 
-  const firstbody = {imgpath,sensitivity,dataid};
-  const secondbody = {imgpath,sensitivity,dataid};
-  const thirdbody = {imgpath,sensitivity,dataid};
-  const fourbody = {imgpath,sensitivity,dataid};
-  const fivebody = {imgpath,sensitivity,dataid} ;
+  // const firstbody = {imgpath,sensitivity,dataid};
+  // const secondbody = {imgpath,sensitivity,dataid};
+  // const thirdbody = {imgpath,sensitivity,dataid};
+  // const fourbody = {imgpath,sensitivity,dataid};
+  // const fivebody = {imgpath,sensitivity,dataid} ;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
