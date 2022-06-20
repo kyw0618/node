@@ -41,9 +41,20 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
-  const Text ={SendText, SendNormal, SendVideo};
-  const Normal ={SendText, SendNormal, SendVideo};
-  const Video ={SendText, SendNormal, SendVideo};
+  const Text ={
+    SendText: req.body, 
+    SendNormal: req.body,
+     SendVideo: req.body};
+
+  const Normal ={
+    SendText: req.body, 
+    SendNormal: req.body,
+     SendVideo: req.body};
+     
+  const Video ={
+    SendText: req.body, 
+    SendNormal: req.body,
+     SendVideo: req.body};
 
   const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody};
   const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody};
