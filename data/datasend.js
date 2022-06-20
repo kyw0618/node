@@ -2,14 +2,14 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
-  Text: {type: Array, required: true},
-  Normal: {type: Array, required: true},
-  Video: {type: Array, required: true},
-  title: {type: String, required: true},
-  keyword: {type: String, required: true},    
-  timestamp: {type: String, required: true},
-  sendcode: {type: String, required: true}, 
-  defaultcode: {type: String, required: true},
+  Text: {type: Object, required: true},
+  Normal: {type: Object, required: true},
+  Video: {type: Object, required: true},
+  title: {type: Object, required: true},
+  keyword: {type: Object, required: true},    
+  timestamp: {type: Object, required: true},
+  sendcode: {type: Object, required: true}, 
+  defaultcode: {type: Object, required: true},
   userId: {type: String, required: true}
   }, { 
     versionKey: false
