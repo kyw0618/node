@@ -42,29 +42,49 @@ export async function updateObit(req, res, next) {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   const Text ={
-    SendText: req.body, 
-    SendNormal: req.body,
-     SendVideo: req.body};
+    SendText: SendText, 
+    SendNormal: SendNormal,
+     SendVideo: SendVideo};
 
   const Normal ={
-    SendText: req.body, 
-    SendNormal: req.body,
-     SendVideo: req.body};
+    SendText: SendText, 
+    SendNormal: SendNormal,
+     SendVideo: SendVideo};
 
   const Video ={
-    SendText: req.body, 
-    SendNormal: req.body,
-     SendVideo: req.body};
+    SendText: SendText, 
+    SendNormal: SendNormal,
+     SendVideo: SendVideo};
 
-  // const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody};
-  // const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody};
-  // const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  const SendText = {
+    firstbody: firstbody,
+    secondbody: secondbody,
+    thirdbody: thirdbody,
+    fourbody: fourbody,
+    fivebody: fivebody
+  };
+  
+  const SendNormal  = {
+    firstbody: firstbody,
+    secondbody: secondbody,
+    thirdbody: thirdbody,
+    fourbody: fourbody,
+    fivebody: fivebody
+  };
 
-  // const firstbody = {imgpath,sensitivity,dataid};
-  // const secondbody = {imgpath,sensitivity,dataid};
-  // const thirdbody = {imgpath,sensitivity,dataid};
-  // const fourbody = {imgpath,sensitivity,dataid};
-  // const fivebody = {imgpath,sensitivity,dataid} ;
+  const SendVideo = {
+    firstbody: firstbody,
+    secondbody: secondbody,
+    thirdbody: thirdbody,
+    fourbody: fourbody,
+    fivebody: fivebody
+  };
+
+  const firstbody = {imgpath,sensitivity,dataid};
+  const secondbody = {imgpath,sensitivity,dataid};
+  const thirdbody = {imgpath,sensitivity,dataid};
+  const fourbody = {imgpath,sensitivity,dataid};
+  const fivebody = {imgpath,sensitivity,dataid} ;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
