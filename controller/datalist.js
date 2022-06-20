@@ -39,35 +39,21 @@ export async function updateObit(req, res, next) {
   const id = req.query.id;
   const userId = req.userId;
   const {
-    title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid
-  } = req.body;
-  const firstbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
-  const secondbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
-  const thirdbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
-  const fourbody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
-  const fivebody = {imgpath,sendcode,defaultcode,sensitivity,dataid} = req.body;
+    title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid } = req.body;
 
+  // const Text ={SendText, SendNormal, SendVideo};
+  // const Normal ={SendText, SendNormal, SendVideo};
+  // const Video ={SendText, SendNormal, SendVideo};
 
-  const firstList = {
-    firstbody
-  };
+  // const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody}
+  // const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody}
+  // const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody}
 
-
-  const secondList = {
-    secondbody
-  };
-
-  const thirdList = {
-    thirdbody
-  };
-
-  const fourList = {
-    fourbody
-  };
-
-  const fiveList = {
-    fivebody
-  };
+  // const firstbody = {imgpath,sensitivity,dataid} = req.body;
+  // const secondbody = {imgpath,sensitivity,dataid} = req.body;
+  // const thirdbody = {imgpath,sensitivity,dataid} = req.body;
+  // const fourbody = {imgpath,sensitivity,dataid} = req.body;
+  // const fivebody = {imgpath,sensitivity,dataid} = req.body;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
@@ -89,14 +75,16 @@ export async function updateObit(req, res, next) {
     );
     const saveupdateObit = await obitRepositorySend.save({
       id,
+      // Text,
+      // Normal,
+      // Video,
       title,
       keyword, 
       timestamp,
-      firstList,
-      secondList,
-      thirdList,
-      fourList,
-      fiveList,
+      sendcode, 
+      defaultcode,
+      sensitivity,
+      dataid,
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
