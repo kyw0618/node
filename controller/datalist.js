@@ -42,7 +42,7 @@ export async function updateObit(req, res, next) {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   const Text ={
-    textfirst: firstbody, 
+    textfirst: firstbody.body, 
     textsecond: secondbody,
     textthird: thirdbody,
     textfour: fourbody,
