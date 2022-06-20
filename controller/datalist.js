@@ -41,31 +41,31 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
-  const firstbody = {
+  let firstbody = {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
   };
 
-  const secondbody = {
+  let secondbody = {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
   };
 
-  const thirdbody= {
+  let thirdbody= {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
   };
 
-  const fourbody = {
+  let fourbody = {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
   };
 
-  const fivebody = {
+  let fivebody = {
     imgpath : req.body.imgpath,
     sensitivity: req.body.sensitivity,
     dataid: req.body.dataid
@@ -77,7 +77,7 @@ export async function updateObit(req, res, next) {
     textthird: thirdbody,
     textfour: fourbody,
     textfive: fivebody
-  } =req.body;
+  };
 
   const Normal ={
     normalfirst: firstbody, 
@@ -85,13 +85,13 @@ export async function updateObit(req, res, next) {
     normalthird: thirdbody,
     normalfour: fourbody,
     normalfive: fivebody
-  }=req.body;
+  };
 
   const Video ={
     videofirst: firstbody, 
     videosecond: secondbody,
     videothird: thirdbody
-  }=req.body;
+  };
 
 
   const obit = await obitRepository.findById(id);
