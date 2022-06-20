@@ -48,27 +48,27 @@ export async function updateObit(req, res, next) {
   }
 
   let secondbody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    imgpath: req.body,
+    sensitivity: req.body,
+    dataid: req.body
   };
 
   let thirdbody= {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    imgpath: req.body,
+    sensitivity: req.body,
+    dataid: req.body
   };
 
   let fourbody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    imgpath: req.body,
+    sensitivity: req.body,
+    dataid: req.body
   };
 
   let fivebody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    imgpath: req.body,
+    sensitivity: req.body,
+    dataid: req.body
   };
 
   const Text ={
