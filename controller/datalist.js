@@ -45,7 +45,7 @@ export async function updateObit(req, res, next) {
     imgpath,
     sensitivity,
     dataid
-  };
+  } = req.body;
 
   let secondbody = {
     imgpath : req.body.imgpath,
