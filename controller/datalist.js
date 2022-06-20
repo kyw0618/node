@@ -42,33 +42,48 @@ export async function updateObit(req, res, next) {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   let firstbody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    // imgpath : req.body.imgpath,
+    // sensitivity: req.body.sensitivity,
+    // dataid: req.body.dataid
+    imgpath,
+    sensitivity,
+    dataid
   };
 
   let secondbody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    // imgpath : req.body.imgpath,
+    // sensitivity: req.body.sensitivity,
+    // dataid: req.body.dataid
+    imgpath,
+    sensitivity,
+    dataid
   };
 
   let thirdbody= {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    // imgpath : req.body.imgpath,
+    // sensitivity: req.body.sensitivity,
+    // dataid: req.body.dataid
+    imgpath,
+    sensitivity,
+    dataid
   };
 
   let fourbody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    // imgpath : req.body.imgpath,
+    // sensitivity: req.body.sensitivity,
+    // dataid: req.body.dataid
+    imgpath,
+    sensitivity,
+    dataid
   };
 
   let fivebody = {
-    imgpath : req.body.imgpath,
-    sensitivity: req.body.sensitivity,
-    dataid: req.body.dataid
+    // imgpath : req.body.imgpath,
+    // sensitivity: req.body.sensitivity,
+    // dataid: req.body.dataid
+    imgpath,
+    sensitivity,
+    dataid
   };
 
   const Text ={
