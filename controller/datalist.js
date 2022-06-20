@@ -44,17 +44,17 @@ export async function updateObit(req, res, next) {
   const Text ={
     SendText: SendText, 
     SendNormal: SendNormal,
-     SendVideo: SendVideo};
+    SendVideo: SendVideo} = req.body;
 
   const Normal ={
     SendText: SendText, 
     SendNormal: SendNormal,
-     SendVideo: SendVideo};
+    SendVideo: SendVideo }= req.body;
 
   const Video ={
     SendText: SendText, 
     SendNormal: SendNormal,
-     SendVideo: SendVideo};
+     SendVideo: SendVideo} = req.body;
 
   const SendText = {
     firstbody: firstbody,
@@ -63,7 +63,7 @@ export async function updateObit(req, res, next) {
     fourbody: fourbody,
     fivebody: fivebody
   };
-  
+
   const SendNormal  = {
     firstbody: firstbody,
     secondbody: secondbody,
