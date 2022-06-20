@@ -47,7 +47,7 @@ export async function updateObit(req, res, next) {
     textthird: thirdbody,
     textfour: fourbody,
     textfive: fivebody
-  };
+  } =req.body;
 
   const Normal ={
     normalfirst: firstbody, 
@@ -55,13 +55,13 @@ export async function updateObit(req, res, next) {
     normalthird: thirdbody,
     normalfour: fourbody,
     normalfive: fivebody
-  };
+  }=req.body;
 
   const Video ={
     videofirst: firstbody, 
     videosecond: secondbody,
     videothird: thirdbody
-  };
+  }=req.body;
 
   const firstbody = {
     imgpath : req.body.imgpath,
