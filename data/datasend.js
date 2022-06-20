@@ -2,14 +2,14 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
-  Text: {type: Object, required: true},
-  Normal: {type: Object, required: true},
+  TextImg: {type: Object, required: true},
+  NorImg: {type: Object, required: true},
   Video: {type: Object, required: true},
-  title: {type: Object, required: true},
-  keyword: {type: Object, required: true},    
-  timestamp: {type: Object, required: true},
-  sendcode: {type: Object, required: true}, 
-  defaultcode: {type: Object, required: true},
+  title: {type: String, required: true},
+  keyword: {type: String, required: true},    
+  timestamp: {type: String, required: true},
+  sendcode: {type: String, required: true}, 
+  defaultcode: {type: String, required: true},
   userId: {type: String, required: true}
   }, { 
     versionKey: false
@@ -42,26 +42,26 @@ const datasend = new Mongoose.Schema( {
   }
   
   export async function update( 
-    id,
-    Text,
-    Normal,
+    id, 
+    TextImg,
+    NorImg,
     Video,
     title,
     keyword, 
     timestamp,
-    sendcode, 
+    sendcode,
     defaultcode,
     userId
     ) {
     return DataSend.findByIdAndUpdate(id, {
-      id,
-      Text,
-      Normal,
+      id, 
+      TextImg,
+      NorImg,
       Video,
       title,
       keyword, 
       timestamp,
-      sendcode, 
+      sendcode,
       defaultcode,
       userId
     }, 

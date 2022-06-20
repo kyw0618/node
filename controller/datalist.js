@@ -41,58 +41,6 @@ export async function updateObit(req, res, next) {
   const {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
-  let firstbody = {
-    imgpath: req.body,
-    sensitivity: req.body,
-    dataid: req.body
-  }
-
-  let secondbody = {
-    imgpath: req.body,
-    sensitivity: req.body,
-    dataid: req.body
-  };
-
-  let thirdbody= {
-    imgpath: req.body,
-    sensitivity: req.body,
-    dataid: req.body
-  };
-
-  let fourbody = {
-    imgpath: req.body,
-    sensitivity: req.body,
-    dataid: req.body
-  };
-
-  let fivebody = {
-    imgpath: req.body,
-    sensitivity: req.body,
-    dataid: req.body
-  };
-
-  const Text ={
-    textfirst: firstbody, 
-    textsecond: secondbody,
-    textthird: thirdbody,
-    textfour: fourbody,
-    textfive: fivebody
-  };
-
-  const Normal ={
-    normalfirst: firstbody, 
-    normalsecond: secondbody,
-    normalthird: thirdbody,
-    normalfour: fourbody,
-    normalfive: fivebody
-  };
-
-  const Video ={
-    videofirst: firstbody, 
-    videosecond: secondbody,
-    videothird: thirdbody
-  };
-
   const obit = await obitRepository.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
@@ -101,10 +49,32 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
+  const TextImg = {
+    firstText: req.body.firstTextImg,
+    secondText: req.body.secondText,
+    thirdText: req.body.thirdText,
+    fourText: req.body.fourText,
+    fiveText: req.body.fiveText
+  };
+
+  const NorImg = {
+    firstNor: req.body.firstNor,
+    secondNor: req.body.secondNor,
+    thirdNor: req.body.thirdNor,
+    fourNor: req.body.fourNor,
+    fiveNor: req.body.fiveNor
+  };
+
+  const Video = {
+    firstVideo: req.body.firstVideo,
+    secondVideo: req.body.secondVideo,
+    thirdVideo: req.body.thirdVideo
+  };
+
   const updatedObit = await obitRepository.update(
     id, 
-    Text,
-    Normal,
+    TextImg,
+    NorImg,
     Video,
     title,
     keyword, 
@@ -114,8 +84,8 @@ export async function updateObit(req, res, next) {
     );
     const saveupdateObit = await obitRepositorySend.save({
       id, 
-      Text,
-      Normal,
+      TextImg,
+      NorImg,
       Video,
       title,
       keyword, 
