@@ -80,11 +80,11 @@ export async function updateObit(req, res, next) {
     fivebody: fivebody
   };
 
-  const firstbody = {imgpath,sensitivity,dataid};
-  const secondbody = {imgpath,sensitivity,dataid};
-  const thirdbody = {imgpath,sensitivity,dataid};
-  const fourbody = {imgpath,sensitivity,dataid};
-  const fivebody = {imgpath,sensitivity,dataid} ;
+  // const firstbody = {imgpath,sensitivity,dataid};
+  // const secondbody = {imgpath,sensitivity,dataid};
+  // const thirdbody = {imgpath,sensitivity,dataid};
+  // const fourbody = {imgpath,sensitivity,dataid};
+  // const fivebody = {imgpath,sensitivity,dataid} ;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
