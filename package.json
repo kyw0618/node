@@ -26,7 +26,8 @@
     "python-shell": "^3.0.1",
     "request": "^2.88.2",
     "requst": "^0.0.1-security",
-    "sharp": "^0.30.4"
+    "sharp": "^0.30.4",
+    "tesseract.js": "^2.1.5"
   },
   "repository": {
     "type": "git",
