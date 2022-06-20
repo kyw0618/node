@@ -42,10 +42,10 @@ export async function updateObit(req, res, next) {
     title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   let firstbody = {
-    imgpath,
-    sensitivity,
-    dataid
-  } = req.body;
+    imgpath: req.body,
+    sensitivity: req.body,
+    dataid: req.body
+  }
 
   let secondbody = {
     imgpath : req.body.imgpath,
