@@ -2,9 +2,11 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
-  TextImg: {type: Object, required: true},
-  NorImg: {type: Object, required: true},
-  Video: {type: Object, required: true},
+  firstText: {type: Object, required: true},
+  secondText: {type: Object, required: true},
+  thirdText: {type: Object, required: true},   
+  fourText: {type: Object, required: true},
+  fiveText: {type: Object, required: true},
   title: {type: String, required: true},
   keyword: {type: String, required: true},    
   timestamp: {type: String, required: true},
@@ -43,9 +45,11 @@ const datasend = new Mongoose.Schema( {
   
   export async function update( 
     id, 
-    TextImg,
-    NorImg,
-    Video,
+    firstText,
+    secondText,
+    thirdText,
+    fourText,
+    fiveText,
     title,
     keyword, 
     timestamp,
@@ -55,9 +59,11 @@ const datasend = new Mongoose.Schema( {
     ) {
     return DataSend.findByIdAndUpdate(id, {
       id, 
-      TextImg,
-      NorImg,
-      Video,
+      firstText,
+      secondText,
+      thirdText,
+      fourText,
+      fiveText,
       title,
       keyword, 
       timestamp,

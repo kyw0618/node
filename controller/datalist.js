@@ -49,33 +49,39 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const TextImg = {
-    firstText: req.body.firstTextImg,
-    secondText: req.body.secondText,
-    thirdText: req.body.thirdText,
-    fourText: req.body.fourText,
-    fiveText: req.body.fiveText
+  const firstText = {
+    image: req.body.firstimage,
+    sensitivity: req.body.firstsensitivity,
+    dataid: req.body.firstdataid
   };
-
-  const NorImg = {
-    firstNor: req.body.firstNor,
-    secondNor: req.body.secondNor,
-    thirdNor: req.body.thirdNor,
-    fourNor: req.body.fourNor,
-    fiveNor: req.body.fiveNor
+  const secondText = {
+    image: req.body.twoimage,
+    sensitivity: req.body.twosensitivity,
+    dataid: req.body.twodataid
   };
-
-  const Video = {
-    firstVideo: req.body.firstVideo,
-    secondVideo: req.body.secondVideo,
-    thirdVideo: req.body.thirdVideo
+  const thirdText = {
+    image: req.body.thirdimage,
+    sensitivity: req.body.thirdsensitivity,
+    dataid: req.body.thirddataid
+  };
+  const fourText = {
+    image: req.body.fourimage,
+    sensitivity: req.body.foursensitivity,
+    dataid: req.body.fourdataid
+  };
+  const fiveText = {
+    image: req.body.fiveimage,
+    sensitivity: req.body.fivesensitivity,
+    dataid: req.body.fivedataid
   };
 
   const updatedObit = await obitRepository.update(
     id, 
-    TextImg,
-    NorImg,
-    Video,
+    firstText,
+    secondText,
+    thirdText,
+    fourText,
+    fiveText,
     title,
     keyword, 
     timestamp,
@@ -84,9 +90,11 @@ export async function updateObit(req, res, next) {
     );
     const saveupdateObit = await obitRepositorySend.save({
       id, 
-      TextImg,
-      NorImg,
-      Video,
+      firstText,
+      secondText,
+      thirdText,
+      fourText,
+      fiveText,
       title,
       keyword, 
       timestamp,
