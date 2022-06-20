@@ -2,9 +2,9 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
-  Text: {type: Array},
-  Normal: {type: Array},
-  Video: {type: Array},
+  Text: {type: Object},
+  Normal: {type: Object},
+  Video: {type: Object},
   title: {type: String},
   keyword: {type: String},    
   timestamp: {type: String},

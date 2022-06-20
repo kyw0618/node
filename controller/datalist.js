@@ -39,21 +39,21 @@ export async function updateObit(req, res, next) {
   const id = req.query.id;
   const userId = req.userId;
   const {
-    title, keyword, timestamp, sendcode, defaultcode, sensitivity, dataid } = req.body;
+    title, keyword, timestamp, sendcode, defaultcode } = req.body;
 
   const Text ={SendText, SendNormal, SendVideo};
   const Normal ={SendText, SendNormal, SendVideo};
   const Video ={SendText, SendNormal, SendVideo};
 
-  const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody}
-  const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody}
-  const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody}
+  const SendText = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  const SendNormal = {firstbody,secondbody,thirdbody,fourbody,fivebody};
+  const SendVideo = {firstbody,secondbody,thirdbody,fourbody,fivebody};
 
-  const firstbody = {imgpath,sensitivity,dataid} = req.body;
-  const secondbody = {imgpath,sensitivity,dataid} = req.body;
-  const thirdbody = {imgpath,sensitivity,dataid} = req.body;
-  const fourbody = {imgpath,sensitivity,dataid} = req.body;
-  const fivebody = {imgpath,sensitivity,dataid} = req.body;
+  const firstbody = {imgpath,sensitivity,dataid};
+  const secondbody = {imgpath,sensitivity,dataid};
+  const thirdbody = {imgpath,sensitivity,dataid};
+  const fourbody = {imgpath,sensitivity,dataid};
+  const fivebody = {imgpath,sensitivity,dataid} ;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
@@ -73,8 +73,6 @@ export async function updateObit(req, res, next) {
     timestamp,
     sendcode,
     defaultcode,
-    sensitivity,
-    dataid
     );
     const saveupdateObit = await obitRepositorySend.save({
       id,
