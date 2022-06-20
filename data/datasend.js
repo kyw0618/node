@@ -5,7 +5,7 @@ const datasend = new Mongoose.Schema( {
   Text: {type: Object},
   Normal: {type: Object},
   Video: {type: Object},
-  title: {type: String},
+  title: {type: Object},
   keyword: {type: String},    
   timestamp: {type: String},
   sendcode: {type: String}, 
