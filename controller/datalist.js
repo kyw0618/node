@@ -56,29 +56,29 @@ export async function updateObit(req, res, next) {
     SendNormal: req.body.SendNormal,
     SendVideo: req.body.SendVideo};
 
-  const SendText = {
-    firstbody: firstbody,
-    secondbody: secondbody,
-    thirdbody: thirdbody,
-    fourbody: fourbody,
-    fivebody: fivebody
-  };
+  // const SendText = {
+  //   firstbody: firstbody,
+  //   secondbody: secondbody,
+  //   thirdbody: thirdbody,
+  //   fourbody: fourbody,
+  //   fivebody: fivebody
+  // };
 
-  const SendNormal  = {
-    firstbody: firstbody,
-    secondbody: secondbody,
-    thirdbody: thirdbody,
-    fourbody: fourbody,
-    fivebody: fivebody
-  };
+  // const SendNormal  = {
+  //   firstbody: firstbody,
+  //   secondbody: secondbody,
+  //   thirdbody: thirdbody,
+  //   fourbody: fourbody,
+  //   fivebody: fivebody
+  // };
 
-  const SendVideo = {
-    firstbody: firstbody,
-    secondbody: secondbody,
-    thirdbody: thirdbody,
-    fourbody: fourbody,
-    fivebody: fivebody
-  };
+  // const SendVideo = {
+  //   firstbody: firstbody,
+  //   secondbody: secondbody,
+  //   thirdbody: thirdbody,
+  //   fourbody: fourbody,
+  //   fivebody: fivebody
+  // };
 
   // const firstbody = {imgpath,sensitivity,dataid};
   // const secondbody = {imgpath,sensitivity,dataid};
