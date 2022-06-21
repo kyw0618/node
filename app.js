@@ -8,12 +8,14 @@ import userRouter from './router/auth.js';
 import obituaryRouter from './router/datalist.js';
 import sendRouter from './router/datasend.js';
 import centerRouter from './router/serviceCenter.js';
+import sendOcrRouter from './router/dataocr.js';
 
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
-app.set('view engine','ejs');  
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(morgan('tiny'));
 
 app.use('/v1/app', appRouter);
@@ -21,7 +23,7 @@ app.use('/v1/user', userRouter);
 app.use('/v1/datalist', obituaryRouter);
 app.use('/v1/datasend', sendRouter);
 app.use('/v1/center', centerRouter);
-
+app.use('v1/dataocr', sendOcrRouter)
 
 app.use((req, res, next) => {
   res.sendStatus(404);
