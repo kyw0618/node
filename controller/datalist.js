@@ -71,7 +71,6 @@ export async function updateObit(req, res, next) {
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
-
 }
 
 ////////////////////////////////////////////////////////////////////

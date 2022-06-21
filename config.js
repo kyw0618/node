@@ -16,6 +16,11 @@ export const config = {
     serviceId: process.env.SERVICE_ID,
     fromNumber: process.env.SMS_FROM
   },
+
+  ocr: {
+    ocrurl:  process.env.OCR_URL
+  },
+  
   port: parseInt(process.env.HOST_PORT),
   adminId: process.env.ADMIN_ID
 
