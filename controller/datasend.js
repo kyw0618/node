@@ -2,6 +2,7 @@ import * as obitRepository from '../data/datasend.js';
 import { config } from '../config.js';
 import { request } from 'express';
 
+
 export async function createObituary(req, res) { 
     const {title, keyword,timestamp,defaultcode,
       sensitivity,sendcode,dataid} = req.body;
@@ -67,59 +68,5 @@ export async function createObituary(req, res) {
       : obitRepository.getAllObituary());
     
     res.status(200).json({"status": "200", result});
-  }
-
-  export async function sendOCR (req,res) {
-    // const {version, requestId, timestamp, lang} = req.body;
-    // const images = {
-    //   format: req.body.format,
-    //   name: req.body.name,
-    //   url: req.body.url
-    // };
-    // const userId = req.userId;
-    // try {
-    //   var naverOCR = await obitRepository.save({
-    //     version, 
-    //     requestId, 
-    //     timestamp, 
-    //     lang,
-    //     images,
-    //     userId
-    //   });
-    // } catch (error) {
-    //   return res.status(400).json({"status" : "400"});
-    // }
-    
-    // res.status(201).json({"status": "201", naverOCR});
-    send_ocr();
-    res.status(201).json({"status": "201"});
-  }
-
-  function send_ocr() {
-    var resultCode = 405;
-    const method = "POST";
-    const url = config.ocr.ocrurl;
-    request( {
-      method: method,
-      json: true,
-      uri: url,
-      body: {
-        version: "V2",
-        requestId: "string",
-        timestamp: "0",
-        lang: "ko",
-        images: [{
-          format: "png",
-          name: "test 1",
-          url: "http://49.50.161.198:8080/v1/datalist/datalist?textimg=1655700097940_20220216_140748.jpg",
-        }]
-      },
-    },
-    function (err, res, html) {
-      if (err) console.log(err);
-      else { resultCode = 200; console.log(html); }
-    }
-    );
-    return resultCode;
   }
   
