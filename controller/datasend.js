@@ -39,6 +39,8 @@ export async function createObituary(req, res) {
     await obitRepository.remove(id);
     res.status(204).json(({"status":"204"}))
   }
+
+  
   
   ////////////////////////////////////////////////////////////////////
   //판매 데이터 조회
@@ -89,8 +91,8 @@ export async function createObituary(req, res) {
     // }
     
     // res.status(201).json({"status": "201", naverOCR});
-    const imageurl = req.query.ocrImg;
-    send_ocr(imageurl);
+    const imageUrl = req.query.ocrImg;
+    send_ocr(imageUrl);
     res.status(201).json({"status": "201"});
   }
 
