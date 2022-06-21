@@ -104,7 +104,7 @@ export async function createObituary(req, res) {
     } catch {
       return res.status(404).json({"status": "404"}); 
     }
-    var resultCode = 404;
+    var resultCode = 401;
     const method = "POST";
     const url = config.ocr.ocrurl;
     request( {
@@ -114,7 +114,7 @@ export async function createObituary(req, res) {
       body: {
         version: "V2",
         requestId: "string",
-        timestamp: "string",
+        timestamp: "0",
         lang: "ko",
         images: [{
           format: "png",
