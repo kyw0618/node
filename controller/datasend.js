@@ -97,12 +97,10 @@ export async function createObituary(req, res) {
   }
 
   function send_ocr(imageUrl) {
-    var OcrImg = imageUrl
-    var user_image_url = (`/root/Server/node/TextUploads/${OcrImg}`);
+    var TextImg = imageUrl
+    var user_image_url = (`/root/Server/node/TextUploads/${TextImg}`);
     var resultCode = 404;
     const method = "POST";
-    const space = " ";
-    const newLine = "\n";
     const url = config.ocr.ocrurl;
     request( {
       method: method,
