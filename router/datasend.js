@@ -19,6 +19,6 @@ router.get('/my', isAuth, obitController.getMyObituary);
 router.get('/:id', isAuth, obitController.getOneObituary);
 
 //네이버 OCR 추출
-router.post('/',isAuth, obitController.sendOCR )
+router.post('/', isAuth, obitController.sendOCR )
 
 export default router;

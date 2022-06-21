@@ -91,7 +91,7 @@ export async function createObituary(req, res) {
     // }
     
     // res.status(201).json({"status": "201", naverOCR});
-    const imageUrl = req.query.ocrImg;
+    const imageUrl = req.query.textimg;
     send_ocr(imageUrl);
     res.status(201).json({"status": "201"});
   }
@@ -119,7 +119,7 @@ export async function createObituary(req, res) {
         images: [{
           format: "png",
           name: "test 1",
-          url: filepath,
+          url: "http://49.50.161.198:8080/v1/datalist/datalist?textimg=1655700097940_20220216_140748.jpg",
         }]
       },
     },
