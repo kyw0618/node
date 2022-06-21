@@ -1,5 +1,5 @@
 import * as obitRepository from '../data/datalist.js';
-import * as obitRepositorySend from '../data/datasend.js'
+import * as obitRepositorySend from '../data/datasend.js';
 import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
