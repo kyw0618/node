@@ -91,19 +91,11 @@ export async function createObituary(req, res) {
     // }
     
     // res.status(201).json({"status": "201", naverOCR});
-    const imageUrl = req.query.textimg;
-    send_ocr(imageUrl);
+    send_ocr();
     res.status(201).json({"status": "201"});
   }
 
-  function send_ocr(imageUrl) {
-    var TextImg = imageUrl
-    let filepath;
-    try {
-      filepath = (`/root/Server/node/TextUploads/${TextImg}`);
-    } catch {
-      return res.status(404).json({"status": "404"}); 
-    }
+  function send_ocr() {
     var resultCode = 405;
     const method = "POST";
     const url = config.ocr.ocrurl;
