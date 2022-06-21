@@ -39,7 +39,7 @@ export async function updateObit(req, res, next) {
   const id = req.query.id;
   const userId = req.userId;
   const {
-    title, keyword, timestamp, sendcode, defaultcode } = req.body;
+    title, keyword, timestamp, sendcode, sensitivity, dataid, defaultcode } = req.body;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
@@ -49,56 +49,24 @@ export async function updateObit(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const firstText = {
-    image: req.body.firstimage,
-    sensitivity: req.body.firstsensitivity,
-    dataid: req.body.firstdataid
-  };
-  const secondText = {
-    image: req.body.twoimage,
-    sensitivity: req.body.twosensitivity,
-    dataid: req.body.twodataid
-  };
-  const thirdText = {
-    image: req.body.thirdimage,
-    sensitivity: req.body.thirdsensitivity,
-    dataid: req.body.thirddataid
-  };
-  const fourText = {
-    image: req.body.fourimage,
-    sensitivity: req.body.foursensitivity,
-    dataid: req.body.fourdataid
-  };
-  const fiveText = {
-    image: req.body.fiveimage,
-    sensitivity: req.body.fivesensitivity,
-    dataid: req.body.fivedataid
-  };
-
   const updatedObit = await obitRepository.update(
     id, 
-    firstText,
-    secondText,
-    thirdText,
-    fourText,
-    fiveText,
     title,
     keyword, 
     timestamp,
     sendcode,
+    sensitivity,
+    dataid,
     defaultcode,
     );
     const saveupdateObit = await obitRepositorySend.save({
       id, 
-      firstText,
-      secondText,
-      thirdText,
-      fourText,
-      fiveText,
       title,
       keyword, 
       timestamp,
       sendcode,
+      sensitivity,
+      dataid,
       defaultcode,
       userId
     });
