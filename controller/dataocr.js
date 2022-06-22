@@ -11,4 +11,4 @@ export async function createObituary(req, res) {
     res.status(201).json({"status": "201",dataocr});
     console.log(req.body);
 
-  } 
+  }
