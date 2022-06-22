@@ -2,7 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const dataocr = new Mongoose.Schema( {
-  version: {type: Array},
+  ocr: {type: Array},
   userId: {type: String}
   }, { 
     versionKey: false
@@ -36,17 +36,11 @@ const dataocr = new Mongoose.Schema( {
   
   export async function update( 
     id, 
-    version,
-    requestId,
-    timestamp, 
-    images,
+    ocr
     ) {
     return DataOcr.findByIdAndUpdate(
       id, {
-        version,
-        requestId,
-        timestamp, 
-        images,
+        ocr
       }, 
       {
         returnOriginal: false}
