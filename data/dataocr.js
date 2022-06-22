@@ -2,10 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const dataocr = new Mongoose.Schema( {
-  version: {type: String},
-  requestId: {type: String},
-  timestamp: {type: String}, 
-  images: {type: Array},
+  version: {type: Buffer},
   userId: {type: String}
   }, { 
     versionKey: false
