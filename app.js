@@ -21,7 +21,7 @@ app.use('/v1/user', userRouter);
 app.use('/v1/datalist', obituaryRouter);
 app.use('/v1/datasend', sendRouter);
 app.use('/v1/center', centerRouter);
-app.use('v1/dataocr', sendOcrRouter)
+app.use('/v1/dataocr', sendOcrRouter)
 
 app.use((req, res, next) => {
   res.sendStatus(404);
