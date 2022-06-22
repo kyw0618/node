@@ -1,7 +1,7 @@
 import * as obitRepository from '../data/dataocr.js';
 
 export async function createObituary(req, res) { 
-    const {version} = req.body.json;
+    const {version} = req.body;
     const userId = req.userId;
   
     const dataocr = await obitRepository.save({
