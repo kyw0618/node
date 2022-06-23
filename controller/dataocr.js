@@ -74,7 +74,8 @@ export async function createObituary(req, res) {
           if (k != 0) doc.addPage();
   
           //Date
-          doc.fontSize(footerSize1).text(`${Y}년 ${M + 1}월 ${D}일`, A4_X - 180, marginY - 40, { align: "center" });
+          doc.fontSize(footerSize1).text(`${Y}년 ${M + 1}월 ${D}일`, A4_X - 180, marginY - 40, 
+          { align: "center" });
   
           //Header
           doc.underline(marginX, tableTopY, marginX2, 3, { color: "#000" });
@@ -143,6 +144,5 @@ export async function createObituary(req, res) {
   
       doc.end();
   }
-  res.status(201).json({"status": "201",makdPDF});
-  console.log(req.body);
+  res.status(201).json({"status": "201",makdPDF,dataocr});
 }
