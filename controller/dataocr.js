@@ -1,9 +1,9 @@
 import * as obitRepository from '../data/dataocr.js';
+import PDFDocument from 'pdfkit';
 
 export async function createObituary(req, res) { 
     const {ocr} = req.body;
     const userId = req.userId;
-    const PDFDocument = require('pdfkit');
 
     const dataocr = await obitRepository.save({
       ocr,
