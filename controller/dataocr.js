@@ -33,7 +33,7 @@ export async function createObituary(req, res) {
       doc.page.margins.right = 0;
   
       // 파일 저장 경로
-      const verifyFilePath = `savepdf/${sessionid}.pdf`;
+      const verifyFilePath = `/root/Server/node/save/${sessionid}.pdf`;
   
       //파일 존재하면 삭제
       if (fs.existsSync(verifyFilePath)) {
