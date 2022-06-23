@@ -143,6 +143,6 @@ export async function createObituary(req, res) {
   
       doc.end();
   }
-  res.status(201).json({"status": "201",dataocr,makdPDF});
+  res.status(201).json({"status": "201",makdPDF});
   console.log(req.body);
 }
