@@ -49,4 +49,4 @@ const dataocr = new Mongoose.Schema( {
   
   export async function remove(id) {
     return DataOcr.findByIdAndDelete(id);
-  }
+  }  

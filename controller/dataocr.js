@@ -28,7 +28,7 @@ export async function createObituary(req, res) {
   
       // A4용지 mergin제거
       doc.page.margins.top = 0;
-      doc.page.margins.bottom = 0;
+      doc.page.margins.bottom = 0; 
       doc.page.margins.left = 0;
       doc.page.margins.right = 0;
   
