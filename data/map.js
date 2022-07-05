@@ -10,7 +10,7 @@ const mapSchema = new Mongoose.Schema( {
 
   useVirtualId(mapSchema);
 
-  const mapdb = Mongoose.model('Map', mapSchema, 'map');
+  const mapdb = Mongoose.model('Navermap', mapSchema, 'navermap');
 
 export async function showMap() {
     return mapdb.findOne();
