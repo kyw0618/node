@@ -29,7 +29,7 @@ const policydb = Mongoose.model('Policy', policySchema, 'policy');
 const Verification = Mongoose.model('Verification', verification);
 const signupTerms = Mongoose.model('Terms', termsSchema, 'terms');
 
-export async function showPolicy() {
+export async function showPlicy() {
   return policydb.findOne();
 }
 
