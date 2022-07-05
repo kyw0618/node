@@ -1,4 +1,5 @@
 import Mongoose from 'mongoose';
+import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
     map: {type: Array},
