@@ -35,7 +35,8 @@ export async function createDocument(req, res) {
         username,
         usernumber,
         usercall,
-        userreqdocument
+        userreqdocument,
+        imgUrl
      } = req.body;
   
     const obit = await documentRepository.findById(id);
@@ -54,7 +55,8 @@ export async function createDocument(req, res) {
       username,
       usernumber,
       usercall,
-      userreqdocument
+      userreqdocument,
+      imgUrl
       );
     res.status(200).json({"status": "200", updatedObit});
   }

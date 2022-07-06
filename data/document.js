@@ -8,7 +8,8 @@ const documentList = new Mongoose.Schema( {
     username: {type: String},
     usernumber: {type: String},
     usercall: {type: String},
-    userreqdocument: {type: String}
+    userreqdocument: {type: String},
+    imgUrl: {type: String}
   }, { 
     versionKey: false
   });
@@ -47,7 +48,8 @@ const documentList = new Mongoose.Schema( {
     username,
     usernumber,
     usercall,
-    userreqdocument
+    userreqdocument,
+    imgUrl
     ) {
     return DocumentList.findByIdAndUpdate(
       id, {
@@ -57,7 +59,8 @@ const documentList = new Mongoose.Schema( {
         username,
         usernumber,
         usercall,
-        userreqdocument
+        userreqdocument,
+        imgUrl
       }, 
       {
         returnOriginal: false
