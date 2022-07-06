@@ -9,6 +9,7 @@ import obituaryRouter from './router/datalist.js';
 import sendRouter from './router/datasend.js';
 import centerRouter from './router/serviceCenter.js';
 import mapRouter from './router/map.js';
+import documentRouter from './router/document.js';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/v1/datalist', obituaryRouter);
 app.use('/v1/datasend', sendRouter);
 app.use('/v1/center', centerRouter);
 app.use('/v1/map', mapRouter);
+app.use('/v1/document', documentRouter);
 
 app.use((req, res, next) => {
   res.sendStatus(404);
