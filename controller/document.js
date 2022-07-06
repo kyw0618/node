@@ -9,7 +9,9 @@ export async function createDocument(req, res) {
         username,
         usernumber,
         usercall,
-        userreqdocument
+        userreqdocument,
+        imgUrl,
+        timestamp
         } = req.body;
     const userId = req.userId;
   
@@ -21,6 +23,8 @@ export async function createDocument(req, res) {
         usernumber,
         usercall,
         userreqdocument,
+        imgUrl,
+        timestamp,
         userId
     });
     res.status(201).json({"status": "201", documentList});
@@ -36,7 +40,8 @@ export async function createDocument(req, res) {
         usernumber,
         usercall,
         userreqdocument,
-        imgUrl
+        imgUrl,
+        timestamp
      } = req.body;
   
     const obit = await documentRepository.findById(id);
@@ -56,7 +61,8 @@ export async function createDocument(req, res) {
       usernumber,
       usercall,
       userreqdocument,
-      imgUrl
+      imgUrl,
+      timestamp
       );
     res.status(200).json({"status": "200", updatedObit});
   }
