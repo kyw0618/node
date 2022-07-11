@@ -75,7 +75,7 @@ export async function createDocument(req, res) {
       userreqdocument,
       imgUrl,
       timestamp
-      );
+      );  
     res.status(200).json({"status": "200", updatedObit});
   }
 
