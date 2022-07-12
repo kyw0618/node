@@ -3,9 +3,9 @@ import {useVirtualId} from '../db/db.js';
 
 const feelList = new Mongoose.Schema( {
     title: {type: String}, 
-    feeling: {type: Int32Array},
+    feeling: {type: Number},
     timestamp: {type: String},
-    background: {type: Int32Array},
+    background: {type: Number},
     jurnalId: {type: String},
     devideId: {type: String},
     userId: {type: String}
