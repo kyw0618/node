@@ -70,8 +70,8 @@ export async function createObituary(req, res) {
   ////////////////////////////////////////////////////////////////////
   //데이터 조회
   export async function getMyObituary(req, res) {
-    const datalist = await createCalendar.findMyObituary(req.userId);
-    res.status(200).json({"status": "200", datalist});
+    const calendarList = await createCalendar.findMyObituary(req.userId);
+    res.status(200).json({"status": "200", calendarList});
   }
   
   
