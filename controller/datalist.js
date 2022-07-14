@@ -74,7 +74,7 @@ export async function updateObit(req, res, next) {
 }
 
 ////////////////////////////////////////////////////////////////////
-//데이터 삭제
+//데이터 삭제  
 export async function removeObit(req, res, next) {
   const id = req.query.id; 
   const obit = await obitRepository.findById(id);
@@ -106,7 +106,7 @@ export async function getOneObituary(req, res) {
 
 }
 
-//데이터 검색
+//데이터 검색  
 export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
