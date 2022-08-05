@@ -4,7 +4,7 @@ import {useVirtualId} from '../db/db.js';
 const dataList = new Mongoose.Schema( {
   DataList: {type: Array},
   title: {type: String},
-  keyword: {type: Array},
+  keyword: {type: String},
   timestamp: {type: String},
   sendcode: {type: String},
   defaultcode: {type: String},
