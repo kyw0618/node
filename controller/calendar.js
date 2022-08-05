@@ -25,6 +25,8 @@ export async function createObituary(req, res) {
 
   export async function updateObit(req, res, next) {
     const id = req.query.id;
+
+    
     const {
         title, 
         feeling,
@@ -58,7 +60,7 @@ export async function createObituary(req, res) {
     const obit = await createCalendar.findById(id);
     if(!obit) {
       return res.status(404).json({"status":"404"});
-    }
+    }  
     if(obit.userId !== req.userId && config.adminId !== req.userId) {
       return res.status(403).json({"status": "403"});  
     }

@@ -4,7 +4,7 @@ import {useVirtualId} from '../db/db.js';
 const dataList = new Mongoose.Schema( {
   DataList: {type: Array},
   title: {type: String},
-  keyword: {type: String},
+  keyword: {type: Array},
   timestamp: {type: String},
   sendcode: {type: String},
   defaultcode: {type: String},
@@ -17,7 +17,7 @@ const dataList = new Mongoose.Schema( {
 useVirtualId(dataList);
 
 const DataList = Mongoose.model('DataList', dataList);
-
+  
 export async function getAllObituary() {
   return DataList.find().sort({ createdAt: -1});
 }

@@ -18,7 +18,7 @@ export async function createObituary(req, res) {
     userId
   });
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
-} 
+}   
 
 ////////////////////////////////////////////////////////////////////
 //이미지 다운로드
@@ -95,7 +95,6 @@ export async function getMyObituary(req, res) {
   const datalist = await obitRepository.findMyObituary(req.userId);
   res.status(200).json({"status": "200", datalist});
 }
-
 
 export async function getOneObituary(req, res) {
   const obId = req.params.id;
