@@ -4,7 +4,17 @@ import { config } from '../config.js';
 
 export async function createObituary(req, res) { 
   const DataList = req.files;
-  const {title, keyword,timestamp,sendcode,defaultcode,sensitivity} = req.body;
+  const {    
+    title,
+    keyword,
+    timestamp,
+    sendcode,
+    defaultcode,
+    sensitivity,
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore,} = req.body;
   const userId = req.userId;
 
   const dataList = await obitRepository.save({
@@ -15,6 +25,10 @@ export async function createObituary(req, res) {
     sendcode,
     defaultcode,
     sensitivity,
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore,
     userId
   });
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
@@ -39,7 +53,16 @@ export async function updateObit(req, res, next) {
   const id = req.query.id;
   const userId = req.userId;
   const {
-    title, keyword, timestamp, sendcode, sensitivity, dataid, defaultcode } = req.body;
+    title,
+    keyword,
+    timestamp,
+    sendcode,
+    defaultcode,
+    sensitivity,
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore, } = req.body;
 
   const obit = await obitRepository.findById(id);
   if(!obit) {
@@ -52,22 +75,28 @@ export async function updateObit(req, res, next) {
   const updatedObit = await obitRepository.update(
     id, 
     title,
-    keyword, 
+    keyword,
     timestamp,
     sendcode,
-    sensitivity,
-    dataid,
     defaultcode,
+    sensitivity,
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore,
     );
     const saveupdateObit = await obitRepositorySend.save({
       id, 
       title,
-      keyword, 
+      keyword,
       timestamp,
       sendcode,
-      sensitivity,
-      dataid,
       defaultcode,
+      sensitivity,
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore,
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
