@@ -9,6 +9,7 @@ const dataList = new Mongoose.Schema( {
   sendcode: {type: String},
   defaultcode: {type: String},
   sensitivity: {type: String},
+  keywordscore: {type: String},
   userId: {type: String}
 }, { 
   versionKey: false
@@ -48,6 +49,7 @@ export async function update(
   sendcode,
   defaultcode,
   sensitivity,
+  keywordscore
   ) {
   return DataList.findByIdAndUpdate(
     id, {
@@ -57,6 +59,7 @@ export async function update(
       sendcode,
       defaultcode,
       sensitivity,
+      keywordscore
     }, 
     {
       returnOriginal: false}

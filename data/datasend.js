@@ -8,7 +8,7 @@ const datasend = new Mongoose.Schema( {
   defaultcode: {type: String},
   sensitivity: {type: Object},
   sendcode: {type: String}, 
-  dataid: {type: Object},
+  dataid: {type: String},
   pickscore:{type: String},
   videoscore: {type: String},
   keywordscore: {type: String},
