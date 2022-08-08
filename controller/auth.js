@@ -228,38 +228,3 @@ function send_message(userPhone, authNumber) {
     : authRepository.findAllUser());
   res.status(200).json({"status": "200", result});
 }
-
-// 데이터 수정
-export async function updateObit(req, res, next) {
-  const id = req.query.id;
-  const userId = req.userId;
-  const {
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore
-   } = req.body;
-
-  const obit = await obitRepository.findById(id);
-  if(!obit) {
-    return res.status(404).json({"status":"404"});
-  }
-  if(obit.userId !== req.userId && config.adminId !== req.userId) {
-    return res.status(403).json({"status": "403"});
-  }
-
-  const updatedObit = await obitRepository.update(
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore
-    );
-    const saveupdateObit = await obitRepositorySend.save({
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,
-      userId
-    });
-  res.status(200).json({"status": "200", updatedObit,saveupdateObit});
-}

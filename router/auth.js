@@ -31,9 +31,6 @@ const validateSms= [
   router.put('/', validateCredential, authController.login);
   router.put('/auto', authController.autoLogin);
 
-  router.put('/loginUpdate', isAuth, authController.updateObit);
-
-  
   router.get('/', isAuth, authController.getUserInfo);
   router.get('/terms', authController.getAuthTerms);
   router.get('/admin', isAuth, authController.adminGetUser);
