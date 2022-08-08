@@ -2,18 +2,18 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
-  title: {type: String, required: true},
-  keyword: {type: String, required: true},    
-  timestamp: {type: String, required: true},
-  defaultcode: {type: String, required: true},
-  sensitivity: {type: Object, required: true},
-  sendcode: {type: String, required: true}, 
-  dataid: {type: Object, required: true},
-  pickscore:{type: String, required: true},
-  videoscore: {type: String, required: true},
-  keywordscore: {type: String, required: true},
-  sensitivityscore: {type: String, required: true},
-  userId: {type: String, required: true}
+  title: {type: String},
+  keyword: {type: String},    
+  timestamp: {type: String},
+  defaultcode: {type: String},
+  sensitivity: {type: Object},
+  sendcode: {type: String}, 
+  dataid: {type: Object},
+  pickscore:{type: String},
+  videoscore: {type: String},
+  keywordscore: {type: String},
+  sensitivityscore: {type: String},
+  userId: {type: String}
   }, { 
     versionKey: false
   });
