@@ -4,7 +4,8 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
-    const {title, 
+    const {
+      title, 
       keyword,
       timestamp,
       defaultcode,
