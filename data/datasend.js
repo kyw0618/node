@@ -9,10 +9,6 @@ const datasend = new Mongoose.Schema( {
   sensitivity: {type: Object},
   sendcode: {type: String}, 
   dataid: {type: String},
-  pickscore:{type: String},
-  videoscore: {type: String},
-  keywordscore: {type: String},
-  sensitivityscore: {type: String},
   userId: {type: String}
   }, { 
     versionKey: false
@@ -53,10 +49,6 @@ const datasend = new Mongoose.Schema( {
     sensitivity,
     dataid,
     defaultcode,
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore,
     userId
     ) {
     return DataSend.findByIdAndUpdate(id, {
@@ -68,10 +60,6 @@ const datasend = new Mongoose.Schema( {
       sensitivity,
       dataid,
       defaultcode,
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,
       userId
     }, 
       {returnOriginal: false});

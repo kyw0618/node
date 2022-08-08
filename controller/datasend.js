@@ -12,10 +12,6 @@ export async function createObituary(req, res) {
       sensitivity,
       sendcode,
       dataid,
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore
     } = req.body;
     const userId = req.userId;
     try {
@@ -27,10 +23,6 @@ export async function createObituary(req, res) {
       sensitivity,
       sendcode,
       dataid,
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,
       userId
     });
   } catch (error) {

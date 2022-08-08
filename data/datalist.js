@@ -9,7 +9,10 @@ const dataList = new Mongoose.Schema( {
   sendcode: {type: String},
   defaultcode: {type: String},
   sensitivity: {type: String},
+  pickscore:{type: String},
+  videoscore: {type: String},
   keywordscore: {type: String},
+  sensitivityscore: {type: String},  
   userId: {type: String}
 }, { 
   versionKey: false
@@ -49,8 +52,10 @@ export async function update(
   sendcode,
   defaultcode,
   sensitivity,
-  keywordscore
-  ) {
+  pickscore,
+  videoscore,
+  keywordscore,
+  sensitivityscore,  ) {
   return DataList.findByIdAndUpdate(
     id, {
       title,
@@ -59,8 +64,10 @@ export async function update(
       sendcode,
       defaultcode,
       sensitivity,
-      keywordscore
-    }, 
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore,    }, 
     {
       returnOriginal: false}
       );
