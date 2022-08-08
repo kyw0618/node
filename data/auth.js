@@ -6,6 +6,10 @@ const users = new Mongoose.Schema( {
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
+  pickscore:{type: String},
+  videoscore: {type: String},
+  keywordscore: {type: String},
+  sensitivityscore: {type: String},  
   admin: {type: Boolean, requirer: true}
 }, { 
   versionKey: false
@@ -94,4 +98,21 @@ export async function findByPhon(phone) {
 
 export async function adminfindUser(data) {
   return User.find({ $or: [{"phone": data}, {"name": data}]}).sort({ createdAt: -1});
+}
+
+export async function update( 
+  pickscore,
+  videoscore,
+  keywordscore,
+  sensitivityscore  ) {
+  return DataList.findByIdAndUpdate(
+    id, {
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore   
+     }, 
+    {
+      returnOriginal: false}
+      );
 }

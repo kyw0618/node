@@ -7,7 +7,15 @@ import request from 'request';
 
 export async function singup(req, res) {
   const imgName = res.req.file.filename;
-  const {phone, sex, name, terms}  = req.body;
+  const {
+    phone, 
+    sex,
+    name,   
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore
+  }  = req.body;
   const admin = false;
 
   const user = await authRepository.findByPhon(phone);
@@ -21,6 +29,10 @@ export async function singup(req, res) {
     sex,
     name,
     admin,
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore
   });
   
   const accessToken = createAccessJwt(userid);
@@ -215,4 +227,39 @@ function send_message(userPhone, authNumber) {
     ? authRepository.adminfindUser(value)
     : authRepository.findAllUser());
   res.status(200).json({"status": "200", result});
+}
+
+// 데이터 수정
+export async function updateObit(req, res, next) {
+  const id = req.query.id;
+  const userId = req.userId;
+  const {
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore
+   } = req.body;
+
+  const obit = await obitRepository.findById(id);
+  if(!obit) {
+    return res.status(404).json({"status":"404"});
+  }
+  if(obit.userId !== req.userId && config.adminId !== req.userId) {
+    return res.status(403).json({"status": "403"});
+  }
+
+  const updatedObit = await obitRepository.update(
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore
+    );
+    const saveupdateObit = await obitRepositorySend.save({
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore,
+      userId
+    });
+  res.status(200).json({"status": "200", updatedObit,saveupdateObit});
 }
