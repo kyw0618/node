@@ -4,9 +4,9 @@ import {useVirtualId} from '../db/db.js';
 const datasend = new Mongoose.Schema( {  
   title: {type: String},
   keyword: {type: String},
-  textlist: {type: Object},
-  normallist: {type: Object},
-  videolist: {type: Object},    
+  textlist: {type: String},
+  normallist: {type: String},
+  videolist: {type: String},    
   timestamp: {type: String},
   defaultcode: {type: String},
   sensitivity: {type: Object},
