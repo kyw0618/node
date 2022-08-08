@@ -22,7 +22,7 @@ const validateSms= [
   const validateSignup = [
     ... validateCredential,
     body('phone').trim().notEmpty(),
-    body('sex').trim().notEmpty(),
+    body('sex').trim().notEmpty(),  
     body('name').trim().notEmpty(),
     validate,
   ];
