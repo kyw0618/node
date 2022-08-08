@@ -7,6 +7,9 @@ export async function createObituary(req, res) {
     const {
       title, 
       keyword,
+      textlist,
+      normallist,
+      videolist,
       timestamp,
       defaultcode,
       sensitivity,
@@ -18,6 +21,9 @@ export async function createObituary(req, res) {
     var datasend = await obitRepository.save({
       title,
       keyword,
+      textlist,
+      normallist,
+      videolist,
       timestamp,
       defaultcode,
       sensitivity,

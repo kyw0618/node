@@ -3,7 +3,10 @@ import {useVirtualId} from '../db/db.js';
 
 const datasend = new Mongoose.Schema( {  
   title: {type: String},
-  keyword: {type: String},    
+  keyword: {type: String},
+  textlist: {type: String},
+  normallist: {type: String},
+  videolist: {type: String},    
   timestamp: {type: String},
   defaultcode: {type: String},
   sensitivity: {type: Object},
@@ -43,7 +46,10 @@ const datasend = new Mongoose.Schema( {
   export async function update( 
     id, 
     title,
-    keyword, 
+    keyword,
+    textlist,
+    normallist,
+    videolist, 
     timestamp,
     sendcode,
     sensitivity,
@@ -55,6 +61,9 @@ const datasend = new Mongoose.Schema( {
       id, 
       title,
       keyword, 
+      textlist,
+      normallist,
+      videolist,
       timestamp,
       sendcode,
       sensitivity,
