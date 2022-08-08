@@ -57,8 +57,8 @@ const datasend = new Mongoose.Schema( {
     defaultcode,
     userId
     ) {
-    return DataSend.findByIdAndUpdate(id, {
-      id, 
+    return DataSend.findByIdAndUpdate(
+      id, {
       title,
       keyword, 
       textlist,

@@ -67,7 +67,8 @@ export async function update(
       pickscore,
       videoscore,
       keywordscore,
-      sensitivityscore,    }, 
+      sensitivityscore,    
+    }, 
     {
       returnOriginal: false}
       );
