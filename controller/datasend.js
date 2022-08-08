@@ -4,8 +4,18 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
-    const {title, keyword,timestamp,defaultcode,
-      sensitivity,sendcode,dataid} = req.body;
+    const {title, 
+      keyword,
+      timestamp,
+      defaultcode,
+      sensitivity,
+      sendcode,
+      dataid,
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore
+    } = req.body;
     const userId = req.userId;
     try {
     var datasend = await obitRepository.save({
@@ -16,6 +26,10 @@ export async function createObituary(req, res) {
       sensitivity,
       sendcode,
       dataid,
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore,
       userId
     });
   } catch (error) {
