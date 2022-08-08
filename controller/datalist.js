@@ -14,7 +14,8 @@ export async function createObituary(req, res) {
     pickscore,
     videoscore,
     keywordscore,
-    sensitivityscore,} = req.body;
+    sensitivityscore
+  } = req.body;
   const userId = req.userId;
 
   const dataList = await obitRepository.save({
