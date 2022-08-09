@@ -14,7 +14,8 @@ export async function singup(req, res) {
     pickscore,
     videoscore,
     keywordscore,
-    sensitivityscore
+    sensitivityscore,
+    allscore
   }  = req.body;
   const admin = false;
 
@@ -32,7 +33,8 @@ export async function singup(req, res) {
     pickscore,
     videoscore,
     keywordscore,
-    sensitivityscore
+    sensitivityscore,
+    allscore
   });
   
   const accessToken = createAccessJwt(userid);
@@ -227,4 +229,29 @@ function send_message(userPhone, authNumber) {
     ? authRepository.adminfindUser(value)
     : authRepository.findAllUser());
   res.status(200).json({"status": "200", result});
+}
+
+export async function updateUser(req, res) {
+  const id = req.params.id;
+  const {     
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore } = req.body;
+  const condole = await authRepository.findById(id);
+  
+  if(!condole) {
+    return res.status(404).json({"status":"404"});
+  }
+  if(condole.userId !== req.userId && req.admin == false) {
+    return res.status(403).json({"status": "403"});
+  }
+
+  const updatedCondole = await authRepository.update(
+    id,     
+    pickscore,
+    videoscore,
+    keywordscore,
+    sensitivityscore);
+  res.status(200).json(({"status":"200", updatedCondole}))
 }

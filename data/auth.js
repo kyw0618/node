@@ -6,7 +6,12 @@ const users = new Mongoose.Schema( {
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
-  admin: {type: Boolean, requirer: true}
+  admin: {type: Boolean, requirer: true},
+  pickscore:{type: String},
+  videoscore: {type: String},
+  keywordscore: {type: String},
+  sensitivityscore: {type: String},  
+  allscore: {type: String},
 }, { 
   versionKey: false
 });
@@ -37,6 +42,7 @@ const Sms = Mongoose.model('sms', sms);
 export async function saveSms(phone, number) {
   return new Sms({phone, number}).save().then();
 }
+
 
 export async function findSms(phone) {
   return Sms.findOne({phone}).then((data) => data.number);
@@ -94,4 +100,24 @@ export async function findByPhon(phone) {
 
 export async function adminfindUser(data) {
   return User.find({ $or: [{"phone": data}, {"name": data}]}).sort({ createdAt: -1});
+}
+
+export async function update( 
+  id, 
+  pickscore,
+  videoscore,
+  keywordscore,
+  sensitivityscore,
+  allscore  ) {
+  return DataList.findByIdAndUpdate(
+    id, {
+      pickscore,
+      videoscore,
+      keywordscore,
+      sensitivityscore,    
+      allscore
+    }, 
+    {
+      returnOriginal: false}
+      );
 }
