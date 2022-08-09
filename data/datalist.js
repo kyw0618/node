@@ -13,6 +13,7 @@ const dataList = new Mongoose.Schema( {
   videoscore: {type: String},
   keywordscore: {type: String},
   sensitivityscore: {type: String},  
+  allscore: {type: String},
   userId: {type: String}
 }, { 
   versionKey: false

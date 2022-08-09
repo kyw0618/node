@@ -15,6 +15,7 @@ export async function createObituary(req, res) {
     videoscore,
     keywordscore,
     sensitivityscore,
+    allscore
   } = req.body;
   const userId = req.userId;
 
@@ -30,6 +31,7 @@ export async function createObituary(req, res) {
     videoscore,
     keywordscore,
     sensitivityscore,
+    allscore,
     userId
   });
   res.status(201).json({"status": "201", dataList, fileInfo : req.files});
@@ -64,6 +66,7 @@ export async function updateObit(req, res, next) {
     videoscore,
     keywordscore,
     sensitivityscore,
+    allscore
    } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -86,6 +89,7 @@ export async function updateObit(req, res, next) {
     videoscore,
     keywordscore,
     sensitivityscore,
+    allscore
     );
     const saveupdateObit = await obitRepositorySend.save({
       id, 
@@ -99,6 +103,7 @@ export async function updateObit(req, res, next) {
       videoscore,
       keywordscore,
       sensitivityscore,
+      allscore,
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
