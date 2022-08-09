@@ -56,7 +56,8 @@ export async function update(
   pickscore,
   videoscore,
   keywordscore,
-  sensitivityscore,  ) {
+  sensitivityscore,
+  allscore  ) {
   return DataList.findByIdAndUpdate(
     id, {
       title,
@@ -69,6 +70,7 @@ export async function update(
       videoscore,
       keywordscore,
       sensitivityscore,    
+      allscore
     }, 
     {
       returnOriginal: false}
