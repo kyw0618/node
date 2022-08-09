@@ -30,9 +30,9 @@ const validateSms= [
   router.post('/', profileupload, authController.singup);
   router.put('/', validateCredential, authController.login);
   router.put('/auto', authController.autoLogin);
-  
+
   //회원정보 수정
-  router.put('/',isAuth,authController.updateUser);
+  router.put('/putUser',isAuth,authController.updateUser);
 
   router.get('/', isAuth, authController.getUserInfo);
   router.get('/terms', authController.getAuthTerms);
