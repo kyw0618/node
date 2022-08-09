@@ -232,7 +232,7 @@ function send_message(userPhone, authNumber) {
 }
 
 export async function updateUser(req, res) {
-  const id = req.params.id;
+  const id = req.query.id;
   const {     
     pickscore,
     videoscore,
