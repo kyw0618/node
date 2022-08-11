@@ -20,6 +20,8 @@ router.get('/', isAuth, obitController.getByname);
 //데이터 조회
 router.get('/my', isAuth, obitController.getMyObituary);
 
+
+
 //이미지 다운로드
 router.get('/datalist', obitController.getTextImageData);
 
