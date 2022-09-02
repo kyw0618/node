@@ -103,7 +103,7 @@ export async function updateObit(req, res, next) {
       videoscore,
       keywordscore,
       sensitivityscore,
-      allscore,
+      allscore, 
       userId
     });
   res.status(200).json({"status": "200", updatedObit,saveupdateObit});
