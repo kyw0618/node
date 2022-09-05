@@ -6,10 +6,9 @@ export async function mapfun(req, res) {
   }
 
   export async function createMap(req, res) { 
-    const {id,name,xvalue,yvalue,address,call} = req.body;
+    const {name,xvalue,yvalue,address,call} = req.body;
   
     const naverMap = await obitRepository.save({
-      id,
       name,
       xvalue,
       yvalue,
@@ -32,7 +31,6 @@ export async function mapfun(req, res) {
     }
   
     const updatedObit = await obitRepository.update(
-      id, 
       name,
       xvalue,
       yvalue,

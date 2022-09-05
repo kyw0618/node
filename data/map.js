@@ -2,7 +2,6 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
-  id: {type: String},
   name: {type: String},
   xvalue: {type: String},
   yvalue: {type: String},
@@ -33,8 +32,8 @@ export async function findMyObituary(userId) {
  }
   
 export async function findObituaryByname(name) {
-  return mapdb.find({ $or: [{"title": name},
-      {"keyword": name}]}).sort({ createdAt: -1});
+  return mapdb.find({ $or: [{"name": name},
+      {"call": name}]}).sort({ createdAt: -1});
 }
   
 export async function save(obit) {
@@ -43,7 +42,6 @@ export async function save(obit) {
 }
 
 export async function update( 
-  id, 
   name,
   xvalue,
   yvalue,
@@ -52,7 +50,6 @@ export async function update(
   ) {
   return DataList.findByIdAndUpdate(
     id, {
-      id,
       name,
       xvalue,
       yvalue,
