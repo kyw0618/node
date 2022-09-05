@@ -1,4 +1,5 @@
-import * as naverMap from '../data/map.js';
+import * as obitRepository from '../data/map.js';
+
 
 export async function mapfun(req, res) {
     const mapData = await naverMap.showMap();
