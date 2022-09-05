@@ -2,7 +2,7 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
-  id: {type: Int},
+  id: {type: String},
   name: {type: String},
   xvalue: {type: String},
   yvalue: {type: String},
