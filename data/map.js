@@ -2,8 +2,12 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
-  result: {type: Boolean},
-  map: {type: Array},
+  id: {type: Int},
+  name: {type: String},
+  xvalue: {type: String},
+  yvalue: {type: String},
+  address:{type: String},
+  call: {type: String},
   }, {
     versionKey: false
   });
