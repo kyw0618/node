@@ -2,7 +2,6 @@ import express from 'express'
 import morgan from 'morgan';
 import { connectDB } from './db/db.js';
 import { config } from './config.js';
-
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
 import obituaryRouter from './router/datalist.js';
@@ -11,7 +10,6 @@ import centerRouter from './router/serviceCenter.js';
 import mapRouter from './router/map.js';
 import documentRouter from './router/document.js';
 import calendarFeel from './router/calendar.js';
-import hospitallist from './router/hospitallist.js';
 
 const app = express();
 
@@ -27,7 +25,6 @@ app.use('/v1/center', centerRouter);
 app.use('/v1/map', mapRouter);
 app.use('/v1/document', documentRouter);
 app.use('/v1/calendar', calendarFeel);
-app.use('/v1/hospitallist', hospitallist);
 
 
 app.use((req, res, next) => {
