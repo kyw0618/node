@@ -4,8 +4,6 @@ import { isAuth } from '../middlweare/auth.js';
 
 const router = express.Router();
 
-router.get('/', isAuth, appController.mapfun);
-
 //데이터 등록
 router.post('/', isAuth, appController.createMap);
 
