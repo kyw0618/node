@@ -4,10 +4,10 @@ import { isAuth } from '../middlweare/auth.js';
 
 const router = express.Router();
 
-router.get('/map', isAuth, appController.mapfun);
+router.get('/', isAuth, appController.mapfun);
 
 //데이터 등록
-router.post('/map', isAuth, appController.createMap);
+router.post('/', isAuth, appController.createMap);
 
 //데이터 수정
 router.put('/', isAuth, appController.updateObit);

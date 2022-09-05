@@ -1,10 +1,10 @@
 import * as obitRepository from '../data/map.js';
 
 
-export async function mapfun(req, res) {
-    const mapData = await naverMap.showMap();
-    res.status(200).json(mapData);
-  }
+// export async function mapfun(req, res) {
+//     const mapData = await naverMap.showMap();
+//     res.status(200).json(mapData);
+//   }
 
   export async function createMap(req, res) { 
     const {name,xvalue,yvalue,address,call} = req.body;
@@ -63,7 +63,7 @@ export async function getMyObituary(req, res) {
   
   
   export async function getOneObituary(req, res) {
-    const obId = req.params.id;
+    const obId = req.query.id;
   
     const obit = await obitRepository.findById(obId);
   
