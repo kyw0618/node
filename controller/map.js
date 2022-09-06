@@ -6,6 +6,7 @@ export async function createNap(req, res) {
     region_1depth_name,
     region_2depth_name,
     region_3depth_name,
+    region_4depth_name,
     call,
     x,
     y
@@ -42,6 +43,7 @@ export async function updateAddress(req, res, next) {
     region_1depth_name,
     region_2depth_name,
     region_3depth_name,
+    region_4depth_name,
     call,
     x,
     y
