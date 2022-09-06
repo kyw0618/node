@@ -24,7 +24,8 @@ export async function createNap(req, res) {
       call,
       x,
       y,
-      created
+      created,
+      userId
     });
   } catch (error) {
     return res.status(400).json({"status" : "400"});
