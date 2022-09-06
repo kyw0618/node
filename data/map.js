@@ -26,8 +26,11 @@ export async function findMyObituary(userId) {
 }
 
 export async function findObituaryByname(name) {
-  return MapSchema.find({ $or: [{"resident.name": name},
-      {"deceased.name": name}, {"place": name}]}).sort({ createdAt: -1});
+  return MapSchema.find({ $or: [{"address_name.name": name},
+      {"region_1depth_name.name": name}, 
+      {"region_2depth_name": name},
+      {"region_3depth_name.name":name}
+    ]}).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
@@ -35,8 +38,17 @@ export async function save(obit) {
   .then((data) => data);
 }
 
-export async function update(id, resident, place, deceased, eod, coffin, dofp, buried, word) {
-  return MapSchema.findByIdAndUpdate(id, {resident, place, deceased, eod, coffin, dofp, buried, word}, {returnOriginal: false});
+export async function update(id,
+  address,
+  created,
+  userId
+  ) {
+  return MapSchema.findByIdAndUpdate(id, {      
+    address,
+    created,
+    userId
+  }, 
+  {returnOriginal: false});
 }
 
 export async function remove(id) {
