@@ -1,4 +1,3 @@
-import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const feelList = new Mongoose.Schema( {
