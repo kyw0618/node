@@ -11,7 +11,7 @@ const mapSchema = new Mongoose.Schema( {
 
 useVirtualId(mapSchema);
 
-const MapSchema = Mongoose.model('MapSchema', mapSchema);
+const MapSchema = Mongoose.model('AddressMap', mapSchema);
 
 export async function getAllObituary() {
   return MapSchema.find().sort({ createdAt: -1});
