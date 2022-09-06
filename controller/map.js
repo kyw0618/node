@@ -44,8 +44,7 @@ export async function updateAddress(req, res, next) {
   if(obit.userId !== req.userId && req.admin == false) {
     return res.status(403).json({"status": "403"});
   }
-
-  const address = {
+  const {      
     address_name,
     region_1depth_name,
     region_2depth_name,
@@ -53,13 +52,20 @@ export async function updateAddress(req, res, next) {
     region_4depth_name,
     call,
     x,
-    y
-  };
-  const {created} = req.body;
+    y,
+    created
+  } = req.body;
 
   const updateAddress = await mapRepository.update(
     id,
-    address,
+    address_name,
+    region_1depth_name,
+    region_2depth_name,
+    region_3depth_name,
+    region_4depth_name,
+    call,
+    x,
+    y,
     created,
   );
   res.status(200).json({"status": "200", updateAddress});
