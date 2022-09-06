@@ -33,12 +33,14 @@ export async function findMyObituary(userId) {
 }
 
 export async function findObituaryByname(name) {
-  return MapSchema.find({ $or: [{"address_name.name": name},
-      {"region_1depth_name.name": name}, 
-      {"region_2depth_name": name},
-      {"region_3depth_name.name":name},
-      {"region_4depth_name.name":name}
-    ]}).sort({ createdAt: -1});
+  return MapSchema.find({ $or: [
+    {"address_name.name": name},
+    {"region_1depth_name.name": name}, 
+    {"region_2depth_name": name},
+    {"region_3depth_name.name":name},
+    {"region_4depth_name.name":name}
+    ]
+  }).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
@@ -46,7 +48,7 @@ export async function save(obit) {
   .then((data) => data);
 }
 
-export async function update(id,
+export async function update(
   id,
   address_name,
   region_1depth_name,
@@ -60,7 +62,6 @@ export async function update(id,
   userId
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
-    id,
     address_name,
     region_1depth_name,
     region_2depth_name,
