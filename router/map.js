@@ -1,25 +1,24 @@
 import express from "express";
-import * as appController from '../controller/map.js'
+import * as addressController from '../controller/map.js'
 import { isAuth } from '../middlweare/auth.js';
 
 const router = express.Router();
 
 //데이터 등록
-router.post('/', isAuth, appController.createMap);
+router.post('/', isAuth, addressController.createNap);
 
 //데이터 수정
-router.put('/', isAuth, appController.updateObit);
+router.put('/', isAuth, addressController.updateAddress);
 
 //데이터 삭제
-router.delete('/', isAuth, appController.removeObit);
+router.delete('/', isAuth, addressController.removeAddress);
 
 //데이터 검색
-router.get('/map/search', isAuth, appController.getByname);
+router.get('/map/search', isAuth, addressController.getByname);
 
 //데이터 조회
-router.get('/my', isAuth, appController.getMyObituary);
+router.get('/my', isAuth, addressController.getMyAddress);
 
-router.get('/', isAuth, appController.mapfun);
 
 
 export default router;

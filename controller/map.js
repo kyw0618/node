@@ -78,3 +78,9 @@ export async function getByname(req, res) {
   
   res.status(200).json({"status": "200", result});
 }
+
+export async function getMyAddress(req, res) {
+  const obituary = await mapRepository.findMyObituary(req.userId);
+
+  res.status(200).json({"status": "200", obituary});
+}
