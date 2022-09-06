@@ -11,6 +11,7 @@ const mapSchema = new Mongoose.Schema( {
   x: {type: String},
   y: {type: String},
   created: {type: String},
+  imgURL: {type: String},
   userId: {type: String}
   }, {
     versionKey: false
@@ -44,8 +45,7 @@ export async function findObituaryByname(name) {
 }
 
 export async function save(obit) {
-  return new MapSchema(obit).save()
-  .then((data) => data);
+  return new MapSchema(obit).save().then((data) => data);
 }
 
 export async function update(
@@ -59,6 +59,7 @@ export async function update(
   x,
   y,
   created,
+  imgURL,
   userId
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
@@ -71,6 +72,7 @@ export async function update(
     x,
     y,
     created,
+    imgURL,
     userId
   }, 
   {returnOriginal: false});
