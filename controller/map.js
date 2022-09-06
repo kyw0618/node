@@ -10,7 +10,8 @@ export async function createNap(req, res) {
     call,
     x,
     y,
-    created} = req.body;
+    created
+  } = req.body;
 
   const userId = req.userId;
   try {
