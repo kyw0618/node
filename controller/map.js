@@ -72,15 +72,15 @@ export async function removeAddress(req, res, next) {
 
 export async function getByname(req, res) {
   const value = req.query.name;
-  const result = await ( value 
+  const address_document = await ( value 
     ? mapRepository.findObituaryByname(value)
     : mapRepository.getAllObituary());
   
-  res.status(200).json({"status": "200", result});
+  res.status(200).json({"status": "200", address_document});
 }
 
 export async function getMyAddress(req, res) {
-  const obituary = await mapRepository.findMyObituary(req.userId);
+  const address_document = await mapRepository.findMyObituary(req.userId);
 
-  res.status(200).json({"status": "200", obituary});
+  res.status(200).json({"status": "200", address_document});
 }
