@@ -1,3 +1,4 @@
+import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const dataList = new Mongoose.Schema( {

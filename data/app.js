@@ -1,3 +1,4 @@
+import Mongoose from 'mongoose';
 
 const verification = new Mongoose.Schema( {
   result: { type: Boolean},
