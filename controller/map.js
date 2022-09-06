@@ -1,20 +1,17 @@
 import * as obitRepository from '../data/map.js';
 
 
-// export async function mapfun(req, res) {
-//     const mapData = await naverMap.showMap();
-//     res.status(200).json(mapData);
-//   }
+export async function mapfun(req, res) {
+    const mapData = await naverMap.showMap();
+    res.status(200).json(mapData);
+  }
 
   export async function createMap(req, res) { 
-    const {name,xvalue,yvalue,address,call} = req.body;
+    const {result,map} = req.body;
   
     const naverMap = await obitRepository.save({
-      name,
-      xvalue,
-      yvalue,
-      address,
-      call
+      result,
+      map
     });
     res.status(201).json({"status": "201", naverMap});
   } 

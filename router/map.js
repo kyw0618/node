@@ -19,5 +19,7 @@ router.get('/map/search', isAuth, appController.getByname);
 //데이터 조회
 router.get('/my', isAuth, appController.getMyObituary);
 
+router.get('/', isAuth, appController.mapfun);
+
 
 export default router;
