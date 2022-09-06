@@ -1,7 +1,7 @@
 import * as mapRepository from '../data/map.js';
 
 export async function createNap(req, res) {
-  const address = {
+  const {
     address_name,
     region_1depth_name,
     region_2depth_name,
@@ -9,16 +9,21 @@ export async function createNap(req, res) {
     region_4depth_name,
     call,
     x,
-    y
-  };
-  const {created} = req.body;
+    y,
+    created} = req.body;
 
   const userId = req.userId;
   try {
     var map_address = await mapRepository.save({
-      address,
-      created,
-      userId
+      address_name,
+      region_1depth_name,
+      region_2depth_name,
+      region_3depth_name,
+      region_4depth_name,
+      call,
+      x,
+      y,
+      created
     });
   } catch (error) {
     return res.status(400).json({"status" : "400"});

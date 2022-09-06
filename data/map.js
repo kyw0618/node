@@ -2,7 +2,14 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
-  address: {type: Object},
+  address_name: {type: String},
+  region_1depth_name : {type: String},
+  region_2depth_name: {type: String},
+  region_3depth_name: {type: String},
+  region_4depth_name: {type: String},
+  call: {type: String},
+  x: {type: String},
+  y: {type: String},
   created: {type: String},
   userId: {type: String}
   }, {
