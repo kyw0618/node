@@ -88,6 +88,7 @@ export async function removeAddress(req, res, next) {
   res.status(204).json(({"status":"204"}))
 }
 
+//데이터 검색  
 export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
