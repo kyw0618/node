@@ -34,12 +34,12 @@ export async function findMyObituary(userId) {
 }
 
 export async function findObituaryByname(name) {
-  return mapSchema.find({ $or: [
+  return MapSchema.find({ $or: [
     {"address_name": name},
-    // {"region_1depth_name": name}, 
-    // {"region_2depth_name": name},
-    // {"region_3depth_name": name},
-    // {"region_4depth_name": name}
+    {"region_1depth_name": name}, 
+    {"region_2depth_name": name},
+    {"region_3depth_name": name},
+    {"region_4depth_name": name}
     ]
   }).sort({ createdAt: -1});
 }
