@@ -32,7 +32,6 @@ export async function createNap(req, res) {
   } catch (error) {
     return res.status(400).json({"status" : "400"});
   }
-  
   res.status(201).json({"status": "201", map_address});
 }
 
