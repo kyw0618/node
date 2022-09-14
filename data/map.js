@@ -42,8 +42,10 @@ export async function findMyObituary(userId) {
 
 export async function findObituaryByname(name) {
   return MapSchema.find({ 
-    'address_name' : {$regex: name}
-  })
+    'address_name' : {$regex: name},
+    'place_name' : {$regex: name},
+    'road_address_name' : {$regex: name}
+  }).sort({ createdAt: -1});
 }
 
 export async function save(obit) {
