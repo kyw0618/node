@@ -80,11 +80,20 @@ export async function removeAddress(req, res, next) {
   res.status(204).json(({"status":"204"}))
 }
 
-//데이터 검색  
+//데이터 검색(동네)
 export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
     ? mapRepository.findAddressByname(value)
+    : mapRepository.getAllObituary());
+  res.status(200).json({"status": "200", result});
+}
+
+// 데이터 검색(병원)
+export async function getHosiptal(req, res) {
+  const value = req.query.name;
+  const result = await ( value 
+    ? mapRepository.findHosiptalByname(value)
     : mapRepository.getAllObituary());
   res.status(200).json({"status": "200", result});
 }
