@@ -16,8 +16,8 @@ router.delete('/', isAuth, addressController.removeAddress);
 //데이터 검색(동네)
 router.get('/map/search', isAuth, addressController.getByname);
 
-// //데이터 검색(동네)
-// router.get('/map/search/hosiptal', isAuth, addressController.getHosiptal);
+//데이터 검색(동네)
+router.get('/map/search/hosiptal', isAuth, addressController.getHosiptal);
 
 
 //데이터 조회

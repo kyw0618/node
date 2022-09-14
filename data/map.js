@@ -34,17 +34,16 @@ export async function findMyObituary(userId) {
 export async function findAddressByname(name) {
   return MapSchema.find({ $or: [
     {'address_name' : {$regex: name}},
-    {'place_name' : {$regex: name}}
   ]
   })
 }
 
-// export async function findHosiptalByname(name) {
-//   return MapSchema.find({ $or: [
-//     {'place_name' : {$regex: name}}
-//   ]
-//   })
-// }
+export async function findHosiptalByname(name) {
+  return MapSchema.find({ $or: [
+    {'place_name' : {$regex: name}}
+  ]
+  })
+}
 
 export async function save(obit) {
   return new MapSchema(obit).save().then((data) => data);

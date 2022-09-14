@@ -89,14 +89,14 @@ export async function getByname(req, res) {
   res.status(200).json({"status": "200", result});
 }
 
-// // 데이터 검색(병원)
-// export async function getHosiptal(req, res) {
-//   const value = req.query.name;
-//   const result = await ( value 
-//     ? mapRepository.findHosiptalByname(value)
-//     : mapRepository.getAllObituary());
-//   res.status(200).json({"status": "200", result});
-// }
+// 데이터 검색(병원)
+export async function getHosiptal(req, res) {
+  const value = req.query.name;
+  const result = await ( value 
+    ? mapRepository.findHosiptalByname(value)
+    : mapRepository.getAllObituary());
+  res.status(200).json({"status": "200", result});
+}
 
 export async function getMyAddress(req, res) {
   const address_document = await mapRepository.findMyObituary(req.userId);
