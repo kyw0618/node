@@ -4,6 +4,7 @@ export async function createNap(req, res) {
   const {
     address_name,
     place_name,
+    road_address_name,
     call,
     x,
     y,
@@ -16,6 +17,7 @@ export async function createNap(req, res) {
     var map_address = await mapRepository.save({
       address_name,
       place_name,
+      road_address_name,
       call,
       x,
       y,
@@ -42,6 +44,7 @@ export async function updateAddress(req, res, next) {
   const {      
     address_name,
     place_name,
+    road_address_name,
     call,
     x,
     y,
@@ -53,6 +56,7 @@ export async function updateAddress(req, res, next) {
     id,
     address_name,
     place_name,
+    road_address_name,
     call,
     x,
     y,
