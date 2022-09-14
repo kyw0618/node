@@ -33,8 +33,7 @@ export async function findMyObituary(userId) {
 
 export async function findAddressByname(name) {
   return MapSchema.find({ $or: [
-    {'address_name' : {$regex: name}},
-    {'place_name' : {$regex: name}}
+    {'address_name' : {$regex: name}}
   ]
   })
 }
