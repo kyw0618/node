@@ -3,10 +3,7 @@ import {useVirtualId} from '../db/db.js';
 
 const mapSchema = new Mongoose.Schema( {
   address_name: {type: String},
-  region_1depth_name : {type: String},
-  region_2depth_name: {type: String},
-  region_3depth_name: {type: String},
-  region_4depth_name: {type: String},
+  place_name: {type: String},
   call: {type: String},
   x: {type: String},
   y: {type: String},
@@ -36,10 +33,7 @@ export async function findMyObituary(userId) {
 export async function findObituaryByname(name) {
   return MapSchema.find({ $or: [
     {"address_name": name},
-    {"region_1depth_name": name}, 
-    {"region_2depth_name": name},
-    {"region_3depth_name": name},
-    {"region_4depth_name": name}
+    {"place_name":name}
     ]
   }).sort({ createdAt: -1});
 }
@@ -51,10 +45,7 @@ export async function save(obit) {
 export async function update(
   id,
   address_name,
-  region_1depth_name,
-  region_2depth_name,
-  region_3depth_name,
-  region_4depth_name,
+  place_name,
   call,
   x,
   y,
@@ -64,10 +55,7 @@ export async function update(
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
     address_name,
-    region_1depth_name,
-    region_2depth_name,
-    region_3depth_name,
-    region_4depth_name,
+    place_name,
     call,
     x,
     y,

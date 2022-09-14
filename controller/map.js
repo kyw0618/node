@@ -3,10 +3,7 @@ import * as mapRepository from '../data/map.js';
 export async function createNap(req, res) {
   const {
     address_name,
-    region_1depth_name,
-    region_2depth_name,
-    region_3depth_name,
-    region_4depth_name,
+    place_name,
     call,
     x,
     y,
@@ -18,10 +15,7 @@ export async function createNap(req, res) {
   try {
     var map_address = await mapRepository.save({
       address_name,
-      region_1depth_name,
-      region_2depth_name,
-      region_3depth_name,
-      region_4depth_name,
+      place_name,
       call,
       x,
       y,
@@ -47,10 +41,7 @@ export async function updateAddress(req, res, next) {
   }
   const {      
     address_name,
-    region_1depth_name,
-    region_2depth_name,
-    region_3depth_name,
-    region_4depth_name,
+    place_name,
     call,
     x,
     y,
@@ -61,10 +52,7 @@ export async function updateAddress(req, res, next) {
   const updateAddress = await mapRepository.update(
     id,
     address_name,
-    region_1depth_name,
-    region_2depth_name,
-    region_3depth_name,
-    region_4depth_name,
+    place_name,
     call,
     x,
     y,
