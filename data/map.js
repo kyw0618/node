@@ -31,32 +31,11 @@ export async function findMyObituary(userId) {
   return MapSchema.find({userId}).sort({ createdAt: -1});
 }
 
-// export async function findObituaryByname(name) {
-//   return MapSchema.find({ $or: [
-//     {"address_name": name},
-//     {"place_name":name},
-//     {"road_address_name":name},
-//     ]
-//   }).sort({ createdAt: -1});
-// }
-
 export async function findAddressByname(name) {
   return MapSchema.find({ $or: [
     {'address_name' : {$regex: name}},
     {'place_name' : {$regex: name}}
   ]
-  })
-}
-
-export async function findPlaceyByname(name) {
-  return MapSchema.find({ 
-    'place_name' : {$regex: name}
-  })
-}
-
-export async function findRoadByname(name) {
-  return MapSchema.find({ 
-    'road_address_name' : {$regex: name}
   })
 }
 
