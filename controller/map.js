@@ -84,10 +84,8 @@ export async function removeAddress(req, res, next) {
 export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
-    ? mapRepository.findAddressByname(value)
-    ? mapRepository.findPlaceyByname(value):
-     mapRepository.findRoadByname(value):
-     mapRepository.getAllObituary());
+    ? mapRepository.findObituaryByname(value)
+    : mapRepository.getAllObituary());
   res.status(200).json({"status": "200", result});
 }
 
