@@ -40,10 +40,20 @@ export async function findMyObituary(userId) {
 //   }).sort({ createdAt: -1});
 // }
 
-export async function findObituaryByname(name) {
+export async function findAddressByname(name) {
   return MapSchema.find({ 
-    'address_name' : {$regex: name},
-    'place_name' : {$regex: name},
+    'address_name' : {$regex: name}
+  })
+}
+
+export async function findPlaceyByname(name) {
+  return MapSchema.find({ 
+    'place_name' : {$regex: name}
+  })
+}
+
+export async function findRoadByname(name) {
+  return MapSchema.find({ 
     'road_address_name' : {$regex: name}
   })
 }
