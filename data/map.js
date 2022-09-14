@@ -32,13 +32,10 @@ export async function findMyObituary(userId) {
 }
 
 export async function findObituaryByname(name) {
-  const regex = (pattern) => new RegExp(`.*${pattern}.*`);
-  const titleRegex = regex({"address_name": name})
   return MapSchema.find({ $or: [
-    // {"address_name": name},
+    {"address_name": name},
     {"place_name":name},
     {"road_address_name":name},
-    {name : {$regex: titleRegex}}
     ]
   }).sort({ createdAt: -1});
 }
