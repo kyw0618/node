@@ -85,9 +85,7 @@ export async function getByname(req, res) {
   const value = req.query.name;
   const result = await ( value 
     ? mapRepository.findAddressByname(value)
-    : mapRepository.getAllObituary(),
-    mapRepository.findPlaceyByname(value),
-    mapRepository.findAddressByname(value));
+    : mapRepository.getAllObituary());
   res.status(200).json({"status": "200", result});
 }
 
