@@ -45,7 +45,7 @@ export async function findObituaryByname(name) {
     'address_name' : {$regex: name},
     'place_name' : {$regex: name},
     'road_address_name' : {$regex: name}
-  }).sort({ createdAt: -1});
+  })
 }
 
 export async function save(obit) {
