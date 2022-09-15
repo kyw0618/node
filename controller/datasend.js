@@ -4,6 +4,15 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
+  
+  var sensitivity = {
+    first_code,
+    two_code,
+    third_code,
+    four_code,
+    five_type
+  }
+
     const {
       id, 
       title, 
