@@ -14,7 +14,7 @@ export async function createObituary(req, res) {
     videolist,
     timestamp,
     defaultcode,
-    sendcode,
+    sendcode = {first_code, two_code, third_code, four_code, five_code},
     dataid,
     } = req.body;
 
