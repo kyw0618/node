@@ -4,6 +4,13 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
+  const sendcode = {
+    first_code: req.body.first_code, 
+    two_code: req.body.two_code, 
+    third_code: req.body.third_code, 
+    four_code: req.body.four_code, 
+    five_code: req.body.five_code
+  };
   const {
     id, 
     title, 
@@ -14,7 +21,6 @@ export async function createObituary(req, res) {
     videolist,
     timestamp,
     defaultcode,
-    sendcode = {first_code, two_code, third_code, four_code, five_code},
     dataid,
     } = req.body;
 
