@@ -4,9 +4,7 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
-
     const {
-      
       id, 
       title, 
       keyword,
@@ -15,13 +13,11 @@ export async function createObituary(req, res) {
       videolist,
       timestamp,
       defaultcode,
-      sensitivity = {
-        first_code,
-        two_code,
-        third_code,
-        four_code,
-        five_type
-      },
+      sensitivity_first_code,
+      sensitivity_two_code,
+      sensitivity_third_code,
+      sensitivity_four_code,
+      sensitivity_five_type,
       sendcode,
       dataid,
     } = req.body;
@@ -36,7 +32,11 @@ export async function createObituary(req, res) {
       videolist,
       timestamp,
       defaultcode,
-      sensitivity,
+      sensitivity_first_code,
+      sensitivity_two_code,
+      sensitivity_third_code,
+      sensitivity_four_code,
+      sensitivity_five_type,
       sendcode,
       dataid,
       userId
