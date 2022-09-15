@@ -5,6 +5,7 @@ import { request } from 'express';
 
 export async function createObituary(req, res) { 
     const {
+      id, 
       title, 
       keyword,
       textlist,
@@ -23,6 +24,7 @@ export async function createObituary(req, res) {
     const userId = req.userId;
     try {
     var datasend = await obitRepository.save({
+      id, 
       title,
       keyword,
       textlist,
