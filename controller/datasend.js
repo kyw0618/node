@@ -4,28 +4,20 @@ import { request } from 'express';
 
 
 export async function createObituary(req, res) { 
-  const sendcode = {
-    first_code: req.body.first_code, 
-    two_code: req.body.two_code, 
-    third_code: req.body.third_code, 
-    four_code: req.body.four_code, 
-    five_code: req.body.five_code
-  };
-  const {
-    id, 
-    title, 
-    keyword,
-    textlist,
-    sensitivity,
-    normallist,
-    videolist,
-    timestamp,
-    defaultcode,
-    dataid,
+    const {
+      id, 
+      title, 
+      keyword,
+      textlist,
+      normallist,
+      videolist,
+      timestamp,
+      defaultcode,
+      sensitivity,
+      sendcode,
+      dataid,
     } = req.body;
-
     const userId = req.userId;
-
     try {
     var datasend = await obitRepository.save({
       id, 

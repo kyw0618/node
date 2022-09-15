@@ -9,7 +9,13 @@ const datasend = new Mongoose.Schema( {
   videolist: {type: String},    
   timestamp: {type: String},
   defaultcode: {type: String},
-  sensitivity: {type: Object},
+  sensitivity: {    
+    first_code: {type: String},
+    two_code: {type: String},
+    third_code: {type: String},
+    four_code: {type: String},
+    five_type: {type: String}
+  },
   sendcode: {type: String}, 
   dataid: {type: String},
   userId: {type: String}
