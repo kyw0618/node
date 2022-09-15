@@ -48,7 +48,6 @@ const datasend = new Mongoose.Schema( {
   }
   
   export async function update( 
-    id, 
     title, 
     keyword,
     textlist,
@@ -67,7 +66,6 @@ const datasend = new Mongoose.Schema( {
     ) {
     return DataSend.findByIdAndUpdate(
       id, {
-        id, 
         title, 
         keyword,
         textlist,
