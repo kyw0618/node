@@ -8,7 +8,8 @@ export async function createObituary(req, res) {
         timestamp,
         background,
         jurnalId,
-        devideId} = req.body;
+        devideId
+      } = req.body;
     const userId = req.userId;
   
     const feelList = await createCalendar.save({
