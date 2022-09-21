@@ -49,28 +49,11 @@ export async function update(
   id, 
   title,
   keyword,
-  timestamp,
-  sendcode,
-  defaultcode,
-  sensitivity,
-  pickscore,
-  videoscore,
-  keywordscore,
-  sensitivityscore,
-  allscore  ) {
+  ) {
   return DataList.findByIdAndUpdate(
     id, {
       title,
       keyword,
-      timestamp,
-      sendcode,
-      defaultcode,
-      sensitivity,
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,    
-      allscore
     }, 
     {
       returnOriginal: false}

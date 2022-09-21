@@ -58,15 +58,6 @@ export async function updateObit(req, res, next) {
   const {
     title,
     keyword,
-    timestamp,
-    sendcode,
-    defaultcode,
-    sensitivity,
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore,
-    allscore
    } = req.body;
 
   const obit = await obitRepository.findById(id);
@@ -81,32 +72,8 @@ export async function updateObit(req, res, next) {
     id, 
     title,
     keyword,
-    timestamp,
-    sendcode,
-    defaultcode,
-    sensitivity,
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore,
-    allscore
     );
-    const saveupdateObit = await obitRepositorySend.save({
-      id, 
-      title,
-      keyword,
-      timestamp,
-      sendcode,
-      defaultcode,
-      sensitivity,
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,
-      allscore, 
-      userId
-    });
-  res.status(200).json({"status": "200", updatedObit,saveupdateObit});
+  res.status(200).json({"status": "200", updatedObit});
 }
 
 ////////////////////////////////////////////////////////////////////
