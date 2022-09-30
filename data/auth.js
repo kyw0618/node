@@ -100,18 +100,14 @@ export async function adminfindUser(data) {
 
 export async function update( 
   id, 
-  pickscore,
-  videoscore,
-  keywordscore,
-  sensitivityscore,
-  allscore  ) {
+  phone, 
+  sex,
+  name,    ) {
   return DataList.findByIdAndUpdate(
     id, {
-      pickscore,
-      videoscore,
-      keywordscore,
-      sensitivityscore,    
-      allscore
+      phone, 
+      sex,
+      name,  
     }, 
     {
       returnOriginal: false}

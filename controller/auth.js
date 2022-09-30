@@ -223,10 +223,9 @@ function send_message(userPhone, authNumber) {
 export async function updateUser(req, res) {
   const id = req.query.id;
   const {     
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore } = req.body;
+    phone, 
+    sex,
+    name,   } = req.body;
   const condole = await authRepository.findById(id);
   
   if(!condole) {
@@ -238,9 +237,8 @@ export async function updateUser(req, res) {
 
   const updatedCondole = await authRepository.update(
     id,     
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore);
+    phone, 
+    sex,
+    name,  );
   res.status(200).json(({"status":"200", updatedCondole}))
 }
