@@ -11,10 +11,7 @@ export async function singup(req, res) {
     phone, 
     sex,
     name,   
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore,
+
     allscore
   }  = req.body;
   const admin = false;
@@ -30,10 +27,6 @@ export async function singup(req, res) {
     sex,
     name,
     admin,
-    pickscore,
-    videoscore,
-    keywordscore,
-    sensitivityscore,
     allscore
   });
   

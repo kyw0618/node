@@ -7,11 +7,7 @@ const users = new Mongoose.Schema( {
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
   admin: {type: Boolean, requirer: true},
-  pickscore:{type: String},
-  videoscore: {type: String},
-  keywordscore: {type: String},
-  sensitivityscore: {type: String},  
-  allscore: {type: String},
+
 }, { 
   versionKey: false
 });
