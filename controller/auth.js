@@ -11,11 +11,8 @@ export async function singup(req, res) {
     phone, 
     sex,
     name,   
-
-    allscore
   }  = req.body;
   const admin = false;
-
   const user = await authRepository.findByPhon(phone);
     if (user) {
       return res.status(404).json({"status": "404"});
@@ -27,7 +24,6 @@ export async function singup(req, res) {
     sex,
     name,
     admin,
-    allscore
   });
   
   const accessToken = createAccessJwt(userid);
