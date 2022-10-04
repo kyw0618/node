@@ -8,11 +8,12 @@ export async function createNap(req, res) {
     call,
     x,
     y,
-    imgURL_first,
-    imgURL_second,
-    imgURL_third,
-    imgURL_four,
-    imgURL_five,
+    // imgURL_first,
+    // imgURL_second,
+    // imgURL_third,
+    // imgURL_four,
+    // imgURL_five,
+    imgURL,
     created
   } = req.body;
 
@@ -26,11 +27,12 @@ export async function createNap(req, res) {
       x,
       y,
       created,
-      imgURL_first,
-      imgURL_second,
-      imgURL_third,
-      imgURL_four,
-      imgURL_five,      
+      // imgURL_first,
+      // imgURL_second,
+      // imgURL_third,
+      // imgURL_four,
+      // imgURL_five,      
+      imgURL,
       userId
     });
   } catch (error) {
@@ -57,11 +59,12 @@ export async function updateAddress(req, res, next) {
     x,
     y,
     created,
-    imgURL_first,
-    imgURL_second,
-    imgURL_third,
-    imgURL_four,
-    imgURL_five,
+    // imgURL_first,
+    // imgURL_second,
+    // imgURL_third,
+    // imgURL_four,
+    // imgURL_five,
+    imgURL,
   } = req.body;
 
   const updateAddress = await mapRepository.update(
@@ -73,11 +76,12 @@ export async function updateAddress(req, res, next) {
     x,
     y,
     created,
-    imgURL_first,
-    imgURL_second,
-    imgURL_third,
-    imgURL_four,
-    imgURL_five,
+    // imgURL_first,
+    // imgURL_second,
+    // imgURL_third,
+    // imgURL_four,
+    // imgURL_five,
+    imgURL
   );
   res.status(200).json({"status": "200", updateAddress});
 }

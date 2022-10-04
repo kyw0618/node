@@ -9,11 +9,12 @@ const mapSchema = new Mongoose.Schema( {
   x: {type: String},
   y: {type: String},
   created: {type: String},
-  imgURL_first: {type: String},
-  imgURL_second: {type: String},
-  imgURL_third: {type: String},
-  imgURL_four: {type: String},
-  imgURL_five: {type: String},
+  imgURL: {type: String},
+  // imgURL_first: {type: String},
+  // imgURL_second: {type: String},
+  // imgURL_third: {type: String},
+  // imgURL_four: {type: String},
+  // imgURL_five: {type: String},
   userId: {type: String}
   }, {
     versionKey: false
@@ -62,11 +63,12 @@ export async function update(
   x,
   y,
   created,
-  imgURL_first,
-  imgURL_second,
-  imgURL_third,
-  imgURL_four,
-  imgURL_five,
+  // imgURL_first,
+  // imgURL_second,
+  // imgURL_third,
+  // imgURL_four,
+  // imgURL_five,
+  imgURL,
   userId
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
@@ -77,11 +79,12 @@ export async function update(
     x,
     y,
     created,
-    imgURL_first,
-    imgURL_second,
-    imgURL_third,
-    imgURL_four,
-    imgURL_five,
+    // imgURL_first,
+    // imgURL_second,
+    // imgURL_third,
+    // imgURL_four,
+    // imgURL_five,
+    imgURL,
     userId
   }, 
   {returnOriginal: false});
