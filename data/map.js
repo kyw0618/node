@@ -10,6 +10,7 @@ const mapSchema = new Mongoose.Schema( {
   y: {type: String},
   created: {type: String},
   imgURL: {type: String},
+  webSite:{type: String},
   // imgURL_first: {type: String},
   // imgURL_second: {type: String},
   // imgURL_third: {type: String},
@@ -69,6 +70,7 @@ export async function update(
   // imgURL_four,
   // imgURL_five,
   imgURL,
+  webSite,
   userId
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
@@ -85,6 +87,7 @@ export async function update(
     // imgURL_four,
     // imgURL_five,
     imgURL,
+    webSite,
     userId
   }, 
   {returnOriginal: false});
