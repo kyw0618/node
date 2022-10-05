@@ -88,7 +88,7 @@ export async function createDocument(req, res) {
   
   
   export async function getOneObituary(req, res) {
-    const obId = req.params.id;
+    const obId = req.query.id;
   
     const obit = await documentRepository.findById(obId);
   

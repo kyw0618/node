@@ -99,7 +99,7 @@ export async function updateAddress(req, res, next) {
 }
 
 export async function removeAddress(req, res, next) {
-  const id = req.params.id;
+  const id = req.query.id;
   const obit = await mapRepository.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
