@@ -48,7 +48,7 @@ export async function createNap(req, res) {
 }
 
 export async function updateAddress(req, res, next) {
-  const id = req.params.id;
+  const id = req.query.id;
   const obit = await mapRepository.findById(id);
   
   if(!obit) {
