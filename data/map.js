@@ -11,12 +11,14 @@ const mapSchema = new Mongoose.Schema( {
   created: {type: String},
   imgURL: {type: String},
   webSite:{type: String},
-  // imgURL_first: {type: String},
+  weekend_time:{type: Array},
+  detail_words:{type: String},
+  userId: {type: String}
+    // imgURL_first: {type: String},
   // imgURL_second: {type: String},
   // imgURL_third: {type: String},
   // imgURL_four: {type: String},
   // imgURL_five: {type: String},
-  userId: {type: String}
   }, {
     versionKey: false
 });
@@ -71,6 +73,8 @@ export async function update(
   // imgURL_five,
   imgURL,
   webSite,
+  weekend_time,
+  detail_words,
   userId
   ) {
   return MapSchema.findByIdAndUpdate(id, {      
@@ -88,6 +92,8 @@ export async function update(
     // imgURL_five,
     imgURL,
     webSite,
+    weekend_time,
+    detail_words,
     userId
   }, 
   {returnOriginal: false});
