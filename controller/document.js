@@ -11,6 +11,9 @@ export async function createDocument(req, res) {
         usercall,
         userreqdocument,
         imgUrl,
+        inquiry_first,
+        inquiry_second,
+        inquiry_document,
         timestamp
         } = req.body;
     const userId = req.userId;
@@ -24,6 +27,9 @@ export async function createDocument(req, res) {
         usercall,
         userreqdocument,
         imgUrl,
+        inquiry_first,
+        inquiry_second,
+        inquiry_document,
         timestamp,
         userId
     });
@@ -41,6 +47,9 @@ export async function createDocument(req, res) {
         usercall,
         userreqdocument,
         imgUrl,
+        inquiry_first,
+        inquiry_second,
+        inquiry_document,
         timestamp
      } = req.body;
   
@@ -62,6 +71,9 @@ export async function createDocument(req, res) {
       usercall,
       userreqdocument,
       imgUrl,
+      inquiry_first,
+      inquiry_second,
+      inquiry_document,
       timestamp
       );  
     res.status(200).json({"status": "200", updatedObit});

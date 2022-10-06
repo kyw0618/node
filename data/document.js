@@ -10,6 +10,9 @@ const documentList = new Mongoose.Schema( {
     usercall: {type: String},
     userreqdocument: {type: String},
     imgUrl: {type: String},
+    inquiry_first: {type: String},
+    inquiry_second: {type: String},
+    inquiry_document: {type: String},
     timestamp: {type: String}
   }, { 
     versionKey: false
@@ -51,6 +54,9 @@ const documentList = new Mongoose.Schema( {
     usercall,
     userreqdocument,
     imgUrl,
+    inquiry_first,
+    inquiry_second,
+    inquiry_document,
     timestamp
     ) {
     return DocumentList.findByIdAndUpdate(
@@ -63,6 +69,9 @@ const documentList = new Mongoose.Schema( {
         usercall,
         userreqdocument,
         imgUrl,
+        inquiry_first,
+        inquiry_second,
+        inquiry_document,
         timestamp
       }, 
       {
