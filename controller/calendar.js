@@ -34,7 +34,8 @@ export async function createObituary(req, res) {
         timestamp,
         background,
         jurnalId,
-        devideId} = req.body;
+        devideId
+      } = req.body;
   
     const obit = await createCalendar.findById(id);
     if(!obit) {
@@ -73,7 +74,7 @@ export async function createObituary(req, res) {
   ////////////////////////////////////////////////////////////////////
   //데이터 조회
   export async function getMyObituary(req, res) {
-    const calendarList = await createCalendar.findMyObituary(req.userId);
+    const calendarList = await createCalendar.findMyObituary(req.userId);  
     res.status(200).json({"status": "200", calendarList});
   }
   

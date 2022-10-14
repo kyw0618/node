@@ -15,8 +15,6 @@ const feelList = new Mongoose.Schema( {
 
   useVirtualId(feelList);
 
-
-
 const FeelList = Mongoose.model('FeelList', feelList);
 
 export async function getAllObituary() {
