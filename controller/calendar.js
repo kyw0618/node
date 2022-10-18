@@ -7,7 +7,7 @@ export async function createObituary(req, res) {
         feeling,
         timestamp,
         background,
-        jurnalId,
+        stampId,
         devideId
       } = req.body;
     const userId = req.userId;
@@ -17,7 +17,7 @@ export async function createObituary(req, res) {
         feeling,
         timestamp,
         background,
-        jurnalId,
+        stampId,
         devideId,
         userId
     });
@@ -33,7 +33,7 @@ export async function createObituary(req, res) {
         feeling,
         timestamp,
         background,
-        jurnalId,
+        stampId,
         devideId
       } = req.body;
   
@@ -51,7 +51,7 @@ export async function createObituary(req, res) {
       feeling,
       timestamp,
       background,
-      jurnalId,
+      stampId,
       devideId
       );
     res.status(200).json({"status": "200", updatedObit});
