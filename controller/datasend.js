@@ -46,18 +46,6 @@ export async function createObituary(req, res) {
   }
     res.status(201).json({"status": "201", datasend});
 
-    const spawn = require('child_process').spawn;
-
-    const result = spawn('python', ['run.py']);
-
-    result.stdout.on('data', function(data) {
-      console.log({"status":"201",data});
-  });
-  
-  result.stderr.on('data', function(data) {
-    console.log({"status":"401",data});
-  });
-  
   } 
 
 
