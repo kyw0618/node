@@ -23,4 +23,4 @@ orgfile = filepath + fileName
 changefile = orgPath + fileSensitivity + fileName
 
 
-print(orgfile)
+print(orgfile , changefile)
