@@ -1,18 +1,18 @@
 import os 
 import sys
 
-filepath = 'TextUploads/'
+filepath = '/TextUploads/'
 fileName = sys.argv[1]
 fileSensitivity = sys.argv[2]
 
-orgPath = "./pythonImg/"
+orgPath = "../pythonImg/"
 
 orgfile = filepath + fileName
-changefile = fileSensitivity + ' ' +fileName
+changefile = fileSensitivity + fileName
 
-# # stream = os.popen('cp ' + orgfile + ' ' + changefile)
-# # output = stream.read()
-# # output
+stream = os.popen('cp ' + orgfile + ' ' + changefile)
+output = stream.read()
+output
 
 # dir = './TextUploads/'
 # files = os.listdir(dir)
