@@ -1,16 +1,16 @@
 import os 
 import sys
 
-filepath = '/TextUploads/'
+filepath = '/root/Server/node/TextUploads/'
 fileName = sys.argv[1]
 fileSensitivity = sys.argv[2]
 
-orgPath = "../pythonImg/"
+orgPath = "/root/Server/node/pythonImg/"
 
 orgfile = filepath + fileName
 changefile = fileSensitivity + fileName
 
-stream = os.popen('cp ' + orgfile + ' ' + changefile)
+stream = os.popen('cp ' + orgfile + ' ' + orgPath + changefile)
 output = stream.read()
 output
 
@@ -19,4 +19,4 @@ output
 
 # for file in files : print(file)
 
-print(changefile)
+print(stream)
