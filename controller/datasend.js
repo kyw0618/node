@@ -108,9 +108,10 @@ export async function createObituary(req, res) {
     PythonShell.run('./run.py',options,function(err,results){
       if(err) console.log(err);
       else console.log(results);
-    });
 
-    // res.status(200).json({
-    //   "status" : "200", results
-    // })
+      res.status(200).json({
+        "status" : "200", results
+      })
+      
+    });
 }
