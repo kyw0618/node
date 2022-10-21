@@ -13,7 +13,7 @@ orgPath = "pythonImg/"
 orgfile = filepath + fileName
 changefile = orgPath + fileSensitivity + ''+fileName
 
-stream = os.popen('cp ' + fileSensitivity + ' ' + filepath+fileName)
+stream = os.popen('cp ' + orgfile + ' ' + changefile)
 output = stream.read()
 output
 
