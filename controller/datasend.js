@@ -98,7 +98,6 @@ export async function createObituary(req, res) {
   export async function postPython(req, res) {
 
     const {
-      org_file_path,
       org_file_name,
       org_file_sensitivity
     }=req.body;
