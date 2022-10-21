@@ -1,3 +1,4 @@
+from fileinput import filename
 import os 
 import sys
 # sec = sys.argv[1]
@@ -10,4 +11,16 @@ import sys
 # output = stream.read()
 # output
 
-print(sys.argv)
+def getName(name,age): print(name + ":"+ age)
+
+filepath = sys.argv[1]
+fileName = sys.argv[2]
+fileSensitivity = sys.argv[3]
+
+orgPath = "/root/Server/node/pythonImg/"
+
+orgfile = filepath + fileName
+changefile = orgPath + fileSensitivity + fileName
+
+
+print(orgfile)
