@@ -14,8 +14,8 @@ import sys
 def getName(name,age): print(name + ":"+ age)
 
 filepath = "/root/Server/node/TextUploads/"
-fileName = sys.argv[2]
-fileSensitivity = sys.argv[3]
+fileName = sys.argv[1]
+fileSensitivity = sys.argv[2]
 
 orgPath = "/root/Server/node/pythonImg/"
 
