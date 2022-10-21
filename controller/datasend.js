@@ -1,6 +1,7 @@
 import * as obitRepository from '../data/datasend.js';
 import { config } from '../config.js';
 import { request } from 'express';
+import {pythonShell} from 'python-shell';
 
 
 export async function createObituary(req, res) { 
@@ -96,8 +97,6 @@ export async function createObituary(req, res) {
   
   // 파이썬 연동 API
   export async function postPython(req, res) {
-    const pythonshell = require('python-shell');
-
     var options = {
       mode: 'text',
       pythonPath: '',
@@ -106,7 +105,7 @@ export async function createObituary(req, res) {
       args: [arg1,arg2]
     };
 
-    pythonshell.PythonShell.run('/python/run.py',options,function(err,results){
+    pythonShell.pythonShell.run('/python/run.py',options,function(err,results){
       if(err) console.log(err);
       else console.log(results);
     });
