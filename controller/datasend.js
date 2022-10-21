@@ -110,7 +110,7 @@ export async function createObituary(req, res) {
       args: [org_file_name,org_file_sensitivity]
     };
 
-    PythonShell.run('./run.py',options,function(err,results){
+    PythonShell.run('./python/run.py',options,function(err,results){
       
       console.log(results);
       res.status(200).json({
