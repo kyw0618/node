@@ -105,7 +105,7 @@ export async function createObituary(req, res) {
       args: ['arg1','arg2']
     };
 
-    PythonShell.run('../python/run.py',options,function(err,results){
+    PythonShell.run('/run.py',options,function(err,results){
       if(err) console.log(err);
       else console.log(results);
     });
