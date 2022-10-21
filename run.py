@@ -20,7 +20,7 @@ fileSensitivity = sys.argv[3]
 orgPath = "/root/Server/node/pythonImg/"
 
 orgfile = filepath + fileName
-changefile = orgPath + fileSensitivity + fileName
+changefile = orgPath + fileSensitivity + ''+fileName
 
 
 print(orgfile , changefile)
