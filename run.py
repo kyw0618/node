@@ -13,7 +13,7 @@ import sys
 
 def getName(name,age): print(name + ":"+ age)
 
-filepath = sys.argv[1]
+filepath = "/root/Server/node/TextUploads/"
 fileName = sys.argv[2]
 fileSensitivity = sys.argv[3]
 
