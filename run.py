@@ -1,6 +1,6 @@
-from fileinput import filename
 import os 
 import sys
+import shutil
 
 def getName(name,age): print(name + ":"+ age)
 
@@ -11,11 +11,10 @@ fileSensitivity = sys.argv[2]
 orgPath = "pythonImg/"
 
 orgfile = filepath + fileName
-changefile = orgPath + fileSensitivity + ''+fileName
+changefile = fileSensitivity + ''+fileName
 
-stream = os.popen('cp ' + orgfile + ' ' + changefile)
-output = stream.read()
-output
+# stream = os.popen('cp ' + orgfile + ' ' + changefile)
+# output = stream.read()
+# output
 
-
-print(stream)
+shutil.copy(orgPath, changefile)
