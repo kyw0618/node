@@ -1,8 +1,6 @@
 import os 
 import sys
 
-def getName(name,age): print(name + ":"+ age)
-
 filepath = 'TextUploads/'
 fileName = sys.argv[1]
 fileSensitivity = sys.argv[2]
