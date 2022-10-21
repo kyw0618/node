@@ -96,12 +96,18 @@ export async function createObituary(req, res) {
   
   // 파이썬 연동 API
   export async function postPython(req, res) {
-    const PythonShell = require('python-shell');
-    const result = PythonShell('python', ['/python/run.py']);
-    result.stdout.on('data', function(data) {
-      console.log(data.toString());
-    });
-    result.stderr.on('data', function(data) {
-      console.log(data.toString());
-    });
+    const pythonshell = req('python-shell');
+
+    var options = {
+      mode: 'text',
+      pythonPath: '',
+      pythonOptions: ['-u'],
+      scriptPath: '',
+      args: [arg1,arg2]
+    };
+
+    pythonshell.pythonshell.run('/python/run.py',options,function(err,results){
+      if(err) console.log(err);
+      else console.log(results);
+    })
 }

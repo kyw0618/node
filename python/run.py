@@ -1,5 +1,5 @@
-# import os 
-# import sys
+import os 
+import sys
 
 # sec = sys.argv[1]
 # src = sys.argv[2]
@@ -11,4 +11,4 @@
 # output = stream.read()
 # output
 
-print("성공")
+print(sys.argv)
