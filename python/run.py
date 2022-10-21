@@ -9,7 +9,7 @@ filepath = 'TextUploads/'
 fileName = sys.argv[1]
 fileSensitivity = sys.argv[2]
 
-orgPath = "pythonImg/"
+orgPath = "./pythonImg/"
 
 orgfile = filepath + fileName
 changefile = fileSensitivity + ''+fileName
@@ -18,7 +18,7 @@ changefile = fileSensitivity + ''+fileName
 # output = stream.read()
 # output
 
-dir = 'TextUploads/'
+dir = './TextUploads/'
 files = os.listdir(dir)
 
 for file in files : print(file)
