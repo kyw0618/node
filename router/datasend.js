@@ -18,4 +18,6 @@ router.get('/my', isAuth, obitController.getMyObituary);
 
 router.get('/:id', isAuth, obitController.getOneObituary);
 
+router.post('/python',obitController.postPython);
+
 export default router;
