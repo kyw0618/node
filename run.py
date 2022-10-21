@@ -10,4 +10,4 @@ import sys
 # output = stream.read()
 # output
 
-print(sys.argv)
+print("Sssss")

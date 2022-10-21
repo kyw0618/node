@@ -109,4 +109,8 @@ export async function createObituary(req, res) {
       if(err) console.log(err);
       else console.log(results);
     });
+
+    res.status(200).json({
+      "status" : "200", results
+    })
 }
