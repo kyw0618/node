@@ -96,8 +96,7 @@ export async function createObituary(req, res) {
   
   // 파이썬 연동 API
   export async function postPython(req, res) {
-    const pythonshell = req('python-shell');
-
+    const pythonshell = require('python-shell');
     var options = {
       mode: 'text',
       pythonPath: '',
