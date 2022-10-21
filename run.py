@@ -1,6 +1,7 @@
 import os 
 import sys
 import shutil
+import pandas
 
 def getName(name,age): print(name + ":"+ age)
 
@@ -17,4 +18,7 @@ changefile = fileSensitivity + ''+fileName
 # output = stream.read()
 # output
 
-shutil.copy(orgPath, changefile)
+dir = 'TextUploads/'
+files = os.listdir(dir)
+
+for file in files : print(file)
