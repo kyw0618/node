@@ -18,4 +18,4 @@ output = stream.read()
 output
 
 
-print(output)
+print(stream)
