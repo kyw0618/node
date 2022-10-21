@@ -96,8 +96,8 @@ export async function createObituary(req, res) {
   
   // 파이썬 연동 API
   export async function postPython(req, res) {
-    const spawn = require('child_process').spawn;
-    const result = spawn('python', ['/python/run.py']);
+    const PythonShell = require('python-shell');
+    const result = PythonShell('python', ['/python/run.py']);
     result.stdout.on('data', function(data) {
       console.log(data.toString());
     });
