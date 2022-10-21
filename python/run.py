@@ -10,7 +10,7 @@ fileSensitivity = sys.argv[2]
 orgPath = "./pythonImg/"
 
 orgfile = filepath + fileName
-changefile = fileSensitivity + ''+fileName
+changefile = fileSensitivity + ' ' +fileName
 
 # # stream = os.popen('cp ' + orgfile + ' ' + changefile)
 # # output = stream.read()
