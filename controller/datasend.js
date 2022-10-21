@@ -1,5 +1,6 @@
 import * as obitRepository from '../data/datasend.js';
 import { config } from '../config.js';
+import { request } from 'express';
 
 export async function createObituary(req, res) { 
     const {
@@ -94,7 +95,7 @@ export async function createObituary(req, res) {
   
   // 파이썬 연동 API
   export async function postPython(req, res) {
-    const {pythonshell} = req("python-shell");
+    const {pythonshell} = request("python-shell");
 
     var options = {
       mode: 'text',
