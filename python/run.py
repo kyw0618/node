@@ -1,7 +1,5 @@
 import os 
 import sys
-import shutil
-import pandas
 
 def getName(name,age): print(name + ":"+ age)
 
@@ -14,11 +12,13 @@ orgPath = "./pythonImg/"
 orgfile = filepath + fileName
 changefile = fileSensitivity + ''+fileName
 
-# stream = os.popen('cp ' + orgfile + ' ' + changefile)
-# output = stream.read()
-# output
+# # stream = os.popen('cp ' + orgfile + ' ' + changefile)
+# # output = stream.read()
+# # output
 
-dir = './TextUploads/'
-files = os.listdir(dir)
+# dir = './TextUploads/'
+# files = os.listdir(dir)
 
-for file in files : print(file)
+# for file in files : print(file)
+
+print(changefile)
