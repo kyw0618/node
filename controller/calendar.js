@@ -6,6 +6,7 @@ export async function createObituary(req, res) {
         title, 
         feeling,
         timestamp,
+        detail
       } = req.body;
     const userId = req.userId;
   
@@ -13,6 +14,7 @@ export async function createObituary(req, res) {
         title, 
         feeling,
         timestamp,
+        detail,
         userId
     });
     res.status(201).json({"status": "201", feelList});
@@ -25,6 +27,7 @@ export async function createObituary(req, res) {
         title, 
         feeling,
         timestamp,
+        detail
       } = req.body;
   
     const obit = await createCalendar.findById(id);
@@ -41,6 +44,7 @@ export async function createObituary(req, res) {
       title, 
       feeling,
       timestamp,
+      detail
       );
     res.status(200).json({"status": "200", updatedObit});
   }

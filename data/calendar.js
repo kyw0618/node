@@ -5,6 +5,7 @@ const feelList = new Mongoose.Schema( {
     title: {type: String}, 
     feeling: {type: String},
     timestamp: {type: String},
+    detail:{type: String},
     userId: {type: String}
   }, { 
     versionKey: false
@@ -41,12 +42,14 @@ export async function getAllObituary() {
     title, 
     feeling,
     timestamp,
+    detail
     ) {
     return DataList.findByIdAndUpdate(
       id, {
         title, 
         feeling,
         timestamp,
+        detail
       }, 
       {
         returnOriginal: false}
