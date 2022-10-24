@@ -44,8 +44,9 @@ export async function getAllObituary() {
     timestamp,
     detail
     ) {
-    return DataList.findByIdAndUpdate(
-      id, {
+    return FeelList.findByIdAndUpdate(
+      id, 
+      {
         title, 
         feeling,
         timestamp,
