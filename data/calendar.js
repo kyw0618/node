@@ -3,11 +3,8 @@ import {useVirtualId} from '../db/db.js';
 
 const feelList = new Mongoose.Schema( {
     title: {type: String}, 
-    feeling: {type: Number},
+    feeling: {type: String},
     timestamp: {type: String},
-    background: {type: Number},
-    stampId: {type: String},
-    devideId: {type: String},
     userId: {type: String}
   }, { 
     versionKey: false
@@ -44,19 +41,12 @@ export async function getAllObituary() {
     title, 
     feeling,
     timestamp,
-    background,
-    stampId,
-    devideId
     ) {
     return DataList.findByIdAndUpdate(
       id, {
         title, 
         feeling,
         timestamp,
-        background,
-        stampId,   
-        devideId
-          
       }, 
       {
         returnOriginal: false}
