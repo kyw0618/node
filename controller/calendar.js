@@ -22,7 +22,6 @@ export async function createObituary(req, res) {
 
   export async function updateObit(req, res, next) {
     const id = req.query.id;
- 
     const {
         title, 
         feeling,
@@ -58,6 +57,7 @@ export async function createObituary(req, res) {
       return res.status(403).json({"status": "403"});  
     }
   
+    
     await createCalendar.remove(id);
     res.status(204).json(({"status":"204"}))
   }

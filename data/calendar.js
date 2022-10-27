@@ -29,7 +29,7 @@ export async function getAllObituary() {
   
   export async function findObituaryByname(name) {  
     return FeelList.find({ $or: [{"title": name},
-        {"keyword": name}]}).sort({ createdAt: -1});
+        {"feeling": name},{"timestamp":name}]}).sort({ createdAt: -1});
   }
   
   export async function save(obit) {
