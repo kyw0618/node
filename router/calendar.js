@@ -15,7 +15,7 @@ router.put('/', isAuth, obitController.updateObit);
 router.delete('/', isAuth, obitController.removeObit);
 
 //데이터 검색
-router.get('/', isAuth, obitController.getByname);
+router.get('/search', isAuth, obitController.getByname);
 
 //데이터 조회
 router.get('/my', isAuth, obitController.getMyObituary);

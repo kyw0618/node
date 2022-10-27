@@ -62,7 +62,7 @@ export async function createObituary(req, res) {
     res.status(204).json(({"status":"204"}))
   }
   
-  ////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////sss//////////////
   //데이터 조회
   export async function getMyObituary(req, res) {
     const calendarList = await createCalendar.findMyObituary(req.userId);  
