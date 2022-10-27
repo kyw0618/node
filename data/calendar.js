@@ -3,11 +3,27 @@ import {useVirtualId} from '../db/db.js';
 
 const feelList = new Mongoose.Schema( {
     title: {type: String}, 
-    timestamp: {type: String},
+    feeling: feelCalendar,
+    timestamp: dateCalendar,
     detail:{type: String},
     userId: {type: String}
   }, { 
     versionKey: false
+  });
+
+  const dateCalendar = new Mongoose.Schema({
+    year : {type: Number},
+    month: {type: Number},
+    day: {type: Number},
+    dayOfWeek: {type: String}
+  });
+
+  const feelCalendar = new Mongoose.Schema({
+    id : {type: Number},
+    colorRes : {type: Number},
+    representation: {type: String},
+    representationPast: {type: String},
+    iconRes: {type: Number}
   });
 
   useVirtualId(feelList);
