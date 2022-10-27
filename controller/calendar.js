@@ -72,7 +72,6 @@ export async function createObituary(req, res) {
   
   export async function getOneObituary(req, res) {
     const obId = req.query.id;
-  
     const obit = await createCalendar.findById(obId);
   
     res.status(200).json({"status": "200", obit});

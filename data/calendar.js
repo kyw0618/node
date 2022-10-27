@@ -3,7 +3,6 @@ import {useVirtualId} from '../db/db.js';
 
 const feelList = new Mongoose.Schema( {
     title: {type: String}, 
-    feeling: {type: Number},
     timestamp: {type: String},
     detail:{type: String},
     userId: {type: String}
@@ -29,7 +28,7 @@ export async function getAllObituary() {
   
   export async function findObituaryByname(name) {  
     return FeelList.find({ $or: [{"title": name},
-        {"feeling": name},{"timestamp":name}]}).sort({ createdAt: -1});
+    {"timestamp":name}]}).sort({ createdAt: -1});
   }
   
   export async function save(obit) {
