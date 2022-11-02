@@ -13,7 +13,7 @@ export async function createObituary(req, res) {
       } = req.body;
     const userId = req.userId;
   
-    const feelList = await soomgoData.save({
+    const soomgoList = await soomgoData.save({
         title, 
         expirationdate_first,
         expirationdate_second,
@@ -23,7 +23,7 @@ export async function createObituary(req, res) {
         timestamp,
         userId
     });
-    res.status(201).json({"status": "201", feelList});
+    res.status(201).json({"status": "201", soomgoList});
   } 
 
   ///////////////////////////////////////////////////
@@ -81,8 +81,8 @@ export async function createObituary(req, res) {
     //////////////////////////////////////////////////////sss//////////////
   //데이터 조회
   export async function getMyObituary(req, res) {
-    const calendarList = await soomgoData.findMyObituary(req.userId);  
-    res.status(200).json({"status": "200", calendarList});
+    const soomgoList = await soomgoData.findMyObituary(req.userId);  
+    res.status(200).json({"status": "200", soomgoList});
   }
   
   
