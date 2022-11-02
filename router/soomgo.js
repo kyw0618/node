@@ -21,13 +21,13 @@ router.delete('/soomDelete/frozen', obitController.removeObit);
 router.post('/soomPost/refrigeration', obitController.createRefrigertaion);
 
 //데이터 조회(냉장)
-router.get('/soomMy/refrigeration', obitController.getMyObituary);
+router.get('/soomMy/refrigeration', obitController.getMyRefrigertaion);
 
 //데이터 수정(냉장)
-router.put('/soomPut/refrigeration', obitController.updateObit);
+router.put('/soomPut/refrigeration', obitController.updateRefrigertaion);
 
 //데이터 삭제(냉장)
-router.delete('/soomDelete/refrigeration', obitController.removeObit);
+router.delete('/soomDelete/refrigeration', obitController.removeRefrigertaion);
 
 ///////////////////////////////////////////////////////////////
 
@@ -35,13 +35,13 @@ router.delete('/soomDelete/refrigeration', obitController.removeObit);
 router.post('/soomPost/outdoor', obitController.createOutdoor);
 
 //데이터 조회(실온)
-router.get('/soomMy/outdoor', obitController.getMyObituary);
+router.get('/soomMy/outdoor', obitController.getMyOutdoor);
 
 //데이터 수정(실온)
-router.put('/soomPut/outdoor', obitController.updateObit);
+router.put('/soomPut/outdoor', obitController.updateOutdoor);
 
 //데이터 삭제(실온)
-router.delete('/soomDelete/outdoor', obitController.removeObit);
+router.delete('/soomDelete/outdoor', obitController.removeOutdoor);
 
 
 export default router;
