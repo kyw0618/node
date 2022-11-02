@@ -3,7 +3,7 @@ import {useVirtualId} from '../db/db.js';
 
 const soomgoList = new Mongoose.Schema( {
     title: {type: String}, 
-    expirationdate_first: {type: Number},
+    expirationdate_first: {type: String},
     expirationdate_second: {type: String},
     count:{type: String},
     refrigerator: {type: String},
