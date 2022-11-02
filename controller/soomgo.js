@@ -139,7 +139,7 @@ export async function createObituary(req, res) {
 
 
   //데이터 수정
-  export async function updateObit(req, res, next) {
+  export async function updateRefrigertaion(req, res, next) {
     const id = req.query.id;
     const {
         title, 
@@ -174,7 +174,7 @@ export async function createObituary(req, res) {
 
 
   //데이터 삭제
-  export async function removeObit(req, res, next) {
+  export async function removeRefrigertaion(req, res, next) {
     const id = req.query.id; 
     const obit = await soomRe.findById(id);
     if(!obit) {
@@ -190,13 +190,13 @@ export async function createObituary(req, res) {
   }
 
   //데이터 조회
-  export async function getMyObituary(req, res) {
+  export async function getMyRefrigertaion(req, res) {
     const soomgoList = await soomRe.findMyObituary(req.userId);  
     res.status(200).json({"status": "200", soomgoList});
   }
   
   
-  export async function getOneObituary(req, res) {
+  export async function getOneRefrigertaion(req, res) {
     const obId = req.query.id;
     const obit = await soomRe.findById(obId);
   
@@ -205,7 +205,7 @@ export async function createObituary(req, res) {
   }
   
   //데이터 검색
-  export async function getByname(req, res) {
+  export async function getBynameRefrigertaion(req, res) {
     const value = req.query.name;
     const result = await ( value 
       ? soomRe.findObituaryByname(value)
@@ -246,7 +246,7 @@ export async function createObituary(req, res) {
     res.status(201).json({"status": "201", soomgo});
   } 
 
-  export async function updateObit(req, res, next) {
+  export async function updateOutdoor(req, res, next) {
     const id = req.query.id;
     const {
         title, 
@@ -281,7 +281,7 @@ export async function createObituary(req, res) {
 
   //////////////////////////////////////////////
 
-  export async function removeObit(req, res, next) {
+  export async function removeOutdoor(req, res, next) {
     const id = req.query.id; 
     const obit = await soomOut.findById(id);
     if(!obit) {
@@ -298,13 +298,13 @@ export async function createObituary(req, res) {
 
     //////////////////////////////////////////////////////sss//////////////
   //데이터 조회
-  export async function getMyObituary(req, res) {
+  export async function getMyOutdoor(req, res) {
     const soomgoList = await soomOut.findMyObituary(req.userId);  
     res.status(200).json({"status": "200", soomgoList});
   }
   
   
-  export async function getOneObituary(req, res) {
+  export async function getOneOutdoor(req, res) {
     const obId = req.query.id;
     const obit = await soomOut.findById(obId);
   
@@ -313,7 +313,7 @@ export async function createObituary(req, res) {
   }
   
   //데이터 검색
-  export async function getByname(req, res) {
+  export async function getOutdoor(req, res) {
     const value = req.query.name;
     const result = await ( value 
       ? soomOut.findObituaryByname(value)
