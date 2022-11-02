@@ -3,8 +3,14 @@ import * as obitController from '../controller/soomgo.js';
 
 const router = express.Router();
 
-//데이터 등록
-router.post('/soomPost', obitController.createObituary);
+//데이터 등록(냉동)
+router.post('/soomPost/frozen', obitController.createObituary);
+
+//데이터 등록(냉장)
+router.post('/soomPost/refrigeration', obitController.createRefrigertaion);
+
+//데이터 등록(실온)
+router.post('/soomPost/outdoor', obitController.createOutdoor);
 
 //데이터 수정
 router.put('/soomPut', obitController.updateObit);
