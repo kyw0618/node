@@ -13,7 +13,7 @@ export async function createObituary(req, res) {
       } = req.body;
     const userId = req.userId;
   
-    const soomgoList = await soomgoData.save({
+    const soomgo = await soomgoData.save({
         title, 
         expirationdate_first,
         expirationdate_second,
@@ -23,7 +23,7 @@ export async function createObituary(req, res) {
         timestamp,
         userId
     });
-    res.status(201).json({"status": "201", soomgoList});
+    res.status(201).json({"status": "201", soomgo});
   } 
 
   ///////////////////////////////////////////////////
