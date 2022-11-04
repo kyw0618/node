@@ -83,8 +83,8 @@ export async function createObituary(req, res) {
     //////////////////////////////////////////////////////sss//////////////
   //데이터 조회
   export async function getMyObituary(req, res) {
-    const soomgoList = await soomgoData.findMyObituary(req.userId);  
-    res.status(200).json({"status": "200", soomgoList});
+    const recipeList = await soomgoData.findMyObituary(req.userId);  
+    res.status(200).json({"status": "200", recipeList});
   }
   
   
