@@ -15,7 +15,7 @@ const soomgoList = new Mongoose.Schema( {
 
   useVirtualId(soomgoList);
 
-const SoomgoList = Mongoose.model('SoomgoList', soomgoList);
+const SoomgoList = Mongoose.model('recipeList', soomgoList);
 
 export async function getAllObituary() {
     return SoomgoList.find().sort({ createdAt: -1});
