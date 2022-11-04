@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
-const soomgoList = new Mongoose.Schema( {
+const recipeList = new Mongoose.Schema( {
     title: {type: String}, 
     expirationdate_first: {type: String},
     expirationdate_second: {type: String},
@@ -13,29 +13,29 @@ const soomgoList = new Mongoose.Schema( {
     versionKey: false
   });
 
-  useVirtualId(soomgoList);
+  useVirtualId(recipeList);
 
-const SoomgoList = Mongoose.model('recipeList', soomgoList);
+const RecipeList = Mongoose.model('recipeList', recipeList);
 
 export async function getAllObituary() {
-    return SoomgoList.find().sort({ createdAt: -1});
+    return RecipeList.find().sort({ createdAt: -1});
   }
   
   export async function findById(id) {
-    return SoomgoList.findById(id);
+    return RecipeList.findById(id);
   }
   
   export async function findMyObituary(userId) {
-    return SoomgoList.find({userId}).sort({ createdAt: -1});
+    return RecipeList.find({userId}).sort({ createdAt: -1});
   }
   
   export async function findObituaryByname(name) {  
-    return SoomgoList.find({ $or: [{"title": name},
+    return RecipeList.find({ $or: [{"title": name},
     {"kind":name}]}).sort({ createdAt: -1});
   }
   
   export async function save(obit) {
-    return new SoomgoList(obit).save()
+    return new RecipeList(obit).save()
     .then((data) => data);
   }
 
@@ -49,7 +49,7 @@ export async function getAllObituary() {
     kind,
     timestamp
     ) {
-    return SoomgoList.findByIdAndUpdate(
+    return RecipeList.findByIdAndUpdate(
       id, 
       {
         title, 
@@ -66,5 +66,5 @@ export async function getAllObituary() {
   }
   
   export async function remove(id) {
-    return SoomgoList.findByIdAndDelete(id);
+    return RecipeList.findByIdAndDelete(id);
   }
