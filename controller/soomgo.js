@@ -191,8 +191,8 @@ export async function createObituary(req, res) {
 
   //데이터 조회
   export async function getMyRefrigertaion(req, res) {
-    const soomgoList = await soomRe.findMyObituary(req.userId);  
-    res.status(200).json({"status": "200", soomgoList});
+    const recipeList = await soomRe.findMyObituary(req.userId);  
+    res.status(200).json({"status": "200", recipeList});
   }
   
   
@@ -299,8 +299,8 @@ export async function createObituary(req, res) {
     //////////////////////////////////////////////////////sss//////////////
   //데이터 조회
   export async function getMyOutdoor(req, res) {
-    const soomgoList = await soomOut.findMyObituary(req.userId);  
-    res.status(200).json({"status": "200", soomgoList});
+    const recipeList = await soomOut.findMyObituary(req.userId);  
+    res.status(200).json({"status": "200", recipeList});
   }
   
   
