@@ -6,6 +6,7 @@ const users = new Mongoose.Schema( {
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
+  simplepw: {type: String, requirer: true},
   admin: {type: Boolean, requirer: true},
 
 }, { 
@@ -102,12 +103,15 @@ export async function update(
   id, 
   phone, 
   sex,
-  name,    ) {
+  name,
+  simplepw
+      ) {
   return DataList.findByIdAndUpdate(
     id, {
       phone, 
       sex,
       name,  
+      simplepw
     }, 
     {
       returnOriginal: false}
