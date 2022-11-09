@@ -2,11 +2,10 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const users = new Mongoose.Schema( {
-  imgName: {type: String, requirer: true},
+  imgName: {type: String},
   phone: {type: String, requirer: true},
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
-  simplepw: {type: String, require:true},
   admin: {type: Boolean, requirer: true},
 
 }, { 
@@ -103,14 +102,12 @@ export async function update(
   id, 
   phone, 
   sex,
-  name, 
-  simplepw   ) {
+  name,    ) {
   return DataList.findByIdAndUpdate(
     id, {
       phone, 
       sex,
-      name,
-      simplepw  
+      name,  
     }, 
     {
       returnOriginal: false}
