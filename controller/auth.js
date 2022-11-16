@@ -12,8 +12,6 @@ export async function singup(req, res) {
     sex,
     name,   
     simplepw,
-    fingerprint,
-    faceId
   }  = req.body;
   const admin = false;
   const user = await authRepository.findByPhon(phone);
@@ -27,8 +25,6 @@ export async function singup(req, res) {
     sex,
     name,
     simplepw,
-    fingerprint,
-    faceId,
     admin,
   });
   
@@ -233,8 +229,6 @@ export async function updateUser(req, res) {
     sex,
     name,
     simplepw,
-    fingerprint,
-    faceId
      } = req.body;
   const condole = await authRepository.findById(id);
   
@@ -251,8 +245,6 @@ export async function updateUser(req, res) {
     sex,
     name,
     simplepw,
-    fingerprint,
-    faceId
     );
   res.status(200).json(({"status":"200", updatedCondole}))
 }
