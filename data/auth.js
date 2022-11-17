@@ -106,7 +106,7 @@ export async function update(
   name,
   simplepw,
       ) {
-  return DataList.findByIdAndUpdate(
+  return User.findByIdAndUpdate(
     id, {
       phone, 
       sex,
