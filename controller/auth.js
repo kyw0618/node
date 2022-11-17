@@ -235,9 +235,9 @@ export async function updateUser(req, res) {
   if(!condole) {
     return res.status(404).json({"status":"404"});
   }
-  if(condole.userId !== req.userId && req.admin == false) {
-    return res.status(403).json({"status": "403"});
-  }
+  // if(condole.userId !== req.userId && req.admin == true) {
+  //   return res.status(403).json({"status": "403"});
+  // }
 
   const updatedCondole = await authRepository.update(
     id,     
