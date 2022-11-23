@@ -10,7 +10,6 @@ import centerRouter from './router/serviceCenter.js';
 import mapRouter from './router/map.js';
 import documentRouter from './router/document.js';
 import calendarFeel from './router/calendar.js';
-import soomgoRouter from './router/soomgo.js';
 
 const app = express();
 
@@ -26,7 +25,6 @@ app.use('/v1/center', centerRouter);
 app.use('/v1/map', mapRouter);
 app.use('/v1/document', documentRouter);
 app.use('/v1/calendar', calendarFeel);
-app.use('/v1/sommgo', soomgoRouter);
 
 
 app.use((req, res, next) => {
