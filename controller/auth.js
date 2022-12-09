@@ -15,7 +15,9 @@ export async function singup(req, res) {
     deviceId,
     deviceModel,
     deviceOs,
-    deviceAppVersion
+    deviceAppVersion,
+    dataTemperature,
+    level
   }  = req.body;
   const admin = false;
   const user = await authRepository.findByPhon(phone);
@@ -33,6 +35,8 @@ export async function singup(req, res) {
     deviceModel,
     deviceOs,
     deviceAppVersion,
+    dataTemperature,
+    level,
     admin,
   });
   
@@ -240,7 +244,9 @@ export async function updateUser(req, res) {
     deviceId,
     deviceModel,
     deviceOs,
-    deviceAppVersion
+    deviceAppVersion,
+    dataTemperature,
+    level
      } = req.body;
   const condole = await authRepository.findById(id);
   
@@ -260,7 +266,9 @@ export async function updateUser(req, res) {
     deviceId,
     deviceModel,
     deviceOs,
-    deviceAppVersion
+    deviceAppVersion,
+    dataTemperature,
+    level
     );
   res.status(200).json(({"status":"200", updatedCondole}))
 }
