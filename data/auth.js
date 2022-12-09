@@ -7,6 +7,10 @@ const users = new Mongoose.Schema( {
   sex: {type: String, requirer: true},
   name: {type: String, requirer: true},
   simplepw: {type: String, requirer: true,},
+  deviceId: {type: String},
+  deviceModel: {type: String},
+  deviceOs: {type: String},
+  deviceAppVersion: {type: String},
   admin: {type: Boolean, requirer: true},
 
 }, { 
@@ -105,6 +109,10 @@ export async function update(
   sex,
   name,
   simplepw,
+  deviceId,
+  deviceModel,
+  deviceOs,
+  deviceAppVersion
       ) {
   return User.findByIdAndUpdate(
     id, {
@@ -112,6 +120,10 @@ export async function update(
       sex,
       name,  
       simplepw,
+      deviceId,
+      deviceModel,
+      deviceOs,
+      deviceAppVersion
     }, 
     {
       returnOriginal: false}
