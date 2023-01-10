@@ -11,9 +11,6 @@ import mapRouter from './router/map.js';
 import documentRouter from './router/document.js';
 import calendarFeel from './router/calendar.js';
 
-import joongUserRouter from './router/joongRouter/joongAuth.js'
-import joongRoomRouter from './router/joongRouter/joongBuRoom.js'
-
 const app = express();
 
 app.use(express.json());
@@ -29,9 +26,6 @@ app.use('/v1/map', mapRouter);
 app.use('/v1/document', documentRouter);
 app.use('/v1/calendar', calendarFeel);
 
-/////////////////////// 중부대학교 테스트 API ////////////////////////////
-app.use('/joong/user',joongUserRouter)
-app.use('/joong/room',joongRoomRouter)
 
 app.use((req, res, next) => {
   res.sendStatus(404);
