@@ -1,25 +1,44 @@
 {
-  "name": "node",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://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@github.com/kyw0618/node.git"
+    "start": "node app"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.1",
+    "firebase-admin": "^10.0.2",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "pdfkit": "^0.13.0",
+    "python": "^0.0.4",
+    "python-shell": "^3.0.1",
+    "request": "^2.88.2",
+    "requst": "^0.0.1-security",
+    "sharp": "^0.30.4",
+    "tesseract.js": "^2.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/kyw0618/node.git"
+  },
   "bugs": {
     "url": "https://github.com/kyw0618/node/issues"
   },
   "homepage": "https://github.com/kyw0618/node#readme",
-  "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "express": "^4.18.2",
-    "express-generator": "^4.16.1"
+  "devDependencies": {
+    "@types/express": "^4.17.15"
   }
 }
