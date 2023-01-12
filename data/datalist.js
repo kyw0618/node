@@ -46,7 +46,7 @@ export async function save(obit) {
 }
 
 export async function update( 
-  id, 
+  id,
   title,
   keyword,
   ) {
