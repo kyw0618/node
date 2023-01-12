@@ -11,6 +11,11 @@ const users = new Mongoose.Schema( {
   deviceModel: {type: String},
   deviceOs: {type: String},
   deviceAppVersion: {type: String},
+<<<<<<< HEAD
+=======
+  dataTemperature: {type: String},
+  level: {type: String},
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
   admin: {type: Boolean, requirer: true},
 
 }, { 
@@ -112,7 +117,13 @@ export async function update(
   deviceId,
   deviceModel,
   deviceOs,
+<<<<<<< HEAD
   deviceAppVersion
+=======
+  deviceAppVersion,
+  dataTemperature,
+  level
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
       ) {
   return User.findByIdAndUpdate(
     id, {
@@ -123,7 +134,13 @@ export async function update(
       deviceId,
       deviceModel,
       deviceOs,
+<<<<<<< HEAD
       deviceAppVersion
+=======
+      deviceAppVersion,
+      dataTemperature,
+      level
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
     }, 
     {
       returnOriginal: false}

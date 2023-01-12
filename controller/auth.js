@@ -35,6 +35,11 @@ export async function singup(req, res) {
     deviceModel,
     deviceOs,
     deviceAppVersion,
+<<<<<<< HEAD
+=======
+    dataTemperature,
+    level,
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
     admin,
   });
   
@@ -242,7 +247,13 @@ export async function updateUser(req, res) {
     deviceId,
     deviceModel,
     deviceOs,
+<<<<<<< HEAD
     deviceAppVersion
+=======
+    deviceAppVersion,
+    dataTemperature,
+    level
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
      } = req.body;
   const condole = await authRepository.findById(id);
   
@@ -262,7 +273,13 @@ export async function updateUser(req, res) {
     deviceId,
     deviceModel,
     deviceOs,
+<<<<<<< HEAD
     deviceAppVersion
+=======
+    deviceAppVersion,
+    dataTemperature,
+    level
+>>>>>>> 52ea1f9b37a5e4165bc347a4f97f58c7fe3a6f1d
     );
   res.status(200).json(({"status":"200", updatedCondole}))
 }
